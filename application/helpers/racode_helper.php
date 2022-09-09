@@ -30,6 +30,37 @@ function cmb_dinamiswhere($name,$table,$field,$pk,$selected=null,$order=null,$wh
     $cmb .="</select>";
     return $cmb;  
 }
+function cmb_dinamiswhereorder($name,$table,$field,$pk,$selected=null,$order=null,$where,$placeholder=null,$group=null){
+    $ci = get_instance();
+    $cmb = "<select name='$name' class='form-control select2' data-placeholder='$placeholder'><option></option>";
+    if($order){
+        $ci->db->order_by($field,$order);
+    }
+    $ci->db->group_by($group);
+    $data = $ci->db->get_where($table,$where)->result();
+    foreach ($data as $d){
+        $cmb .="<option value='".$d->$pk."'";
+        $cmb .= $selected==$d->$pk?" selected='selected'":'';
+        $cmb .=">".  strtoupper($d->$field)."</option>";
+    }
+    $cmb .="</select>";
+    return $cmb;  
+}
+function cmb_diwherebulan($name,$table,$field,$pk,$selected=null,$order=null,$where,$placeholder=null){
+    $ci = get_instance();
+    $cmb = "<select name='$name' class='form-control select2' data-placeholder='$placeholder'><option></option>";
+    if($order){
+        $ci->db->order_by($field,$order);
+    }
+    $data = $ci->db->get_where($table,$where)->result();
+    foreach ($data as $d){
+        $cmb .="<option value='".$d->$pk."'";
+        $cmb .= $selected==$d->$pk?" selected='selected'":'';
+        $cmb .=">". bulanindo(strtoupper($d->$field))."</option>";
+    }
+    $cmb .="</select>";
+    return $cmb;  
+}
 
 function select2_dinamis($name,$table,$field,$placeholder){
     $ci = get_instance();

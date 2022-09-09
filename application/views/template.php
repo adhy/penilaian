@@ -336,6 +336,7 @@
         <script src="<?php echo base_url() ?>assets/adminlte/bower_components/select2/dist/js/select2.full.min.js"></script>
         <!-- page script -->
         <script>
+           // $('[name="indikator"]').attr('id', 'indikator');
             $("#confirm-delete").on("show.bs.modal", function(e) {
                $('#delete-confirmation').attr('href', $(e.relatedTarget).data('href'));
             });
