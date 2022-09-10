@@ -15,7 +15,6 @@
             <thead>
                 <tr>
                     <th width="30px">No</th>
-		    <th>ID_satker</th>
 		    <th>Indikator</th>
 		    <th>Tahun</th>
 		    <th>Bulan</th>
@@ -99,17 +98,17 @@
                     ajax: {"url": "target/json", "type": "POST"},
                     columns: [
                         {
-                            "data": "id_target",
+                            "data": "id_indikator",
                             "orderable": false
-                        },{"data": "id_satker",visible: false,
-                searchable: false,},{"data": "indikator","visible": false},{"data": "tahun","visible": false},{"data": "bulan"},{"data": "target"},
+                        },{"data": "indikator","visible": false},{"data": "tahun","visible": false},{"data": "bulan","orderable": false},{"data": "target"},
                         {
                             "data" : "action",
                             "orderable": false,
                             "className" : "text-center"
                         }
                     ],
-                    order: [[0, 'desc']],
+                    order: [[ 0, 'asc' ],[ 3, 'asc' ]],
+                    ordering: false,
                     rowGroup: {
             dataSrc: ['tahun','indikator']
         },

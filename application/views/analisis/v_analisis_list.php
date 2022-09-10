@@ -98,16 +98,20 @@
                     ajax: {"url": "analisis/json", "type": "POST"},
                     columns: [
                         {
-                            "data": "id_analisis",
+                            "data": "id_indikator",
                             "orderable": false
-                        },{"data": "tahun"},{"data": "indikator"},{"data": "bulan"},{"data": "analisis"},
+                        },{"data": "tahun","visible": true},{"data": "indikator","visible": true},{"data": "bulan","visible": true,"orderable": false},{"data": "analisis"},
                         {
                             "data" : "action",
                             "orderable": false,
                             "className" : "text-center"
                         }
                     ],
-                    order: [[0, 'desc']],
+                    order: [[ 0, 'asc' ],[ 3, 'asc' ]],
+                    ordering: false,
+                    rowGroup: {
+            dataSrc: ['tahun','indikator','bulan']
+        },
                     rowCallback: function(row, data, iDisplayIndex) {
                         var info = this.fnPagingInfo();
                         var page = info.iPage;

@@ -20,8 +20,12 @@ class Realisasi extends CI_Controller
     } 
     
     public function json() {
+        $this->tahun=$this->session->userdata('tahun');
+       // var_dump($this->tahun);
+        $iduser= $this->session->userdata('id_users');
+        if($iduser<=3){$this->idsatker=null;}else{$this->idsatker= $this->session->userdata('idsatker');}
         header('Content-Type: application/json');
-        echo $this->Realisasi_model->json();
+        echo $this->Realisasi_model->json($this->idsatker,$this->tahun);
     }
 
     public function read($id) 
@@ -43,50 +47,50 @@ class Realisasi extends CI_Controller
         }
     }
 
-    public function create($id) 
-    {
-        $data = array(
-            'button' => 'Simpan',
-            'action' => site_url('realisasi/create_action'),
-	    'id_target' => set_value('id_target'),
-	    'id_indikator' => set_value('id_indikator'),
-	    'indikator' => set_value('indikator'),
-	    'tahun' => set_value('tahun'),
-	    'id_satker' => set_value('id_satker'),
-	    'id_users' => set_value('id_users'),
-	    'bulan' => set_value('bulan'),
-	    'target' => set_value('target'),
-	    'realisasi' => set_value('realisasi'),
-	    'capaian' => set_value('capaian'),
-	);
-        $this->template->load('template','realisasi/v_realisasi_form', $data);
-    }
+    // public function create($id) 
+    // {
+    //     $data = array(
+    //         'button' => 'Simpan',
+    //         'action' => site_url('realisasi/create_action'),
+	//     'id_target' => set_value('id_target'),
+	//     'id_indikator' => set_value('id_indikator'),
+	//     'indikator' => set_value('indikator'),
+	//     'tahun' => set_value('tahun'),
+	//     'id_satker' => set_value('id_satker'),
+	//     'id_users' => set_value('id_users'),
+	//     'bulan' => set_value('bulan'),
+	//     'target' => set_value('target'),
+	//     'realisasi' => set_value('realisasi'),
+	//     'capaian' => set_value('capaian'),
+	// );
+    //     $this->template->load('template','realisasi/v_realisasi_form', $data);
+    // }
     
-    public function create_action() 
-    {
-        $this->_rules();
+    // public function create_action() 
+    // {
+    //     $this->_rules();
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->create($this->input->post('id_target', TRUE));
-        } else {
-            $data = array(
-		'id_target' => $this->input->post('id_target',TRUE),
-		'id_indikator' => $this->input->post('id_indikator',TRUE),
-		'indikator' => $this->input->post('indikator',TRUE),
-		'tahun' => $this->input->post('tahun',TRUE),
-		'id_satker' => $this->input->post('id_satker',TRUE),
-		'id_users' => $this->input->post('id_users',TRUE),
-		'bulan' => $this->input->post('bulan',TRUE),
-		'target' => $this->input->post('target',TRUE),
-		'realisasi' => $this->input->post('realisasi',TRUE),
-		'capaian' => $this->input->post('capaian',TRUE),
-	    );
+    //     if ($this->form_validation->run() == FALSE) {
+    //         $this->create($this->input->post('id_target', TRUE));
+    //     } else {
+    //         $data = array(
+	// 	'id_target' => $this->input->post('id_target',TRUE),
+	// 	'id_indikator' => $this->input->post('id_indikator',TRUE),
+	// 	'indikator' => $this->input->post('indikator',TRUE),
+	// 	'tahun' => $this->input->post('tahun',TRUE),
+	// 	'id_satker' => $this->input->post('id_satker',TRUE),
+	// 	'id_users' => $this->input->post('id_users',TRUE),
+	// 	'bulan' => $this->input->post('bulan',TRUE),
+	// 	'target' => $this->input->post('target',TRUE),
+	// 	'realisasi' => $this->input->post('realisasi',TRUE),
+	// 	'capaian' => $this->input->post('capaian',TRUE),
+	//     );
 
-            $this->Realisasi_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success 2');
-            redirect(site_url('realisasi'));
-        }
-    }
+    //         $this->Realisasi_model->insert($data);
+    //         $this->session->set_flashdata('message', 'Create Record Success 2');
+    //         redirect(site_url('realisasi'));
+    //     }
+    // }
     
     public function update($id) 
     {

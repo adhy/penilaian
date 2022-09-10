@@ -34,7 +34,7 @@ function cmb_dinamiswhereorder($name,$table,$field,$pk,$selected=null,$order=nul
     $ci = get_instance();
     $cmb = "<select name='$name' class='form-control select2' data-placeholder='$placeholder'><option></option>";
     if($order){
-        $ci->db->order_by($field,$order);
+        $ci->db->order_by($pk,$order);
     }
     $ci->db->group_by($group);
     $data = $ci->db->get_where($table,$where)->result();

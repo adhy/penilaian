@@ -84,7 +84,7 @@ class Target extends CI_Controller
         //var_dump($data);
 
            $this->Target_model->insert($data);
-            //if(!$insert){$error = $this->db->error(); echo $error;}else{ echo "SUCCESSFULLY INSERTED ITEM";}
+            if(!$insert){$error = $this->db->error(); echo $error;}else{ echo "SUCCESSFULLY INSERTED ITEM";}
             $this->session->set_flashdata('message', 'Create Record Success 2');
             redirect(site_url('target'));
         }

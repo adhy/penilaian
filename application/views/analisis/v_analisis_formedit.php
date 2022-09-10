@@ -10,29 +10,23 @@
 
 					<tr><?php $tahun=$this->session->userdata('tahun'); ?>
 						<td width='200'>Tahun </td><td>
-						<input type="hidden" class="form-control" name="tahun" disabled="disabled" id="tahun" placeholder="Tahun" value="<?php echo $tahun; ?>" />
-						<input type="text" class="form-control" name="tahunshow" disabled="disabled" id="tahunshow" placeholder="Tahun" value="<?php echo $tahun; ?>" /> <?php echo form_error('tahun') ?></td>
+						<input type="hidden" name="tahun" value="<?php echo $tahun; ?>" />
+						<label><?=$tahun?></label>
+						<?php echo form_error('tahun') ?></td>
 					</tr>
 
 					<tr>
 						<td width='200'>Indikator </td>
-						<td> 
-						<?php
-						$intahun=$this->session->userdata('tahun');
-						$inwhere=$this->session->userdata('idsatker');
-						//var_dump($intahun,$inwhere);
-						$where=array('id_satker'=>$inwhere,'tahun'=>$intahun);
-						//echo cmb_dinamiswhereorder('indikator', 'v_target', 'indikator', 'id_indikator', $indikator,'ASC',$where,'-- Pilih Indikator --','id_indikator');
-						echo cmb_dinamiswhere('indikator', 'v_targetanalisis', 'indikator', 'id_indikator', $indikator,'ASC',$where,'-- Pilih Indikator --')
-						?>	
+						<td>
+						<input type="hidden" name="indikator" value="<?php echo $indikator; ?>" />
+						<label><?=$indikator?></label>	
 						<?php echo form_error('indikator') ?></td>
 					</tr>
 
 					<tr>
 						<td width='200'>Bulan </td><td>
-						<select name="bulan" class="form-control select2" data-placeholder="-- Pilih Bulan --" id="bulan" tabindex="-1" aria-hidden="true">
-							<option></option>
-						</select>
+						<input type="hidden" name="bulan" value="<?php echo $bulan; ?>" />
+						<label><?=bulanindo($bulan)?></label>
 						</td>
 					</tr>
 	

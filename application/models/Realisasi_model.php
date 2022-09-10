@@ -17,11 +17,13 @@ class Realisasi_model extends CI_Model
     }
 
     // datatables
-    function json() {
+    function json($id,$di) {
         $this->datatables->select('id_target,id_indikator,indikator,tahun,id_satker,id_users,bulan,target,realisasi,capaian');
         $this->datatables->from('v_realisasi');
         $this->datatables->add_column('bulan', '$1', 'bulanindo(bulan)');
         $this->datatables->add_column('capaian', '$1', 'add_symbol(capaian)');
+        $this->datatables->where('id_satker', $id);
+        $this->datatables->where('tahun', $di);
         //add this line for join
         //$this->datatables->join('table2', 'v_realisasi.field = table2.field');
         $this->datatables->add_column('action', anchor(site_url('realisasi/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Realisasi', array('class' => 'btn btn-warning btn-sm'))." 

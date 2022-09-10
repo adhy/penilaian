@@ -45,13 +45,8 @@ class Analisis extends CI_Controller
         $row = $this->Analisis_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'id_analisis' => $row->id_analisis,
-		'id_users' => $row->id_users,
-		'id_target' => $row->id_target,
 		'analisis' => $row->analisis,
 		'bulan' => $row->bulan,
-		'id_satker' => $row->id_satker,
-		'id_indikator' => $row->id_indikator,
 		'indikator' => $row->indikator,
 		'tahun' => $row->tahun,
 	    );
@@ -68,12 +63,8 @@ class Analisis extends CI_Controller
             'button' => 'Simpan',
             'action' => site_url('analisis/create_action'),
 	    'id_analisis' => set_value('id_analisis'),
-	    'id_users' => set_value('id_users'),
-	    'id_target' => set_value('id_target'),
 	    'analisis' => set_value('analisis'),
 	    'bulan' => set_value('bulan'),
-	    'id_satker' => set_value('id_satker'),
-	    'id_indikator' => set_value('id_indikator'),
 	    'indikator' => set_value('indikator'),
 	    'tahun' => set_value('tahun'),
 	);
@@ -83,20 +74,19 @@ class Analisis extends CI_Controller
     public function create_action() 
     {
         $this->_rules();
-
+        $intahun=$this->session->userdata('tahun');
+        $inwhere=$this->session->userdata('idsatker');
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
             $data = array(
 		'id_analisis' => $this->input->post('id_analisis',TRUE),
-		'id_users' => $this->input->post('id_users',TRUE),
-		'id_target' => $this->input->post('id_target',TRUE),
+        'id_indikator' => $this->input->post('indikator',TRUE),
+        'id_satker' =>  $inwhere,
+       
 		'analisis' => $this->input->post('analisis',TRUE),
 		'bulan' => $this->input->post('bulan',TRUE),
-		'id_satker' => $this->input->post('id_satker',TRUE),
-		'id_indikator' => $this->input->post('id_indikator',TRUE),
-		'indikator' => $this->input->post('indikator',TRUE),
-		'tahun' => $this->input->post('tahun',TRUE),
+		
 	    );
 
             $this->Analisis_model->insert($data);
@@ -114,16 +104,12 @@ class Analisis extends CI_Controller
                 'button' => 'Simpan',
                 'action' => site_url('analisis/update_action'),
 		'id_analisis' => set_value('id_analisis', $row->id_analisis),
-		'id_users' => set_value('id_users', $row->id_users),
-		'id_target' => set_value('id_target', $row->id_target),
 		'analisis' => set_value('analisis', $row->analisis),
 		'bulan' => set_value('bulan', $row->bulan),
-		'id_satker' => set_value('id_satker', $row->id_satker),
-		'id_indikator' => set_value('id_indikator', $row->id_indikator),
 		'indikator' => set_value('indikator', $row->indikator),
 		'tahun' => set_value('tahun', $row->tahun),
 	    );
-            $this->template->load('template','analisis/v_analisis_form', $data);
+            $this->template->load('template','analisis/v_analisis_formedit', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('analisis'));
@@ -139,17 +125,10 @@ class Analisis extends CI_Controller
         } else {
             $data = array(
 		'id_analisis' => $this->input->post('id_analisis',TRUE),
-		'id_users' => $this->input->post('id_users',TRUE),
-		'id_target' => $this->input->post('id_target',TRUE),
 		'analisis' => $this->input->post('analisis',TRUE),
-		'bulan' => $this->input->post('bulan',TRUE),
-		'id_satker' => $this->input->post('id_satker',TRUE),
-		'id_indikator' => $this->input->post('id_indikator',TRUE),
-		'indikator' => $this->input->post('indikator',TRUE),
-		'tahun' => $this->input->post('tahun',TRUE),
 	    );
 
-            $this->Analisis_model->update($this->input->post('', TRUE), $data);
+            $this->Analisis_model->update($this->input->post('id_analisis', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
             redirect(site_url('analisis'));
         }
@@ -171,17 +150,12 @@ class Analisis extends CI_Controller
 
     public function _rules() 
     {
-	$this->form_validation->set_rules('id_analisis', 'id analisis', 'trim|required');
-	$this->form_validation->set_rules('id_users', 'id users', 'trim|required');
-	$this->form_validation->set_rules('id_target', 'id target', 'trim|required');
 	$this->form_validation->set_rules('analisis', 'analisis', 'trim|required');
 	$this->form_validation->set_rules('bulan', 'bulan', 'trim|required');
-	$this->form_validation->set_rules('id_satker', 'id satker', 'trim|required');
-	$this->form_validation->set_rules('id_indikator', 'id indikator', 'trim|required');
 	$this->form_validation->set_rules('indikator', 'indikator', 'trim|required');
-	$this->form_validation->set_rules('tahun', 'tahun', 'trim|required');
+	$this->form_validation->set_rules('tahun', 'tahun', 'trim');
 
-	$this->form_validation->set_rules('', '', 'trim');
+	$this->form_validation->set_rules('id_analisis', 'id analisis', 'trim');
 	$this->form_validation->set_error_delimiters('<div class="has-error"><label class="text-danger"><i class="fa fa-times-circle-o"></i> ', '</label></div>');
     }
 

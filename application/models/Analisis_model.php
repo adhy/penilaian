@@ -19,7 +19,7 @@ class Analisis_model extends CI_Model
 
     // datatables
     function json() {
-        $this->datatables->select('id_analisis,id_users,id_target,analisis,bulan,id_satker,id_indikator,indikator,tahun');
+        $this->datatables->select('id_analisis,analisis,bulan,id_satker,satker,id_indikator,indikator,tahun');
         $this->datatables->from('v_analisis');
         $this->datatables->add_column('bulan', '$1', 'bulanindo(bulan)');
         //add this line for join
@@ -47,7 +47,6 @@ class Analisis_model extends CI_Model
     // get total rows
     function total_rows($q = NULL) {
         $this->db->like('id_analisis', $q);
-	$this->db->or_like('id_users', $q);
 	$this->db->or_like('id_target', $q);
 	$this->db->or_like('analisis', $q);
 	$this->db->or_like('bulan', $q);
@@ -63,7 +62,6 @@ class Analisis_model extends CI_Model
     function get_limit_data($limit, $start = 0, $q = NULL) {
         $this->db->order_by($this->id, $this->order);
         $this->db->like('id_analisis', $q);
-	$this->db->or_like('id_users', $q);
 	$this->db->or_like('id_target', $q);
 	$this->db->or_like('analisis', $q);
 	$this->db->or_like('bulan', $q);

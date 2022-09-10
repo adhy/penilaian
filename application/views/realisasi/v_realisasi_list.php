@@ -100,15 +100,17 @@
                     ajax: {"url": "realisasi/json", "type": "POST"},
                     columns: [
                         {
-                            "data": "id_target",
+                            "data": "id_indikator",
                             "orderable": false
-                        },{"data": "indikator","visible": false},{"data": "tahun","visible": false},{"data": "bulan"},{"data": "target"},{"data": "realisasi"},{"data": "capaian"},
+                        },{"data": "indikator","visible": false},{"data": "tahun","visible": false},{"data": "bulan","orderable": false},{"data": "target"},{"data": "realisasi"},{"data": "capaian"},
                         {
                             "data" : "action",
                             "orderable": false,
                             "className" : "text-center"
                         }
                     ],
+                    order: [[ 0, 'asc' ],[ 3, 'asc' ]],
+                    ordering: false,
                     rowGroup: {
             dataSrc: ['tahun','indikator']
         },
