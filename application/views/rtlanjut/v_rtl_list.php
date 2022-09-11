@@ -5,20 +5,20 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA V_ANALISIS</h3>
+                        <h3 class="box-title">KELOLA DATA V_RTL</h3>
                     </div>
         
         <div class="box-body">
         <div style="padding-bottom: 10px;"'>
-        <?php echo anchor(site_url('analisis/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?></div>
+        <?php echo anchor(site_url('rtlanjut/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data Tasks', 'class="btn btn-danger btn-sm"'); ?></div>
         <table class="table table-bordered table-striped" id="mytable">
             <thead>
                 <tr>
                     <th width="30px">No</th>
-            <th>Tahun</th>
-            <th>Indikator</th>
+		    <th>Indikator</th>
+		    <th>Analisis</th>
+		    <th>Tasks</th>
             <th>Bulan</th>
-            <th>Analisis</th>		    
 		    <th width="200px">Action</th>
                 </tr>
             </thead>
@@ -95,22 +95,22 @@
                     },
                     processing: true,
                     serverSide: true,
-                    ajax: {"url": "analisis/json", "type": "POST"},
+                    ajax: {"url": "rtlanjut/json", "type": "POST"},
                     columns: [
                         {
                             "data": "id_indikator",
                             "orderable": false
-                        },{"data": "tahun","visible": false},{"data": "indikator","visible": false},{"data": "bulan","visible": false,"orderable": false},{"data": "analisis"},
+                        },{"data": "indikator","orderable": false,"visible": false},{"data": "analisis","orderable": false,"visible": false},{"data": "tasks"},{"data": "bulan","orderable": false,"visible": false},
                         {
                             "data" : "action",
                             "orderable": false,
                             "className" : "text-center"
                         }
                     ],
-                    order: [[ 0, 'asc' ],[ 3, 'asc' ]],
+                    order: [[ 0, 'asc' ]],
                     ordering: false,
                     rowGroup: {
-            dataSrc: ['tahun','indikator','bulan']
+            dataSrc: ['indikator','analisis','bulan']
         },
                     rowCallback: function(row, data, iDisplayIndex) {
                         var info = this.fnPagingInfo();

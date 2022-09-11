@@ -92,6 +92,76 @@ function rename_string_is_aktif($string){
 function add_symbol($string){
         return $string=$string.' %';
     }
+function add_symbolg($string,$symbol,$position){
+    switch ($position){
+        case 1:
+            return $string=$string.'&nbsp;&nbsp;'.$symbol;;
+            break;
+        case 2:
+            return $string=$symbol.'&nbsp;&nbsp;'.$string;
+            break;
+    }
+}
+function tgl_indomin($tanggal){
+	$bulan = array (
+		1 =>   'Januari',
+		'Februari',
+		'Maret',
+		'April',
+		'Mei',
+		'Juni',
+		'Juli',
+		'Agustus',
+		'September',
+		'Oktober',
+		'November',
+		'Desember'
+	);
+	$pecahkan = explode('-', $tanggal);
+	return $pecahkan[2] . '-' . $bulan[ (int)$pecahkan[1] ] . '-' . $pecahkan[0];
+}
+function bulanindosys($bln,$sys)
+	{
+		switch ($bln)
+		{
+			case 1:
+				return  $bln=$sys."&nbsp;&nbsp;Januari";
+				break;
+			case 2:
+				return  $bln=$sys."&nbsp;&nbsp;Februari";
+				break;
+			case 3:
+				return  $bln=$sys."&nbsp;&nbsp;Maret";
+				break;
+			case 4:
+				return $bln=$sys."&nbsp;&nbsp;April";
+				break;
+			case 5:
+				return $bln=$sys."&nbsp;&nbsp;Mei";
+				break;
+			case 6:
+				return $bln=$sys."&nbsp;&nbsp;Juni";
+				break;
+			case 7:
+				return $bln=$sys."&nbsp;&nbsp;Juli";
+				break;
+			case 8:
+				return $bln=$sys."&nbsp;&nbsp;Agustus";
+				break;
+			case 9:
+				return $bln=$sys."&nbsp;&nbsp;September";
+				break;
+			case 10:
+				return $bln=$sys."&nbsp;&nbsp;Oktober";
+				break;
+			case 11:
+				return $bln=$sys."&nbsp;&nbsp;November";
+				break;
+			case 12:
+				return $bln=$sys."&nbsp;&nbsp;Desember";
+				break;
+		}
+	}
 function bulanindo($bln)
 	{
 		switch ($bln)
