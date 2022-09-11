@@ -5,9 +5,13 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA V_RTL_3</h3>
+                        <h3 class="box-title">KELOLA DATA Update RTL</h3>
                     </div>
-        
+                    <style type="text/css">
+                    .belum {background-color:#f44336;color: #ffffff;}
+                    .proses {background-color:#ffc107;}
+                    .sudah {background-color:#2196f3;color: #ffffff;}
+                    </style>
         <div class="box-body">
         <div style="padding-bottom: 10px;"'>
         <?php echo anchor(site_url('updatertl/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?></div>
@@ -15,16 +19,10 @@
             <thead>
                 <tr>
                     <th width="30px">No</th>
-		    <th>Id Monitoring</th>
-		    <th>Id Satker</th>
-		    <th>Satker</th>
-		    <th>Id Indikator</th>
-		    <th>Indikator</th>
-		    <th>Id Analisis</th>
+                    <th>Indikator</th>
 		    <th>Analisis</th>
-		    <th>Id Tasks</th>
 		    <th>Tasks</th>
-		    <th>Bulan</th>
+            <th>Bulan</th>
 		    <th>Rtl Strategi</th>
 		    <th>Potential Blocker</th>
 		    <th>Pic</th>
@@ -33,6 +31,8 @@
 		    <th>Tgl Tercapai</th>
 		    <th>Upload Bukti</th>
 		    <th>Catatan Pic</th>
+		    <th>Status</th>
+		    <th>Stwarna</th>
 		    <th>Status</th>
 		    <th width="200px">Action</th>
                 </tr>
@@ -79,6 +79,7 @@
         <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
+        <script src="<?php echo base_url('assets/js/moment.min.js') ?>"></script>
         <script type="text/javascript">
             $(document).ready(function() {
                 $.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings)
@@ -113,16 +114,31 @@
                     ajax: {"url": "updatertl/json", "type": "POST"},
                     columns: [
                         {
-                            "data": "",
+                            "data": "id_indikator",
                             "orderable": false
-                        },{"data": "id_monitoring"},{"data": "id_satker"},{"data": "satker"},{"data": "id_indikator"},{"data": "indikator"},{"data": "id_analisis"},{"data": "analisis"},{"data": "id_tasks"},{"data": "tasks"},{"data": "bulan"},{"data": "rtl_strategi"},{"data": "potential_blocker"},{"data": "pic"},{"data": "tgl_start"},{"data": "tgl_deadline"},{"data": "tgl_tercapai"},{"data": "upload_bukti"},{"data": "catatan_pic"},{"data": "status"},
+                        },{"data": "indikator","orderable": false,"visible": false},{"data": "analisis","orderable": false,"visible": false},{"data": "tasks","visible": false},{"data": "bulan","orderable": false,"visible": false},{"data": "rtl_strategi"},{"data": "potential_blocker"},{"data": "pic"},{"data": "tgl_start","visible": false},{"data": "tgl_deadline"},{"data": "tgl_tercapai"},{"data": "upload_bukti"},{"data": "catatan_pic"},{"data": "status","visible": false},{"data": "stwarna","visible": false},{"data": "stket"},
                         {
                             "data" : "action",
                             "orderable": false,
                             "className" : "text-center"
                         }
                     ],
-                    order: [[0, 'desc']],
+                    order: [[ 0, 'asc' ]],
+                    ordering: false,
+                    rowGroup: {
+            dataSrc: ['indikator','analisis','bulan','tasks']
+        },
+        createdRow: function (row, data, index) {
+           // var a = moment(data.stwarna);
+            if (data['stket']=='Belum terlaksana') {
+                $('td', row).eq(8).addClass('belum');
+            }else if(data['stket'] =='Dalam Proses'){
+                $('td', row).eq(8).addClass('proses');
+            }else{
+                $('td', row).eq(8).addClass('sudah');
+            }
+            console.log(data['stket']);
+        },
                     rowCallback: function(row, data, iDisplayIndex) {
                         var info = this.fnPagingInfo();
                         var page = info.iPage;

@@ -7,7 +7,7 @@ class Updatertl_model extends CI_Model
 {
 
     public $table = 'v_rtl_3';
-    public $id = '';
+    public $id = 'id_monitoring';
     public $order = 'DESC';
 
     function __construct()
@@ -17,13 +17,18 @@ class Updatertl_model extends CI_Model
 
     // datatables
     function json() {
-        $this->datatables->select('id_monitoring,id_satker,satker,id_indikator,indikator,id_analisis,analisis,id_tasks,tasks,bulan,rtl_strategi,potential_blocker,pic,tgl_start,tgl_deadline,tgl_tercapai,upload_bukti,catatan_pic,status');
+        $this->datatables->select('id_monitoring,id_satker,satker,id_indikator,indikator,id_analisis,analisis,id_tasks,tasks,bulan,rtl_strategi,potential_blocker,pic,tgl_start,tgl_deadline,tgl_tercapai,upload_bukti,catatan_pic,status,stwarna,stket');
         $this->datatables->from('v_rtl_3');
+        $this->datatables->add_column('bulan', '$1', 'bulanindosys(bulan,&#128197;)');
+        $this->datatables->add_column('tgl_deadline', '$1', 'tgl_indo(tgl_deadline)');
+        $this->datatables->add_column('indikator', '$1', 'add_symbolg(indikator,&#10148;,2)');
+        $this->datatables->add_column('analisis', '$1', 'add_symbolg(analisis,&#10149;,2)');
+        $this->datatables->add_column('tasks', '$1', 'add_symbolg(tasks,&rdca;,2)');
         //add this line for join
         //$this->datatables->join('table2', 'v_rtl_3.field = table2.field');
         $this->datatables->add_column('action', anchor(site_url('updatertl/read/$1'),'<i class="fa fa-eye" aria-hidden="true"></i>', array('class' => 'btn btn-success btn-sm'))." 
             ".anchor(site_url('updatertl/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-info btn-sm'))." 
-                ".anchor('#','<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" data-href="'.site_url('updatertl/delete/$1').'" data-toggle="modal" data-target="#confirm-delete"'), '');
+                ".anchor('#','<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" data-href="'.site_url('updatertl/delete/$1').'" data-toggle="modal" data-target="#confirm-delete"'), 'id_monitoring');
         return $this->datatables->generate();
     }
 
