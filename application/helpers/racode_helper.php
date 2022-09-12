@@ -102,6 +102,10 @@ function add_symbolg($string,$symbol,$position){
             break;
     }
 }
+function add_upload($string){
+    if($string=='0'){$string='<p class="text-red">Belum Upload</p>';}else{$string=anchor(site_url('assets/doc_upload/'.$string.''),'<i class="fa fa-cloud-download" aria-hidden="true"></i>', array('class' => 'btn btn-success btn-sm'));}
+    return $string;
+}
 function tgl_indomin($tanggal){
 	$bulan = array (
 		1 =>   'Januari',

@@ -7,6 +7,7 @@ class Updatertl_model extends CI_Model
 {
 
     public $table = 'v_rtl_3';
+    public $table2 = 'tbl_monitoring';
     public $id = 'id_monitoring';
     public $order = 'DESC';
 
@@ -23,12 +24,15 @@ class Updatertl_model extends CI_Model
         $this->datatables->add_column('tgl_deadline', '$1', 'tgl_indo(tgl_deadline)');
         $this->datatables->add_column('indikator', '$1', 'add_symbolg(indikator,&#10148;,2)');
         $this->datatables->add_column('analisis', '$1', 'add_symbolg(analisis,&#10149;,2)');
+       // $this->datatables->edit_column('upload_bukti',anchor(site_url('updatertl/download/$1'),'<i class="fa fa-cloud-download" aria-hidden="true"></i>', array('class' => 'btn btn-success btn-sm')), 'upload_bukti, upload_bukti');
+        $this->datatables->add_column('upload_bukti', '$1', 'add_upload(upload_bukti)');
         $this->datatables->add_column('tasks', '$1', 'add_symbolg(tasks,&rdca;,2)');
         //add this line for join
         //$this->datatables->join('table2', 'v_rtl_3.field = table2.field');
-        $this->datatables->add_column('action', anchor(site_url('updatertl/read/$1'),'<i class="fa fa-eye" aria-hidden="true"></i>', array('class' => 'btn btn-success btn-sm'))." 
-            ".anchor(site_url('updatertl/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-info btn-sm'))." 
-                ".anchor('#','<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" data-href="'.site_url('updatertl/delete/$1').'" data-toggle="modal" data-target="#confirm-delete"'), 'id_monitoring');
+        $this->datatables->add_column('action',anchor(site_url('updatertl/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-info btn-sm'))." ".anchor('#','<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" data-href="'.site_url('updatertl/delete/$1').'" data-toggle="modal" data-target="#confirm-delete"'), 'id_monitoring');
+        // $this->datatables->add_column('action', anchor(site_url('updatertl/read/$1'),'<i class="fa fa-eye" aria-hidden="true"></i>', array('class' => 'btn btn-success btn-sm'))." 
+        //     ".anchor(site_url('updatertl/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-info btn-sm'))." 
+        //         ".anchor('#','<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" data-href="'.site_url('updatertl/delete/$1').'" data-toggle="modal" data-target="#confirm-delete"'), 'id_monitoring');
         return $this->datatables->generate();
     }
 
@@ -48,8 +52,7 @@ class Updatertl_model extends CI_Model
     
     // get total rows
     function total_rows($q = NULL) {
-        $this->db->like('', $q);
-	$this->db->or_like('id_monitoring', $q);
+        $this->db->like('id_monitoring', $q);
 	$this->db->or_like('id_satker', $q);
 	$this->db->or_like('satker', $q);
 	$this->db->or_like('id_indikator', $q);
@@ -75,8 +78,7 @@ class Updatertl_model extends CI_Model
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL) {
         $this->db->order_by($this->id, $this->order);
-        $this->db->like('', $q);
-	$this->db->or_like('id_monitoring', $q);
+        $this->db->like('id_monitoring', $q);
 	$this->db->or_like('id_satker', $q);
 	$this->db->or_like('satker', $q);
 	$this->db->or_like('id_indikator', $q);
@@ -100,23 +102,23 @@ class Updatertl_model extends CI_Model
     }
 
     // insert data
-    function insert($data)
-    {
-        $this->db->insert($this->table, $data);
-    }
+    // function insert($data)
+    // {
+    //     $this->db->insert($this->table, $data);
+    // }
 
     // update data
     function update($id, $data)
     {
         $this->db->where($this->id, $id);
-        $this->db->update($this->table, $data);
+        $this->db->update($this->table2, $data);
     }
 
     // delete data
     function delete($id)
     {
         $this->db->where($this->id, $id);
-        $this->db->delete($this->table);
+        $this->db->delete($this->table2);
     }
 
 }

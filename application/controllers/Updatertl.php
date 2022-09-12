@@ -23,118 +23,115 @@ class Updatertl extends CI_Controller
         header('Content-Type: application/json');
         echo $this->Updatertl_model->json();
     }
-
-    public function read($id) 
-    {
-        $row = $this->Updatertl_model->get_by_id($id);
-        if ($row) {
-            $data = array(
-		'id_monitoring' => $row->id_monitoring,
-		'id_satker' => $row->id_satker,
-		'satker' => $row->satker,
-		'id_indikator' => $row->id_indikator,
-		'indikator' => $row->indikator,
-		'id_analisis' => $row->id_analisis,
-		'analisis' => $row->analisis,
-		'id_tasks' => $row->id_tasks,
-		'tasks' => $row->tasks,
-		'bulan' => $row->bulan,
-		'rtl_strategi' => $row->rtl_strategi,
-		'potential_blocker' => $row->potential_blocker,
-		'pic' => $row->pic,
-		'tgl_start' => $row->tgl_start,
-		'tgl_deadline' => $row->tgl_deadline,
-		'tgl_tercapai' => $row->tgl_tercapai,
-		'upload_bukti' => $row->upload_bukti,
-		'catatan_pic' => $row->catatan_pic,
-		'status' => $row->status,
-	    );
-            $this->template->load('template','updatertl/v_rtl_3_read', $data);
-        } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('updatertl'));
-        }
+    public function download($id) {
+        force_download('/assets/doc_upload/'.$id.'',NULL);
     }
 
-    public function create() 
-    {
-        $data = array(
-            'button' => 'Simpan',
-            'action' => site_url('updatertl/create_action'),
-	    'id_monitoring' => set_value('id_monitoring'),
-	    'id_satker' => set_value('id_satker'),
-	    'satker' => set_value('satker'),
-	    'id_indikator' => set_value('id_indikator'),
-	    'indikator' => set_value('indikator'),
-	    'id_analisis' => set_value('id_analisis'),
-	    'analisis' => set_value('analisis'),
-	    'id_tasks' => set_value('id_tasks'),
-	    'tasks' => set_value('tasks'),
-	    'bulan' => set_value('bulan'),
-	    'rtl_strategi' => set_value('rtl_strategi'),
-	    'potential_blocker' => set_value('potential_blocker'),
-	    'pic' => set_value('pic'),
-	    'tgl_start' => set_value('tgl_start'),
-	    'tgl_deadline' => set_value('tgl_deadline'),
-	    'tgl_tercapai' => set_value('tgl_tercapai'),
-	    'upload_bukti' => set_value('upload_bukti'),
-	    'catatan_pic' => set_value('catatan_pic'),
-	    'status' => set_value('status'),
-	);
-        $this->template->load('template','updatertl/v_rtl_3_form', $data);
-    }
+    // public function read($id) 
+    // {
+    //     $row = $this->Updatertl_model->get_by_id($id);
+    //     if ($row) {
+    //         $data = array(
+	// 	'id_monitoring' => $row->id_monitoring,
+	// 	'id_satker' => $row->id_satker,
+	// 	'satker' => $row->satker,
+	// 	'id_indikator' => $row->id_indikator,
+	// 	'indikator' => $row->indikator,
+	// 	'id_analisis' => $row->id_analisis,
+	// 	'analisis' => $row->analisis,
+	// 	'id_tasks' => $row->id_tasks,
+	// 	'tasks' => $row->tasks,
+	// 	'bulan' => $row->bulan,
+	// 	'rtl_strategi' => $row->rtl_strategi,
+	// 	'potential_blocker' => $row->potential_blocker,
+	// 	'pic' => $row->pic,
+	// 	'tgl_start' => $row->tgl_start,
+	// 	'tgl_deadline' => $row->tgl_deadline,
+	// 	'tgl_tercapai' => $row->tgl_tercapai,
+	// 	'upload_bukti' => $row->upload_bukti,
+	// 	'catatan_pic' => $row->catatan_pic,
+	// 	'status' => $row->status,
+	//     );
+    //         $this->template->load('template','updatertl/v_rtl_3_read', $data);
+    //     } else {
+    //         $this->session->set_flashdata('message', 'Record Not Found');
+    //         redirect(site_url('updatertl'));
+    //     }
+    // }
+
+    // public function create() 
+    // {
+    //     $data = array(
+    //         'button' => 'Simpan',
+    //         'action' => site_url('updatertl/create_action'),
+	//     'id_monitoring' => set_value('id_monitoring'),
+	//     'id_satker' => set_value('id_satker'),
+	//     'satker' => set_value('satker'),
+	//     'id_indikator' => set_value('id_indikator'),
+	//     'indikator' => set_value('indikator'),
+	//     'id_analisis' => set_value('id_analisis'),
+	//     'analisis' => set_value('analisis'),
+	//     'id_tasks' => set_value('id_tasks'),
+	//     'tasks' => set_value('tasks'),
+	//     'bulan' => set_value('bulan'),
+	//     'rtl_strategi' => set_value('rtl_strategi'),
+	//     'potential_blocker' => set_value('potential_blocker'),
+	//     'pic' => set_value('pic'),
+	//     'tgl_start' => set_value('tgl_start'),
+	//     'tgl_deadline' => set_value('tgl_deadline'),
+	//     'tgl_tercapai' => set_value('tgl_tercapai'),
+	//     'upload_bukti' => set_value('upload_bukti'),
+	//     'catatan_pic' => set_value('catatan_pic'),
+	//     'status' => set_value('status'),
+	// );
+    //     $this->template->load('template','updatertl/v_rtl_3_form', $data);
+    // }
     
-    public function create_action() 
-    {
-        $this->_rules();
+    // public function create_action() 
+    // {
+    //     $this->_rules();
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->create();
-        } else {
-            $data = array(
-		'id_monitoring' => $this->input->post('id_monitoring',TRUE),
-		'id_satker' => $this->input->post('id_satker',TRUE),
-		'satker' => $this->input->post('satker',TRUE),
-		'id_indikator' => $this->input->post('id_indikator',TRUE),
-		'indikator' => $this->input->post('indikator',TRUE),
-		'id_analisis' => $this->input->post('id_analisis',TRUE),
-		'analisis' => $this->input->post('analisis',TRUE),
-		'id_tasks' => $this->input->post('id_tasks',TRUE),
-		'tasks' => $this->input->post('tasks',TRUE),
-		'bulan' => $this->input->post('bulan',TRUE),
-		'rtl_strategi' => $this->input->post('rtl_strategi',TRUE),
-		'potential_blocker' => $this->input->post('potential_blocker',TRUE),
-		'pic' => $this->input->post('pic',TRUE),
-		'tgl_start' => $this->input->post('tgl_start',TRUE),
-		'tgl_deadline' => $this->input->post('tgl_deadline',TRUE),
-		'tgl_tercapai' => $this->input->post('tgl_tercapai',TRUE),
-		'upload_bukti' => $this->input->post('upload_bukti',TRUE),
-		'catatan_pic' => $this->input->post('catatan_pic',TRUE),
-		'status' => $this->input->post('status',TRUE),
-	    );
+    //     if ($this->form_validation->run() == FALSE) {
+    //         $this->create();
+    //     } else {
+    //         $data = array(
+	// 	'id_monitoring' => $this->input->post('id_monitoring',TRUE),
+	// 	'id_satker' => $this->input->post('id_satker',TRUE),
+	// 	'satker' => $this->input->post('satker',TRUE),
+	// 	'id_indikator' => $this->input->post('id_indikator',TRUE),
+	// 	'indikator' => $this->input->post('indikator',TRUE),
+	// 	'id_analisis' => $this->input->post('id_analisis',TRUE),
+	// 	'analisis' => $this->input->post('analisis',TRUE),
+	// 	'id_tasks' => $this->input->post('id_tasks',TRUE),
+	// 	'tasks' => $this->input->post('tasks',TRUE),
+	// 	'bulan' => $this->input->post('bulan',TRUE),
+	// 	'rtl_strategi' => $this->input->post('rtl_strategi',TRUE),
+	// 	'potential_blocker' => $this->input->post('potential_blocker',TRUE),
+	// 	'pic' => $this->input->post('pic',TRUE),
+	// 	'tgl_start' => $this->input->post('tgl_start',TRUE),
+	// 	'tgl_deadline' => $this->input->post('tgl_deadline',TRUE),
+	// 	'tgl_tercapai' => $this->input->post('tgl_tercapai',TRUE),
+	// 	'upload_bukti' => $this->input->post('upload_bukti',TRUE),
+	// 	'catatan_pic' => $this->input->post('catatan_pic',TRUE),
+	// 	'status' => $this->input->post('status',TRUE),
+	//     );
 
-            $this->Updatertl_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success 2');
-            redirect(site_url('updatertl'));
-        }
-    }
-    
+    //         $this->Updatertl_model->insert($data);
+    //         $this->session->set_flashdata('message', 'Create Record Success 2');
+    //         redirect(site_url('updatertl'));
+    //     }
+    // }
+	
     public function update($id) 
     {
         $row = $this->Updatertl_model->get_by_id($id);
-
         if ($row) {
             $data = array(
                 'button' => 'Simpan',
                 'action' => site_url('updatertl/update_action'),
 		'id_monitoring' => set_value('id_monitoring', $row->id_monitoring),
-		'id_satker' => set_value('id_satker', $row->id_satker),
-		'satker' => set_value('satker', $row->satker),
-		'id_indikator' => set_value('id_indikator', $row->id_indikator),
 		'indikator' => set_value('indikator', $row->indikator),
-		'id_analisis' => set_value('id_analisis', $row->id_analisis),
 		'analisis' => set_value('analisis', $row->analisis),
-		'id_tasks' => set_value('id_tasks', $row->id_tasks),
 		'tasks' => set_value('tasks', $row->tasks),
 		'bulan' => set_value('bulan', $row->bulan),
 		'rtl_strategi' => set_value('rtl_strategi', $row->rtl_strategi),
@@ -145,7 +142,6 @@ class Updatertl extends CI_Controller
 		'tgl_tercapai' => set_value('tgl_tercapai', $row->tgl_tercapai),
 		'upload_bukti' => set_value('upload_bukti', $row->upload_bukti),
 		'catatan_pic' => set_value('catatan_pic', $row->catatan_pic),
-		'status' => set_value('status', $row->status),
 	    );
             $this->template->load('template','updatertl/v_rtl_3_form', $data);
         } else {
@@ -157,38 +153,50 @@ class Updatertl extends CI_Controller
     public function update_action() 
     {
         $this->_rules();
-
+		$date = new DateTime("now");
+		$curr_date = $date->format('Y-m-d ');
+		$docnya = $this->upload_doc();
         if ($this->form_validation->run() == FALSE) {
-            $this->update($this->input->post('', TRUE));
+            $this->update($this->input->post('id_monitoring', TRUE));
         } else {
-            $data = array(
-		'id_monitoring' => $this->input->post('id_monitoring',TRUE),
-		'id_satker' => $this->input->post('id_satker',TRUE),
-		'satker' => $this->input->post('satker',TRUE),
-		'id_indikator' => $this->input->post('id_indikator',TRUE),
-		'indikator' => $this->input->post('indikator',TRUE),
-		'id_analisis' => $this->input->post('id_analisis',TRUE),
-		'analisis' => $this->input->post('analisis',TRUE),
-		'id_tasks' => $this->input->post('id_tasks',TRUE),
-		'tasks' => $this->input->post('tasks',TRUE),
-		'bulan' => $this->input->post('bulan',TRUE),
-		'rtl_strategi' => $this->input->post('rtl_strategi',TRUE),
-		'potential_blocker' => $this->input->post('potential_blocker',TRUE),
-		'pic' => $this->input->post('pic',TRUE),
-		'tgl_start' => $this->input->post('tgl_start',TRUE),
-		'tgl_deadline' => $this->input->post('tgl_deadline',TRUE),
-		'tgl_tercapai' => $this->input->post('tgl_tercapai',TRUE),
-		'upload_bukti' => $this->input->post('upload_bukti',TRUE),
-		'catatan_pic' => $this->input->post('catatan_pic',TRUE),
-		'status' => $this->input->post('status',TRUE),
-	    );
+				$upload_bukti='';
+				if(!isset($_FILES['upload_bukti'])){$upload_bukti='0';}
+				$catatan_pic=$this->input->post('catatan_pic',TRUE);
+				$status='';
+				if(!isset($catatan_pic)){$status='0';}else{$status='1';}
+				if($docnya['file_name']==''){
+				$data = array(
+					'tgl_tercapai' => $curr_date,
+					'upload_bukti' => $upload_bukti,
+					'catatan_pic' => $catatan_pic,
+					'status' => $status,
+					);
+				}else{
+					$data = array(
+						'tgl_tercapai' => $curr_date,
+						'upload_bukti' => $docnya['file_name'],
+						'catatan_pic' => $catatan_pic,
+						'status' => $status,
+						);
+						$this->session->set_userdata('upload_bukti',$docnya['file_name']);
+				}
 
-            $this->Updatertl_model->update($this->input->post('', TRUE), $data);
+            $reupdate=$this->Updatertl_model->update($this->input->post('id_monitoring', TRUE), $data);
+			//var_dump($reupdate,$docnya['file_name'],$no);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('updatertl'));
+            //redirect(site_url('updatertl'));
         }
     }
-    
+    function upload_doc(){
+        $config['upload_path']          = './assets/doc_upload/';
+        $config['allowed_types']        = 'pdf';
+        //$config['max_size']             = 100;
+        //$config['max_width']            = 1024;
+        //$config['max_height']           = 768;
+        $this->load->library('upload', $config);
+        $this->upload->do_upload('upload_bukti');
+        return $this->upload->data();
+    }
     public function delete($id) 
     {
         $row = $this->Updatertl_model->get_by_id($id);
@@ -205,27 +213,11 @@ class Updatertl extends CI_Controller
 
     public function _rules() 
     {
-	$this->form_validation->set_rules('id_monitoring', 'id monitoring', 'trim|required');
-	$this->form_validation->set_rules('id_satker', 'id satker', 'trim|required');
-	$this->form_validation->set_rules('satker', 'satker', 'trim|required');
-	$this->form_validation->set_rules('id_indikator', 'id indikator', 'trim|required');
-	$this->form_validation->set_rules('indikator', 'indikator', 'trim|required');
-	$this->form_validation->set_rules('id_analisis', 'id analisis', 'trim|required');
-	$this->form_validation->set_rules('analisis', 'analisis', 'trim|required');
-	$this->form_validation->set_rules('id_tasks', 'id tasks', 'trim|required');
-	$this->form_validation->set_rules('tasks', 'tasks', 'trim|required');
-	$this->form_validation->set_rules('bulan', 'bulan', 'trim|required');
-	$this->form_validation->set_rules('rtl_strategi', 'rtl strategi', 'trim|required');
-	$this->form_validation->set_rules('potential_blocker', 'potential blocker', 'trim|required');
-	$this->form_validation->set_rules('pic', 'pic', 'trim|required');
-	$this->form_validation->set_rules('tgl_start', 'tgl start', 'trim|required');
-	$this->form_validation->set_rules('tgl_deadline', 'tgl deadline', 'trim|required');
-	$this->form_validation->set_rules('tgl_tercapai', 'tgl tercapai', 'trim|required');
-	$this->form_validation->set_rules('upload_bukti', 'upload bukti', 'trim|required');
+	//$this->form_validation->set_rules('tgl_tercapai', 'tgl tercapai', 'trim|required');
+	//$this->form_validation->set_rules('upload_bukti', 'upload bukti', 'trim');
 	$this->form_validation->set_rules('catatan_pic', 'catatan pic', 'trim|required');
-	$this->form_validation->set_rules('status', 'status', 'trim|required');
 
-	$this->form_validation->set_rules('', '', 'trim');
+	$this->form_validation->set_rules('id_monitoring', 'id_monitoring', 'trim');
 	$this->form_validation->set_error_delimiters('<div class="has-error"><label class="text-danger"><i class="fa fa-times-circle-o"></i> ', '</label></div>');
     }
 
