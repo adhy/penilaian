@@ -21,6 +21,7 @@
 		    <th>Email</th>
 		    <th>Nama Level</th>
 		    <th>Status</th>
+            <th>Jabatan</th>
 		    <th width="200px">Action</th>
                 </tr>
             </thead>
@@ -71,7 +72,7 @@
                         {
                             "data": "id_users",
                             "orderable": false
-                        },{"data": "full_name"},{"data": "email"},{"data": "nama_level"},{"data": "is_aktif"},
+                        },{"data": "full_name"},{"data": "email"},{"data": "nama_level"},{"data": "is_aktif"},{"data": "jabatan"},
                         {
                             "data" : "action",
                             "orderable": false,

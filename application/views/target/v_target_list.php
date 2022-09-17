@@ -93,6 +93,11 @@
                     oLanguage: {
                         sProcessing: "loading..."
                     },
+                    pageLength: 50,
+                    lengthMenu: [
+                                [ 50, -1],
+                                [ 50, 'All'],
+                            ],
                     processing: true,
                     serverSide: true,
                     ajax: {"url": "target/json", "type": "POST"},
@@ -110,7 +115,7 @@
                     order: [[ 0, 'asc' ],[ 3, 'asc' ]],
                     ordering: false,
                     rowGroup: {
-            dataSrc: ['tahun','indikator']
+            dataSrc: ['indikator']
         },
         
                     rowCallback: function(row, data, iDisplayIndex) {

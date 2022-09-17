@@ -58,6 +58,7 @@ class User extends CI_Controller
 	    'images'        => set_value('images'),
 	    'id_user_level' => set_value('id_user_level'),
 	    'is_aktif'      => set_value('is_aktif'),
+	    'jabatan'      => set_value('jabatan'),
 	);
         $this->template->load('template','user/tbl_user_form', $data);
     }
@@ -82,6 +83,7 @@ class User extends CI_Controller
 		'images'        => $foto['file_name'],
 		'id_user_level' => $this->input->post('id_user_level',TRUE),
 		'is_aktif'      => $this->input->post('is_aktif',TRUE),
+		'jabatan'      => $this->input->post('jabatan',TRUE),
 	    );
 
             $this->User_model->insert($data);
@@ -106,6 +108,7 @@ class User extends CI_Controller
 		'id_user_level' => set_value('id_user_level', $row->id_user_level),
 		'satker'        => set_value('satker', $row->idsatker),
 		'is_aktif'      => set_value('is_aktif', $row->is_aktif),
+		'jabatan'      => set_value('jabatan', $row->jabatan),
 	    );
             $this->template->load('template','user/tbl_user_form', $data);
         } else {
@@ -127,14 +130,16 @@ class User extends CI_Controller
 		'full_name'     => $this->input->post('full_name',TRUE),
 		'email'         => $this->input->post('email',TRUE),
 		'id_user_level' => $this->input->post('id_user_level',TRUE),
-		'is_aktif'      => $this->input->post('is_aktif',TRUE));
+		'is_aktif'      => $this->input->post('is_aktif',TRUE),
+		'jabatan'      => $this->input->post('jabatan',TRUE));
             }else{
                 $data = array(
 		'full_name'     => $this->input->post('full_name',TRUE),
 		'email'         => $this->input->post('email',TRUE),
                 'images'        =>$foto['file_name'],
 		'id_user_level' => $this->input->post('id_user_level',TRUE),
-		'is_aktif'      => $this->input->post('is_aktif',TRUE));
+		'is_aktif'      => $this->input->post('is_aktif',TRUE),
+		'jabatan'      => $this->input->post('jabatan',TRUE));
                 
                 // ubah foto profil yang aktif
                 $this->session->set_userdata('images',$foto['file_name']);

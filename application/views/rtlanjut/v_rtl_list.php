@@ -19,7 +19,7 @@
 		    <th>Analisis</th>
 		    <th>Tasks</th>
             <th>Bulan</th>
-		    <th width="200px">Action</th>
+		    <th width="150px">Action</th>
                 </tr>
             </thead>
 	    
@@ -107,6 +107,11 @@
                             "className" : "text-center"
                         }
                     ],
+                    pageLength: 50,
+                    lengthMenu: [
+                                [ 50, -1],
+                                [ 50, 'All'],
+                            ],
                     order: [[ 0, 'asc' ]],
                     ordering: false,
                     rowGroup: {

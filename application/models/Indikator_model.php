@@ -46,8 +46,7 @@ class Indikator_model extends CI_Model
     
     // get total rows
     function total_rows($q = NULL) {
-        $this->db->like('', $q);
-	$this->db->or_like('id_indikator', $q);
+        $this->db->like('id_indikator', $q);
 	$this->db->or_like('id_user_level', $q);
 	$this->db->or_like('nama_level', $q);
 	$this->db->or_like('indikator', $q);
@@ -59,8 +58,7 @@ class Indikator_model extends CI_Model
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL) {
         $this->db->order_by($this->id, $this->order);
-        $this->db->like('', $q);
-	$this->db->or_like('id_indikator', $q);
+        $this->db->like('id_indikator', $q);
 	$this->db->or_like('id_user_level', $q);
 	$this->db->or_like('nama_level', $q);
 	$this->db->or_like('indikator', $q);

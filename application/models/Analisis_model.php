@@ -18,11 +18,13 @@ class Analisis_model extends CI_Model
     }
 
     // datatables
-    function json() {
+    function json($id,$di) {
         $this->datatables->select('id_analisis,analisis,bulan,id_satker,satker,id_indikator,indikator,tahun');
         $this->datatables->from('v_analisis');
         $this->datatables->add_column('bulan', '$1', 'bulanindosys(bulan,&#128197;)');
-        $this->datatables->add_column('indikator', '$1', 'add_symbolg(indikator,&#10148;,2)');
+        $this->datatables->add_column('indikator', '$1', 'add_symbolg(indikator,Indikator &#10148;,2)');
+        $this->datatables->where('id_satker', $id);
+        $this->datatables->where('tahun', $di);
         //add this line for join
         //$this->datatables->join('table2', 'v_analisis.field = table2.field');
         $this->datatables->add_column('action', anchor(site_url('analisis/read/$1'),'<i class="fa fa-eye" aria-hidden="true"></i>', array('class' => 'btn btn-success btn-sm'))." 

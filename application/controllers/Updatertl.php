@@ -20,8 +20,12 @@ class Updatertl extends CI_Controller
     } 
     
     public function json() {
-        header('Content-Type: application/json');
-        echo $this->Updatertl_model->json();
+		$this->tahun=$this->session->userdata('tahun');
+        // var_dump($this->tahun);
+         $iduser= $this->session->userdata('id_users');
+         if($iduser<=3){$this->idsatker=null;}else{$this->idsatker= $this->session->userdata('idsatker');}
+         header('Content-Type: application/json');
+         echo $this->Updatertl_model->json($this->idsatker,$this->tahun);
     }
     public function download($id) {
         force_download('/assets/doc_upload/'.$id.'',NULL);
@@ -184,7 +188,7 @@ class Updatertl extends CI_Controller
             $reupdate=$this->Updatertl_model->update($this->input->post('id_monitoring', TRUE), $data);
 			//var_dump($reupdate,$docnya['file_name'],$no);
             $this->session->set_flashdata('message', 'Update Record Success');
-            //redirect(site_url('updatertl'));
+            redirect(site_url('updatertl'));
         }
     }
     function upload_doc(){

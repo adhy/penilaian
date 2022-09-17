@@ -20,8 +20,12 @@ class Analisis extends CI_Controller
     } 
     
     public function json() {
-        header('Content-Type: application/json');
-        echo $this->Analisis_model->json();
+        $this->tahun=$this->session->userdata('tahun');
+        // var_dump($this->tahun);
+         $iduser= $this->session->userdata('id_users');
+         if($iduser<=3){$this->idsatker=null;}else{$this->idsatker= $this->session->userdata('idsatker');}
+         header('Content-Type: application/json');
+         echo $this->Analisis_model->json($this->idsatker,$this->tahun);
     }
     public function gbulan() {
         header('Content-Type: application/json');

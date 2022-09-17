@@ -21,10 +21,10 @@
             <th>Bulan</th>
 		    <th>Rtl Strategi</th>
 		    <th>Potential Blocker</th>
-		    <th>Pic</th>
-		    <th>Tgl Start</th>
-		    <th>Tgl Deadline</th>
-		    <th width="200px">Action</th>
+		    <th>PIC</th>
+		    <th>Tanggal Start</th>
+		    <th width="130px">Tanggal Deadline</th>
+		    <th width="100px">Action</th>
                 </tr>
             </thead>
 	    
@@ -98,6 +98,11 @@
                     oLanguage: {
                         sProcessing: "loading..."
                     },
+                    pageLength: 50,
+                    lengthMenu: [
+                                [ 50, -1],
+                                [ 50, 'All'],
+                            ],
                     processing: true,
                     serverSide: true,
                     ajax: {"url": "rtlstrategi/json", "type": "POST"},

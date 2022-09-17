@@ -19,7 +19,7 @@
             <th>Indikator</th>
             <th>Bulan</th>
             <th>Analisis</th>		    
-		    <th width="200px">Action</th>
+		    <th width="150px">Action</th>
                 </tr>
             </thead>
 	    
@@ -93,6 +93,11 @@
                     oLanguage: {
                         sProcessing: "loading..."
                     },
+                    pageLength: 50,
+                    lengthMenu: [
+                                [ 50, -1],
+                                [ 50, 'All'],
+                            ],
                     processing: true,
                     serverSide: true,
                     ajax: {"url": "analisis/json", "type": "POST"},
@@ -110,7 +115,7 @@
                     order: [[ 0, 'asc' ],[ 3, 'asc' ]],
                     ordering: false,
                     rowGroup: {
-            dataSrc: ['tahun','indikator','bulan']
+            dataSrc: ['indikator','bulan']
         },
                     rowCallback: function(row, data, iDisplayIndex) {
                         var info = this.fnPagingInfo();

@@ -25,16 +25,16 @@
             <th>Bulan</th>
 		    <th>Rtl Strategi</th>
 		    <th>Potential Blocker</th>
-		    <th>Pic</th>
-		    <th>Tgl Start</th>
-		    <th>Tgl Deadline</th>
-		    <th>Tgl Tercapai</th>
-		    <th>Upload Bukti</th>
-		    <th>Catatan Pic</th>
+		    <th>PIC</th>
+		    <th>Tanggal Start</th>
+		    <th width="130px">Tanggal Deadline</th>
+		    <th width="130px">Tanggal Tercapai</th>
+		    <th width="100px">Upload Bukti</th>
+		    <th>Catatan PIC</th>
 		    <th>Status</th>
-		    <th>Stwarna</th>
+		    <th width="50px">Status</th>
 		    <th>Status</th>
-		    <th width="200px">Action</th>
+		    <th width="50px">Action</th>
                 </tr>
             </thead>
 	    
@@ -106,6 +106,11 @@
                             }
                         });
                     },
+                    pageLength: 50,
+                    lengthMenu: [
+                                [ 50, -1],
+                                [ 50, 'All'],
+                            ],
                     oLanguage: {
                         sProcessing: "loading..."
                     },
@@ -116,7 +121,7 @@
                         {
                             "data": "id_indikator",
                             "orderable": false
-                        },{"data": "indikator","orderable": false,"visible": false},{"data": "analisis","orderable": false,"visible": false},{"data": "tasks","visible": false},{"data": "bulan","orderable": false,"visible": false},{"data": "rtl_strategi"},{"data": "potential_blocker"},{"data": "pic"},{"data": "tgl_start","visible": false},{"data": "tgl_deadline"},{"data": "tgl_tercapai"},{"data": "upload_bukti"},{"data": "catatan_pic"},{"data": "status","visible": false},{"data": "stwarna","visible": false},{"data": "stket"},
+                        },{"data": "indikator","orderable": false,"visible": false},{"data": "analisis","orderable": false,"visible": false},{"data": "tasks","visible": false},{"data": "bulan","orderable": false,"visible": false},{"data": "rtl_strategi"},{"data": "potential_blocker"},{"data": "pic"},{"data": "tgl_start","visible": false},{"data": "tgl_deadline"},{"data": "tgl_tercapai"},{"data": "upload_bukti"},{"data": "catatan_pic"},{"data": "status","visible": false},{"data": "stwarna"},{"data": "stket","visible": false},
                         {
                             "data" : "action",
                             "orderable": false,
@@ -128,17 +133,17 @@
                     rowGroup: {
             dataSrc: ['indikator','analisis','bulan','tasks']
         },
-        createdRow: function (row, data, index) {
-           // var a = moment(data.stwarna);
-            if (data['stket']=='Belum terlaksana') {
-                $('td', row).eq(8).addClass('belum');
-            }else if(data['stket'] =='Dalam Proses'){
-                $('td', row).eq(8).addClass('proses');
-            }else{
-                $('td', row).eq(8).addClass('sudah');
-            }
-            console.log(data['stket']);
-        },
+        // createdRow: function (row, data, index) {
+        //    // var a = moment(data.stwarna);
+        //     if (data['stket']=='Belum terlaksana') {
+        //         $('td', row).eq(8).addClass('belum');
+        //     }else if(data['stket'] =='Dalam Proses'){
+        //         $('td', row).eq(8).addClass('proses');
+        //     }else{
+        //         $('td', row).eq(8).addClass('sudah');
+        //     }
+        //     //console.log(data['stket']);
+        // },
                     rowCallback: function(row, data, iDisplayIndex) {
                         var info = this.fnPagingInfo();
                         var page = info.iPage;

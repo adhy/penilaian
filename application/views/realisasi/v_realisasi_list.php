@@ -92,6 +92,11 @@
                             }
                         });
                     },
+                    pageLength: 50,
+                    lengthMenu: [
+                                [ 50, -1],
+                                [ 50, 'All'],
+                            ],
                     oLanguage: {
                         sProcessing: "loading..."
                     },
@@ -112,7 +117,7 @@
                     order: [[ 0, 'asc' ],[ 3, 'asc' ]],
                     ordering: false,
                     rowGroup: {
-            dataSrc: ['tahun','indikator']
+            dataSrc: ['indikator']
         },
                     order: [[0, 'desc']],
                     rowCallback: function(row, data, iDisplayIndex) {

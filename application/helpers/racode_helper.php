@@ -89,21 +89,55 @@ function datalist_dinamis($name,$table,$field,$value=null){
 function rename_string_is_aktif($string){
         return $string=='y'?'Aktif':'Tidak Aktif';
     }
+function arahansat($string){
+    if(empty($string)){$string='<span class="label label-warning">Belum ada arahan</span>';}
+    return $string;
+    }
 function add_symbol($string){
         return $string=$string.' %';
     }
 function add_symbolg($string,$symbol,$position){
     switch ($position){
         case 1:
-            return $string=$string.'&nbsp;&nbsp;'.$symbol;;
+            return $string=$string.'&nbsp;&nbsp;'.$symbol;
             break;
         case 2:
             return $string=$symbol.'&nbsp;&nbsp;'.$string;
             break;
     }
 }
+function tglkosong($string){
+	if(empty($string)){$string='<span class="label label-danger">Kosong</span>';}else{$string=tgl_indo($string);}
+	return $string;
+}
+function rename_jabatan($string){
+    switch ($string){
+        case 0:
+            return $string='Super';
+            break;
+        case 1:
+            return $string='Kepala';
+            break;
+        case 2:
+            return $string='Staff';
+            break;
+    }
+}
+function ChaCol($string){
+    switch ($string){
+        case 0:
+            return $string='<span class="label label-danger">Belum terlaksana</span>';
+            break;
+        case 1:
+            return $string='<span class="label label-warning">Dalam Proses</span>';
+            break;
+        case 2:
+            return $string='<span class="label bg-aqua">Sudah Terlaksana</span>';
+            break;
+    }
+}
 function add_upload($string){
-    if($string=='0'){$string='<p class="text-red">Belum Upload</p>';}else{$string=anchor(site_url('assets/doc_upload/'.$string.''),'<i class="fa fa-cloud-download" aria-hidden="true"></i>', array('class' => 'btn btn-success btn-sm'));}
+    if(empty($string)){$string='<p class="text-red">Belum Upload</p>';}else{$string=anchor(site_url('assets/doc_upload/'.$string.''),'<i class="fa fa-file-pdf-o fa-2x pr-1" aria-hidden="true"></i>Unduh');}
     return $string;
 }
 function tgl_indomin($tanggal){

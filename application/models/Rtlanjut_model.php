@@ -18,13 +18,15 @@ class Rtlanjut_model extends CI_Model
     }
 
     // datatables
-    function json() {
-        $this->datatables->select('id_tasks,id_satker,satker,id_indikator,indikator,id_analisis,analisis,tasks,bulan');
+    function json($id,$di) {
+        $this->datatables->select('id_tasks,id_satker,satker,id_indikator,indikator,id_analisis,analisis,tasks,bulan,tahun');
         $this->datatables->from('v_rtl');
         $this->datatables->add_column('bulan', '$1', 'bulanindosys(bulan,&#128197;)');
-        $this->datatables->add_column('indikator', '$1', 'add_symbolg(indikator,&#10148;,2)');
-        $this->datatables->add_column('analisis', '$1', 'add_symbolg(analisis,&#10149;,2)');
-        $this->datatables->edit_column('tasks', ''.anchor(site_url('rtlanjut/read/$1'),'<i class="fa fa-plus" aria-hidden="true"></i> RTL/Strategi', array('class' => 'btn btn-success btn-sm')).'&nbsp;&nbsp; $2', 'id_tasks, tasks');;
+        $this->datatables->add_column('indikator', '$1', 'add_symbolg(indikator,Indikator &#10148;,2)');
+        $this->datatables->add_column('analisis', '$1', 'add_symbolg(analisis,Analisis &#10149;,2)');
+        $this->datatables->where('id_satker', $id);
+        $this->datatables->where('tahun', $di);
+        //$this->datatables->edit_column('tasks', ''.anchor(site_url('rtlanjut/read/$1'),'<i class="fa fa-plus" aria-hidden="true"></i> RTL/Strategi', array('class' => 'btn btn-success btn-sm')).'&nbsp;&nbsp; $2', 'id_tasks, tasks');;
         //add this line for join
         //$this->datatables->join('table2', 'v_rtl.field = table2.field');
         $this->datatables->add_column('action', anchor(site_url('rtlanjut/read/$1'),'<i class="fa fa-eye" aria-hidden="true"></i>', array('class' => 'btn btn-success btn-sm'))." 
@@ -49,8 +51,7 @@ class Rtlanjut_model extends CI_Model
     
     // get total rows
     function total_rows($q = NULL) {
-        $this->db->like('', $q);
-	$this->db->or_like('id_tasks', $q);
+        $this->db->like('id_tasks', $q);
 	$this->db->or_like('id_satker', $q);
 	$this->db->or_like('satker', $q);
 	$this->db->or_like('id_indikator', $q);
@@ -65,8 +66,7 @@ class Rtlanjut_model extends CI_Model
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL) {
         $this->db->order_by($this->id, $this->order);
-        $this->db->like('', $q);
-	$this->db->or_like('id_tasks', $q);
+        $this->db->like('id_tasks', $q);
 	$this->db->or_like('id_satker', $q);
 	$this->db->or_like('satker', $q);
 	$this->db->or_like('id_indikator', $q);

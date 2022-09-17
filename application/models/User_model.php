@@ -18,9 +18,10 @@ class User_model extends CI_Model
 
     // datatables
     function json() {
-        $this->datatables->select('id_users,full_name,email,nama_level,is_aktif,satker');
+        $this->datatables->select('id_users,full_name,email,nama_level,is_aktif,satker,jabatan');
         $this->datatables->from('tbl_user');
         $this->datatables->add_column('is_aktif', '$1', 'rename_string_is_aktif(is_aktif)');
+        $this->datatables->add_column('jabatan', '$1', 'rename_jabatan(jabatan)');
         //add this line for join
         $this->datatables->join('tbl_user_level', 'tbl_user.id_user_level = tbl_user_level.id_user_level');
         $this->datatables->join('tbl_satker', 'tbl_user.idsatker = tbl_satker.id_satker');

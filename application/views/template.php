@@ -29,7 +29,20 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-
+        <style type="text/css">
+            .back-to-top {
+                position: fixed;
+                bottom: 25px;
+                right: 25px;
+                display: none;
+            }
+            .label{font-size: 85% !important;}
+            a{color:#007bff}
+            table.dataTable tr.dtrg-group.dtrg-level-0 th{background-color: #3ebba7;}
+            table.dataTable tr.dtrg-group.dtrg-level-1 th{background-color: #38e7cb;}
+            table.dataTable tr.dtrg-group.dtrg-level-2 th{background-color: #a3f7e9;}
+            table.dataTable tr.dtrg-group.dtrg-level-3 th{background-color: #d5fff8;}
+        </style>
         <!-- Google Font -->
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -310,6 +323,7 @@
                  immediately after the control sidebar -->
             <div class="control-sidebar-bg"></div>
         </div>
+        <a id="back-to-top" href="#" class="btn btn-danger btn-sm back-to-top" role="button"><i class="fa fa-chevron-up"></i></a>
         <!-- ./wrapper -->
         <script type="text/javascript" src="<?php echo base_url() ?>assets/js/jquery-1.9.1.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() ?>assets/jquery-ui/ui/minified/jquery-ui.min.js"></script>
@@ -336,11 +350,36 @@
         <script src="<?php echo base_url() ?>assets/adminlte/bower_components/select2/dist/js/select2.full.min.js"></script>
         <!-- page script -->
         <script>
+             var url = window.location;
+
+            // for sidebar menu entirely but not cover treeview
+            $('ul.sidebar-menu a').filter(function() {
+                return this.href == url;
+            }).parent().addClass('active');
+
+            // for treeview
+            $('ul.treeview-menu a').filter(function() {
+                return this.href == url;
+            }).parentsUntil(".sidebar-menu > .treeview-menu").addClass('active').css({'display': 'block'});
            // $('[name="indikator"]').attr('id', 'indikator');
             $("#confirm-delete").on("show.bs.modal", function(e) {
                $('#delete-confirmation').attr('href', $(e.relatedTarget).data('href'));
             });
             $(document).ready(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 50) {
+                        $('#back-to-top').fadeIn();
+                    } else {
+                        $('#back-to-top').fadeOut();
+                    }
+                });
+                // scroll body to 0px on click
+                $('#back-to-top').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 400);
+                    return false;
+                });
             $('.PerNum').mask('0,000,000.00', { reverse: true });
             $('.RealIsasi').mask('0,000,000.00', { reverse: true });
             });

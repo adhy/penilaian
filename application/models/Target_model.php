@@ -21,6 +21,8 @@ class Target_model extends CI_Model
         
         $this->datatables->select('id_target,id_indikator,indikator,tahun,id_satker,id_users,bulan,target');
         $this->datatables->from('v_target');
+        $this->datatables->add_column('indikator', '$1', 'add_symbolg(indikator,Indikator &#10148;,2)');
+        //$this->datatables->edit_column('indikator', '<span class="label bg-gray">Indikator &#10148;</span>$1', 'indikator, indikator');
         $this->datatables->add_column('bulan', '$1', 'bulanindo(bulan)');
         $this->datatables->where('id_satker', $id);
         $this->datatables->where('tahun', $di);
