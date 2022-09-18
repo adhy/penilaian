@@ -30,7 +30,7 @@
     <body class="hold-transition login-page">
         <div class="login-box">
             <div class="login-logo">
-                <a href="<?php echo base_url(); ?>/adminlte/index2.html"><b>Sistem</b> Generator</a>
+                <a href="<?php echo base_url(); ?>/adminlte/index2.html"><b>Aplikasi</b> PEMANTIK</a>
             </div>
             <!-- /.login-logo -->
             <div class="login-box-body">

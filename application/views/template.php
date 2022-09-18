@@ -85,7 +85,7 @@
 
                                         <p>
                                             <?php echo $this->session->userdata('full_name'); ?>                                         
-                                            <small>Member since Nov. 2012</small>
+                                            
                                         </p>
                                     </li>
                                     <!-- Menu Footer-->

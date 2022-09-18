@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2022 at 05:50 PM
+-- Generation Time: Sep 18, 2022 at 06:43 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -31,6 +31,30 @@ CREATE TABLE `contoh` (
   `idconoth` int(11) NOT NULL,
   `isis` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pemantik_sess`
+--
+
+CREATE TABLE `pemantik_sess` (
+  `id` varchar(128) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `timestamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
+  `data` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pemantik_sess`
+--
+
+INSERT INTO `pemantik_sess` (`id`, `ip_address`, `timestamp`, `data`) VALUES
+('pqlto6dp8dv38ibs74a77oaut71ochjp', '::1', 1663515996, 0x5f5f63695f6c6173745f726567656e65726174657c693a313636333531353939363b69645f75736572737c733a313a2231223b69647361746b65727c733a323a223132223b66756c6c5f6e616d657c733a31313a2253757065722041646d696e223b656d61696c7c733a32303a22737570657261646d696e40676d61696c2e636f6d223b70617373776f72647c733a36303a222432792430342457627966763478776968622e2e504f6668785935592e6a484f4a714546494733644c66425977416d6e4f4143704830455743436471223b696d616765737c733a31373a2261746f6d69785f7573657233312e706e67223b69645f757365725f6c6576656c7c733a313a2231223b69735f616b7469667c733a313a2279223b6a61626174616e7c733a313a2230223b746168756e7c733a343a2232303232223b),
+('kqhmo396dcrhbc89m710he01l21b9icl', '::1', 1663516470, 0x5f5f63695f6c6173745f726567656e65726174657c693a313636333531363437303b69645f75736572737c733a313a2231223b69647361746b65727c733a323a223132223b66756c6c5f6e616d657c733a31313a2253757065722041646d696e223b656d61696c7c733a32303a22737570657261646d696e40676d61696c2e636f6d223b70617373776f72647c733a36303a222432792430342457627966763478776968622e2e504f6668785935592e6a484f4a714546494733644c66425977416d6e4f4143704830455743436471223b696d616765737c733a31373a2261746f6d69785f7573657233312e706e67223b69645f757365725f6c6576656c7c733a313a2231223b69735f616b7469667c733a313a2279223b6a61626174616e7c733a313a2230223b746168756e7c733a343a2232303232223b),
+('46miv2o4bf6sso1lc5ta4eeck47e5k6j', '::1', 1663517123, 0x5f5f63695f6c6173745f726567656e65726174657c693a313636333531373132333b69645f75736572737c733a313a2231223b69647361746b65727c733a323a223132223b66756c6c5f6e616d657c733a31313a2253757065722041646d696e223b656d61696c7c733a32303a22737570657261646d696e40676d61696c2e636f6d223b70617373776f72647c733a36303a222432792430342457627966763478776968622e2e504f6668785935592e6a484f4a714546494733644c66425977416d6e4f4143704830455743436471223b696d616765737c733a31373a2261746f6d69785f7573657233312e706e67223b69645f757365725f6c6576656c7c733a313a2231223b69735f616b7469667c733a313a2279223b6a61626174616e7c733a313a2230223b746168756e7c733a343a2232303232223b),
+('qs6tid9d3iq9e8c93t6ui31qmfh146v7', '::1', 1663517468, 0x5f5f63695f6c6173745f726567656e65726174657c693a313636333531373436383b),
+('8je3mosb6rhjlh4nmdpp710hmk7r3idv', '::1', 1663517472, 0x5f5f63695f6c6173745f726567656e65726174657c693a313636333531373436383b69645f75736572737c733a313a2237223b69647361746b65727c733a313a2231223b66756c6c5f6e616d657c733a32303a224b4b50204b656c61732049204d616b6173736172223b656d61696c7c733a31323a226b6b31406d61696c2e636f6d223b70617373776f72647c733a36303a22243279243034244b6d49312f39656e394d6c307056754f78516d4d452e33384e6e6748353035725453343047304b7a6b55485474776573344e6d3775223b696d616765737c733a31383a2261746f6d69785f757365723331312e706e67223b69645f757365725f6c6576656c7c733a313a2233223b69735f616b7469667c733a313a2279223b6a61626174616e7c733a313a2232223b746168756e7c733a343a2232303232223b);
 
 -- --------------------------------------------------------
 
@@ -94,13 +118,6 @@ INSERT INTO `tbl_hak_akses` (`id`, `id_user_level`, `id_menu`) VALUES
 (33, 1, 12),
 (34, 1, 13),
 (35, 1, 14),
-(36, 3, 1),
-(37, 3, 2),
-(38, 3, 3),
-(39, 3, 9),
-(40, 3, 10),
-(41, 3, 11),
-(42, 3, 12),
 (43, 3, 13),
 (44, 3, 14),
 (45, 1, 15),
@@ -111,7 +128,6 @@ INSERT INTO `tbl_hak_akses` (`id`, `id_user_level`, `id_menu`) VALUES
 (50, 2, 11),
 (51, 2, 10),
 (52, 2, 9),
-(53, 3, 15),
 (54, 3, 16),
 (55, 1, 16),
 (56, 1, 17),
@@ -121,7 +137,23 @@ INSERT INTO `tbl_hak_akses` (`id`, `id_user_level`, `id_menu`) VALUES
 (60, 1, 19),
 (61, 3, 19),
 (62, 1, 20),
-(63, 3, 20);
+(63, 3, 20),
+(64, 1, 21),
+(65, 3, 21),
+(66, 1, 22),
+(67, 3, 22),
+(71, 4, 13),
+(72, 4, 14),
+(73, 4, 16),
+(74, 4, 17),
+(75, 4, 18),
+(76, 4, 22),
+(77, 4, 21),
+(78, 4, 20),
+(79, 1, 4),
+(80, 2, 4),
+(81, 1, 24),
+(82, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -177,21 +209,22 @@ CREATE TABLE `tbl_menu` (
 --
 
 INSERT INTO `tbl_menu` (`id_menu`, `title`, `url`, `icon`, `is_main_menu`, `is_aktif`) VALUES
-(1, 'KELOLA MENU', 'kelolamenu', 'fa fa-server', 0, 'y'),
-(2, 'KELOLA PENGGUNA', 'user', 'fa fa-user-o', 0, 'y'),
-(3, 'level PENGGUNA', 'userlevel', 'fa fa-users', 0, 'y'),
-(9, 'Contoh Form', 'welcome/form', 'fa fa-id-card', 0, 'y'),
+(1, 'Dashboard', 'welcome', 'fa fa-home', 0, 'y'),
+(2, 'KELOLA MENU', 'kelolamenu', 'fa fa-server', 0, 'y'),
+(3, 'KELOLA PENGGUNA', 'user', 'fa fa-user-o', 0, 'y'),
+(4, 'level PENGGUNA', 'userlevel', 'fa fa-users', 0, 'y'),
 (10, 'Master Indikator', 'indikator', 'fa fa-caret-right', 11, 'y'),
 (11, 'Master', '#', 'fa fa-caret-square-o-right', 0, 'y'),
 (12, 'Master Satker', 'satker', 'fa fa-caret-right', 11, 'y'),
 (13, 'Target', 'target', 'fa fa-caret-right', 14, 'y'),
 (14, 'Pemantik', '#', 'fa fa-caret-square-o-right', 0, 'y'),
-(15, 'contoh', 'contoh', 'fa fa-caret-right', 0, 'y'),
 (16, 'Realisasi', 'realisasi', 'fa fa-caret-right', 14, 'y'),
 (17, 'Analisis Capaian', 'analisis', 'fa fa-caret-right', 14, 'y'),
-(18, 'Rencana Tindak Lanjut', 'rtlanjut', 'fa fa-caret-right', 14, 'y'),
-(19, 'RTL2', 'rtlstrategi', 'fa fa-caret-right', 14, 'y'),
-(20, 'Update RTL', 'updatertl', 'fa fa-caret-right', 14, 'y');
+(18, 'Tasks/Tugas', 'rtlanjut', 'fa fa-caret-right', 14, 'y'),
+(19, 'Rencana Tindak Lanjut', 'rtlstrategi', 'fa fa-caret-right', 14, 'y'),
+(20, 'Perbaharui Rencana TL', 'updatertl', 'fa fa-caret-right', 14, 'y'),
+(21, 'Monitoring dan Evaluasi', 'arahankasat', 'fa fa-caret-right', 14, 'y'),
+(22, 'Pelaporan', 'pelaporan', 'fa fa-caret-right', 14, 'y');
 
 -- --------------------------------------------------------
 
@@ -209,7 +242,7 @@ CREATE TABLE `tbl_monitoring` (
   `pic` text NOT NULL,
   `tgl_start` date NOT NULL,
   `tgl_deadline` date NOT NULL,
-  `tgl_tercapai` date NOT NULL,
+  `tgl_tercapai` date DEFAULT NULL,
   `upload_bukti` varchar(255) NOT NULL,
   `catatan_pic` text NOT NULL,
   `status` enum('0','1') NOT NULL COMMENT '0=no,1=yes',
@@ -221,7 +254,10 @@ CREATE TABLE `tbl_monitoring` (
 --
 
 INSERT INTO `tbl_monitoring` (`id_monitoring`, `id_analisis`, `id_tasks`, `id_satker`, `rtl_strategi`, `potential_blocker`, `pic`, `tgl_start`, `tgl_deadline`, `tgl_tercapai`, `upload_bukti`, `catatan_pic`, `status`, `ara_kasatker`) VALUES
-(1, 6, 10, 1, 'Call to a member function format() on bool update 2', 'Call to a member function format() on bool update 2', 'update 3 update 2', '2022-09-11', '2022-09-17', '0000-00-00', '1', '2', '0', '1');
+(2, 6, 10, 1, 'SDM lagi 3', 'SDM lagi 3', 'Kepala', '2022-09-12', '2022-09-15', '2022-09-12', 'Adobe_Scan_06_Sept_2022_(2)__14.pdf', 'Sudah upload', '1', 'hasil sudah di upload'),
+(3, 6, 10, 1, 'SDM lagi 3 33', 'SDM lagi 3 33', 'Kepala', '2022-09-12', '2022-09-22', NULL, '', '', '0', ''),
+(4, 7, 8, 1, 'SDM Februari', 'SDM Februari', 'Kepala', '2022-09-12', '2022-09-22', NULL, '', '', '0', ''),
+(5, 11, 5, 1, 'Nilai Januari 1', 'Nilai Januari 1', 'kepala', '2022-09-12', '2022-09-29', NULL, '', '', '0', '');
 
 -- --------------------------------------------------------
 
@@ -249,7 +285,8 @@ INSERT INTO `tbl_satker` (`id_satker`, `id_user_level`, `satker`) VALUES
 (8, 8, 'Direktorat Penyehatan Lingkungan'),
 (9, 7, 'Direktorat Pengelolaan Imunisasi'),
 (10, 6, 'Direktorat P2PTM'),
-(11, 5, 'Direktorat P2PM');
+(11, 5, 'Direktorat P2PM'),
+(12, 1, 'Super Admin');
 
 -- --------------------------------------------------------
 
@@ -353,21 +390,23 @@ CREATE TABLE `tbl_user` (
   `full_name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `images` text NOT NULL,
+  `images` text NOT NULL DEFAULT 'profile.png',
   `id_user_level` int(11) NOT NULL,
-  `is_aktif` enum('y','n') NOT NULL
+  `is_aktif` enum('y','n') NOT NULL,
+  `jabatan` enum('0','1','2') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`id_users`, `idsatker`, `full_name`, `email`, `password`, `images`, `id_user_level`, `is_aktif`) VALUES
-(1, 1, 'Nuris Akbar M.Kom', 'nuris.akbar@gmail.com', '$2y$04$Wbyfv4xwihb..POfhxY5Y.jHOJqEFIG3dLfBYwAmnOACpH0EWCCdq', 'atomix_user31.png', 1, 'y'),
-(3, 1, 'Muhammad hafidz Muzaki', 'hafid@gmail.com', '$2y$04$Wbyfv4xwihb..POfhxY5Y.jHOJqEFIG3dLfBYwAmnOACpH0EWCCdq', '7.png', 2, 'y'),
-(7, 1, 'KKP Kelas I Makassar', 'kk1@mail.com', '$2y$04$KmI1/9en9Ml0pVuOxQmME.38NngH505rTS40G0KzkUHTtwes4Nm7u', 'anonym.jpg', 3, 'y'),
-(8, 3, 'KKP Kelas I Batam', 'kk2@mail.com', '$2y$04$LZyWRMcgCpWm0JIINu7jpum2EvA7FFzeg629i7dzB7fNvlYuP5Y6W', '', 3, 'y'),
-(10, 5, 'BBTKLPP Banjarbaru', 'ewe@hjk.ll', '$2y$04$QZiE9ih5tRIUcK58/s9vq.dIq9uzTGs5qbHB3k9p1IGjZa7NW/T46', '', 3, 'y');
+INSERT INTO `tbl_user` (`id_users`, `idsatker`, `full_name`, `email`, `password`, `images`, `id_user_level`, `is_aktif`, `jabatan`) VALUES
+(1, 12, 'Super Admin', 'superadmin@gmail.com', '$2y$04$Wbyfv4xwihb..POfhxY5Y.jHOJqEFIG3dLfBYwAmnOACpH0EWCCdq', 'atomix_user31.png', 1, 'y', '0'),
+(3, 12, 'Admin', 'admin@gmail.com', '$2y$04$Wbyfv4xwihb..POfhxY5Y.jHOJqEFIG3dLfBYwAmnOACpH0EWCCdq', '7.png', 2, 'y', '0'),
+(7, 1, 'KKP Kelas I Makassar', 'kk1@mail.com', '$2y$04$KmI1/9en9Ml0pVuOxQmME.38NngH505rTS40G0KzkUHTtwes4Nm7u', 'atomix_user311.png', 3, 'y', '2'),
+(8, 3, 'KKP Kelas I Batam', 'kk2@mail.com', '$2y$04$LZyWRMcgCpWm0JIINu7jpum2EvA7FFzeg629i7dzB7fNvlYuP5Y6W', 'profile.png', 3, 'y', '2'),
+(10, 5, 'BBTKLPP Banjarbaru', 'ewe@hjk.ll', '$2y$04$QZiE9ih5tRIUcK58/s9vq.dIq9uzTGs5qbHB3k9p1IGjZa7NW/T46', 'profile.png', 3, 'y', '2'),
+(11, 1, 'Kepala KKP Kelas 1 makasar', 'kk11@mail.com', '$2y$04$zeEx91urEMq5mKRmJsghiesUJfsW1ZnaBi4GCZQdquv1MVxHCnUeS', 'profile.png', 3, 'y', '1');
 
 -- --------------------------------------------------------
 
@@ -415,6 +454,23 @@ CREATE TABLE `v_analisis` (
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `v_cobanalisis`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_cobanalisis` (
+`id_analisis` int(11)
+,`id_indikator` int(11)
+,`indikator` text
+,`tahun` varchar(4)
+,`id_satker` int(11)
+,`satker` text
+,`bulan` int(5)
+,`bulan_analisis` mediumtext
+);
+
+-- --------------------------------------------------------
+
+--
 -- Stand-in structure for view `v_indikator`
 -- (See below for the actual view)
 --
@@ -424,6 +480,24 @@ CREATE TABLE `v_indikator` (
 ,`nama_level` varchar(30)
 ,`indikator` text
 ,`tahun` varchar(4)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `v_pelaporan`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_pelaporan` (
+`id_indikator` int(11)
+,`tahun` varchar(4)
+,`indikator` text
+,`bulan` varchar(255)
+,`target` decimal(7,2)
+,`realisasi` decimal(7,2)
+,`capaian` decimal(7,2)
+,`id_satker` int(11)
+,`satker` text
 );
 
 -- --------------------------------------------------------
@@ -486,6 +560,7 @@ CREATE TABLE `v_rtl_2` (
 ,`pic` text
 ,`tgl_start` date
 ,`tgl_deadline` date
+,`tahun` varchar(4)
 );
 
 -- --------------------------------------------------------
@@ -500,6 +575,7 @@ CREATE TABLE `v_rtl_3` (
 ,`satker` text
 ,`id_indikator` int(11)
 ,`indikator` text
+,`tahun` varchar(4)
 ,`id_analisis` int(11)
 ,`analisis` text
 ,`id_tasks` int(11)
@@ -517,6 +593,39 @@ CREATE TABLE `v_rtl_3` (
 ,`tgl_sekarang` date
 ,`stwarna` varchar(1)
 ,`stket` varchar(16)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `v_rtl_4`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_rtl_4` (
+`id_monitoring` int(11)
+,`id_satker` int(11)
+,`satker` text
+,`id_indikator` int(11)
+,`indikator` text
+,`tahun` varchar(4)
+,`id_analisis` int(11)
+,`analisis` text
+,`id_tasks` int(11)
+,`tasks` text
+,`bulan` int(5)
+,`rtl_strategi` text
+,`potential_blocker` text
+,`pic` text
+,`tgl_start` date
+,`tgl_deadline` date
+,`tgl_tercapai` date
+,`upload_bukti` varchar(255)
+,`catatan_pic` text
+,`status` enum('0','1')
+,`tgl_sekarang` date
+,`stwarna` varchar(1)
+,`stket` varchar(16)
+,`ara_kasatker` text
 );
 
 -- --------------------------------------------------------
@@ -578,11 +687,29 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`silly`@`localhost` SQL SECURITY DEFINER VIEW
 -- --------------------------------------------------------
 
 --
+-- Structure for view `v_cobanalisis`
+--
+DROP TABLE IF EXISTS `v_cobanalisis`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`silly`@`localhost` SQL SECURITY DEFINER VIEW `v_cobanalisis`  AS SELECT `tbl_analisis`.`id_analisis` AS `id_analisis`, `tbl_analisis`.`id_indikator` AS `id_indikator`, `tbl_indikator`.`indikator` AS `indikator`, `tbl_indikator`.`tahun` AS `tahun`, `tbl_analisis`.`id_satker` AS `id_satker`, `tbl_satker`.`satker` AS `satker`, `tbl_analisis`.`bulan` AS `bulan`, group_concat(`tbl_analisis`.`bulan`,`tbl_analisis`.`analisis` separator ',') AS `bulan_analisis` FROM ((`tbl_analisis` join `tbl_indikator` on(`tbl_analisis`.`id_indikator` = `tbl_indikator`.`id_indikator`)) join `tbl_satker` on(`tbl_analisis`.`id_satker` = `tbl_satker`.`id_satker`)) GROUP BY `tbl_analisis`.`id_indikator`, `tbl_analisis`.`bulan` ORDER BY `tbl_analisis`.`id_indikator` ASC, `tbl_analisis`.`bulan` ASC  ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `v_indikator`
 --
 DROP TABLE IF EXISTS `v_indikator`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`silly`@`localhost` SQL SECURITY DEFINER VIEW `v_indikator`  AS SELECT `tbl_indikator`.`id_indikator` AS `id_indikator`, `tbl_indikator`.`id_user_level` AS `id_user_level`, `tbl_user_level`.`nama_level` AS `nama_level`, `tbl_indikator`.`indikator` AS `indikator`, `tbl_indikator`.`tahun` AS `tahun` FROM (`tbl_indikator` join `tbl_user_level` on(`tbl_indikator`.`id_user_level` = `tbl_user_level`.`id_user_level`))  ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_pelaporan`
+--
+DROP TABLE IF EXISTS `v_pelaporan`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`silly`@`localhost` SQL SECURITY DEFINER VIEW `v_pelaporan`  AS SELECT `tbl_indikator`.`id_indikator` AS `id_indikator`, `tbl_indikator`.`tahun` AS `tahun`, `tbl_indikator`.`indikator` AS `indikator`, `tbl_target`.`bulan` AS `bulan`, `tbl_target`.`target` AS `target`, `tbl_target`.`realisasi` AS `realisasi`, `tbl_target`.`capaian` AS `capaian`, `tbl_target`.`id_satker` AS `id_satker`, `tbl_satker`.`satker` AS `satker` FROM ((`tbl_indikator` join `tbl_target` on(`tbl_indikator`.`id_indikator` = `tbl_target`.`id_indikator`)) join `tbl_satker` on(`tbl_satker`.`id_satker` = `tbl_target`.`id_satker`)) ORDER BY `tbl_target`.`id_indikator` ASC, `tbl_target`.`bulan` ASC  ;
 
 -- --------------------------------------------------------
 
@@ -609,7 +736,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`silly`@`localhost` SQL SECURITY DEFINER VIEW
 --
 DROP TABLE IF EXISTS `v_rtl_2`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`silly`@`localhost` SQL SECURITY DEFINER VIEW `v_rtl_2`  AS SELECT `tbl_monitoring`.`id_monitoring` AS `id_monitoring`, `tbl_tasks`.`id_satker` AS `id_satker`, `tbl_satker`.`satker` AS `satker`, `tbl_analisis`.`id_indikator` AS `id_indikator`, `tbl_indikator`.`indikator` AS `indikator`, `tbl_tasks`.`id_analisis` AS `id_analisis`, `tbl_analisis`.`analisis` AS `analisis`, `tbl_tasks`.`id_tasks` AS `id_tasks`, `tbl_tasks`.`tasks` AS `tasks`, `tbl_analisis`.`bulan` AS `bulan`, `tbl_monitoring`.`rtl_strategi` AS `rtl_strategi`, `tbl_monitoring`.`potential_blocker` AS `potential_blocker`, `tbl_monitoring`.`pic` AS `pic`, `tbl_monitoring`.`tgl_start` AS `tgl_start`, `tbl_monitoring`.`tgl_deadline` AS `tgl_deadline` FROM ((((`tbl_tasks` join `tbl_analisis` on(`tbl_tasks`.`id_analisis` = `tbl_analisis`.`id_analisis`)) join `tbl_satker` on(`tbl_analisis`.`id_satker` = `tbl_satker`.`id_satker` and `tbl_tasks`.`id_satker` = `tbl_satker`.`id_satker`)) join `tbl_indikator` on(`tbl_analisis`.`id_indikator` = `tbl_indikator`.`id_indikator`)) join `tbl_monitoring` on(`tbl_analisis`.`id_analisis` = `tbl_monitoring`.`id_analisis` and `tbl_satker`.`id_satker` = `tbl_monitoring`.`id_satker` and `tbl_tasks`.`id_tasks` = `tbl_monitoring`.`id_tasks`))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`silly`@`localhost` SQL SECURITY DEFINER VIEW `v_rtl_2`  AS SELECT `tbl_monitoring`.`id_monitoring` AS `id_monitoring`, `tbl_tasks`.`id_satker` AS `id_satker`, `tbl_satker`.`satker` AS `satker`, `tbl_analisis`.`id_indikator` AS `id_indikator`, `tbl_indikator`.`indikator` AS `indikator`, `tbl_tasks`.`id_analisis` AS `id_analisis`, `tbl_analisis`.`analisis` AS `analisis`, `tbl_tasks`.`id_tasks` AS `id_tasks`, `tbl_tasks`.`tasks` AS `tasks`, `tbl_analisis`.`bulan` AS `bulan`, `tbl_monitoring`.`rtl_strategi` AS `rtl_strategi`, `tbl_monitoring`.`potential_blocker` AS `potential_blocker`, `tbl_monitoring`.`pic` AS `pic`, `tbl_monitoring`.`tgl_start` AS `tgl_start`, `tbl_monitoring`.`tgl_deadline` AS `tgl_deadline`, `tbl_indikator`.`tahun` AS `tahun` FROM ((((`tbl_tasks` join `tbl_analisis` on(`tbl_tasks`.`id_analisis` = `tbl_analisis`.`id_analisis`)) join `tbl_satker` on(`tbl_analisis`.`id_satker` = `tbl_satker`.`id_satker` and `tbl_tasks`.`id_satker` = `tbl_satker`.`id_satker`)) join `tbl_indikator` on(`tbl_analisis`.`id_indikator` = `tbl_indikator`.`id_indikator`)) join `tbl_monitoring` on(`tbl_analisis`.`id_analisis` = `tbl_monitoring`.`id_analisis` and `tbl_satker`.`id_satker` = `tbl_monitoring`.`id_satker` and `tbl_tasks`.`id_tasks` = `tbl_monitoring`.`id_tasks`))  ;
 
 -- --------------------------------------------------------
 
@@ -618,7 +745,16 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`silly`@`localhost` SQL SECURITY DEFINER VIEW
 --
 DROP TABLE IF EXISTS `v_rtl_3`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`silly`@`localhost` SQL SECURITY DEFINER VIEW `v_rtl_3`  AS SELECT `tbl_monitoring`.`id_monitoring` AS `id_monitoring`, `tbl_tasks`.`id_satker` AS `id_satker`, `tbl_satker`.`satker` AS `satker`, `tbl_analisis`.`id_indikator` AS `id_indikator`, `tbl_indikator`.`indikator` AS `indikator`, `tbl_tasks`.`id_analisis` AS `id_analisis`, `tbl_analisis`.`analisis` AS `analisis`, `tbl_tasks`.`id_tasks` AS `id_tasks`, `tbl_tasks`.`tasks` AS `tasks`, `tbl_analisis`.`bulan` AS `bulan`, `tbl_monitoring`.`rtl_strategi` AS `rtl_strategi`, `tbl_monitoring`.`potential_blocker` AS `potential_blocker`, `tbl_monitoring`.`pic` AS `pic`, `tbl_monitoring`.`tgl_start` AS `tgl_start`, `tbl_monitoring`.`tgl_deadline` AS `tgl_deadline`, `tbl_monitoring`.`tgl_tercapai` AS `tgl_tercapai`, `tbl_monitoring`.`upload_bukti` AS `upload_bukti`, `tbl_monitoring`.`catatan_pic` AS `catatan_pic`, `tbl_monitoring`.`status` AS `status`, curdate() AS `tgl_sekarang`, CASE WHEN curdate() between `tbl_monitoring`.`tgl_start` and `tbl_monitoring`.`tgl_deadline` AND `tbl_monitoring`.`status` = '0' THEN coalesce('1') WHEN curdate() > `tbl_monitoring`.`tgl_deadline` AND `tbl_monitoring`.`status` = '0' THEN coalesce('0') WHEN `tbl_monitoring`.`status` = '1' THEN coalesce('2') END AS `stwarna`, CASE WHEN curdate() between `tbl_monitoring`.`tgl_start` and `tbl_monitoring`.`tgl_deadline` AND `tbl_monitoring`.`status` = '0' THEN coalesce('Dalam Proses') WHEN curdate() > `tbl_monitoring`.`tgl_deadline` AND `tbl_monitoring`.`status` = '0' THEN coalesce('Belum terlaksana') WHEN `tbl_monitoring`.`status` = '1' THEN coalesce('Sudah Terlaksana') END AS `stket` FROM ((((`tbl_tasks` join `tbl_analisis` on(`tbl_tasks`.`id_analisis` = `tbl_analisis`.`id_analisis`)) join `tbl_satker` on(`tbl_analisis`.`id_satker` = `tbl_satker`.`id_satker` and `tbl_tasks`.`id_satker` = `tbl_satker`.`id_satker`)) join `tbl_indikator` on(`tbl_analisis`.`id_indikator` = `tbl_indikator`.`id_indikator`)) join `tbl_monitoring` on(`tbl_analisis`.`id_analisis` = `tbl_monitoring`.`id_analisis` and `tbl_satker`.`id_satker` = `tbl_monitoring`.`id_satker` and `tbl_tasks`.`id_tasks` = `tbl_monitoring`.`id_tasks`))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`silly`@`localhost` SQL SECURITY DEFINER VIEW `v_rtl_3`  AS SELECT `tbl_monitoring`.`id_monitoring` AS `id_monitoring`, `tbl_tasks`.`id_satker` AS `id_satker`, `tbl_satker`.`satker` AS `satker`, `tbl_analisis`.`id_indikator` AS `id_indikator`, `tbl_indikator`.`indikator` AS `indikator`, `tbl_indikator`.`tahun` AS `tahun`, `tbl_tasks`.`id_analisis` AS `id_analisis`, `tbl_analisis`.`analisis` AS `analisis`, `tbl_tasks`.`id_tasks` AS `id_tasks`, `tbl_tasks`.`tasks` AS `tasks`, `tbl_analisis`.`bulan` AS `bulan`, `tbl_monitoring`.`rtl_strategi` AS `rtl_strategi`, `tbl_monitoring`.`potential_blocker` AS `potential_blocker`, `tbl_monitoring`.`pic` AS `pic`, `tbl_monitoring`.`tgl_start` AS `tgl_start`, `tbl_monitoring`.`tgl_deadline` AS `tgl_deadline`, `tbl_monitoring`.`tgl_tercapai` AS `tgl_tercapai`, `tbl_monitoring`.`upload_bukti` AS `upload_bukti`, `tbl_monitoring`.`catatan_pic` AS `catatan_pic`, `tbl_monitoring`.`status` AS `status`, curdate() AS `tgl_sekarang`, CASE WHEN curdate() between `tbl_monitoring`.`tgl_start` and `tbl_monitoring`.`tgl_deadline` AND `tbl_monitoring`.`status` = '0' THEN coalesce('1') WHEN curdate() > `tbl_monitoring`.`tgl_deadline` AND `tbl_monitoring`.`status` = '0' THEN coalesce('0') WHEN `tbl_monitoring`.`status` = '1' THEN coalesce('2') END AS `stwarna`, CASE WHEN curdate() between `tbl_monitoring`.`tgl_start` and `tbl_monitoring`.`tgl_deadline` AND `tbl_monitoring`.`status` = '0' THEN coalesce('Dalam Proses') WHEN curdate() > `tbl_monitoring`.`tgl_deadline` AND `tbl_monitoring`.`status` = '0' THEN coalesce('Belum terlaksana') WHEN `tbl_monitoring`.`status` = '1' THEN coalesce('Sudah Terlaksana') END AS `stket` FROM ((((`tbl_tasks` join `tbl_analisis` on(`tbl_tasks`.`id_analisis` = `tbl_analisis`.`id_analisis`)) join `tbl_satker` on(`tbl_analisis`.`id_satker` = `tbl_satker`.`id_satker` and `tbl_tasks`.`id_satker` = `tbl_satker`.`id_satker`)) join `tbl_indikator` on(`tbl_analisis`.`id_indikator` = `tbl_indikator`.`id_indikator`)) join `tbl_monitoring` on(`tbl_analisis`.`id_analisis` = `tbl_monitoring`.`id_analisis` and `tbl_satker`.`id_satker` = `tbl_monitoring`.`id_satker` and `tbl_tasks`.`id_tasks` = `tbl_monitoring`.`id_tasks`))  ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_rtl_4`
+--
+DROP TABLE IF EXISTS `v_rtl_4`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`silly`@`localhost` SQL SECURITY DEFINER VIEW `v_rtl_4`  AS SELECT `tbl_monitoring`.`id_monitoring` AS `id_monitoring`, `tbl_tasks`.`id_satker` AS `id_satker`, `tbl_satker`.`satker` AS `satker`, `tbl_analisis`.`id_indikator` AS `id_indikator`, `tbl_indikator`.`indikator` AS `indikator`, `tbl_indikator`.`tahun` AS `tahun`, `tbl_tasks`.`id_analisis` AS `id_analisis`, `tbl_analisis`.`analisis` AS `analisis`, `tbl_tasks`.`id_tasks` AS `id_tasks`, `tbl_tasks`.`tasks` AS `tasks`, `tbl_analisis`.`bulan` AS `bulan`, `tbl_monitoring`.`rtl_strategi` AS `rtl_strategi`, `tbl_monitoring`.`potential_blocker` AS `potential_blocker`, `tbl_monitoring`.`pic` AS `pic`, `tbl_monitoring`.`tgl_start` AS `tgl_start`, `tbl_monitoring`.`tgl_deadline` AS `tgl_deadline`, `tbl_monitoring`.`tgl_tercapai` AS `tgl_tercapai`, `tbl_monitoring`.`upload_bukti` AS `upload_bukti`, `tbl_monitoring`.`catatan_pic` AS `catatan_pic`, `tbl_monitoring`.`status` AS `status`, curdate() AS `tgl_sekarang`, CASE WHEN curdate() between `tbl_monitoring`.`tgl_start` and `tbl_monitoring`.`tgl_deadline` AND `tbl_monitoring`.`status` = '0' THEN coalesce('1') WHEN curdate() > `tbl_monitoring`.`tgl_deadline` AND `tbl_monitoring`.`status` = '0' THEN coalesce('0') WHEN `tbl_monitoring`.`status` = '1' THEN coalesce('2') END AS `stwarna`, CASE WHEN curdate() between `tbl_monitoring`.`tgl_start` and `tbl_monitoring`.`tgl_deadline` AND `tbl_monitoring`.`status` = '0' THEN coalesce('Dalam Proses') WHEN curdate() > `tbl_monitoring`.`tgl_deadline` AND `tbl_monitoring`.`status` = '0' THEN coalesce('Belum terlaksana') WHEN `tbl_monitoring`.`status` = '1' THEN coalesce('Sudah Terlaksana') END AS `stket`, `tbl_monitoring`.`ara_kasatker` AS `ara_kasatker` FROM ((((`tbl_tasks` join `tbl_analisis` on(`tbl_tasks`.`id_analisis` = `tbl_analisis`.`id_analisis`)) join `tbl_satker` on(`tbl_analisis`.`id_satker` = `tbl_satker`.`id_satker` and `tbl_tasks`.`id_satker` = `tbl_satker`.`id_satker`)) join `tbl_indikator` on(`tbl_analisis`.`id_indikator` = `tbl_indikator`.`id_indikator`)) join `tbl_monitoring` on(`tbl_analisis`.`id_analisis` = `tbl_monitoring`.`id_analisis` and `tbl_satker`.`id_satker` = `tbl_monitoring`.`id_satker` and `tbl_tasks`.`id_tasks` = `tbl_monitoring`.`id_tasks`))  ;
 
 -- --------------------------------------------------------
 
@@ -656,6 +792,12 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`silly`@`localhost` SQL SECURITY DEFINER VIEW
 --
 ALTER TABLE `contoh`
   ADD PRIMARY KEY (`idconoth`);
+
+--
+-- Indexes for table `pemantik_sess`
+--
+ALTER TABLE `pemantik_sess`
+  ADD KEY `ci_sessions_timestamp` (`timestamp`);
 
 --
 -- Indexes for table `tbl_analisis`
@@ -755,7 +897,7 @@ ALTER TABLE `tbl_analisis`
 -- AUTO_INCREMENT for table `tbl_hak_akses`
 --
 ALTER TABLE `tbl_hak_akses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `tbl_indikator`
@@ -767,19 +909,19 @@ ALTER TABLE `tbl_indikator`
 -- AUTO_INCREMENT for table `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tbl_monitoring`
 --
 ALTER TABLE `tbl_monitoring`
-  MODIFY `id_monitoring` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_monitoring` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_satker`
 --
 ALTER TABLE `tbl_satker`
-  MODIFY `id_satker` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_satker` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbl_setting`
@@ -803,13 +945,13 @@ ALTER TABLE `tbl_tasks`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tbl_user_level`
 --
 ALTER TABLE `tbl_user_level`
-  MODIFY `id_user_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_user_level` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
