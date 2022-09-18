@@ -45,7 +45,7 @@ class Rtlanjut extends CI_Controller
 	    );
             $this->template->load('template','rtlanjut/v_rtl_read', $data);
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('rtlanjut'));
         }
     }
@@ -111,7 +111,7 @@ class Rtlanjut extends CI_Controller
 	    );
 
             $this->Rtlanjut_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success 2');
+            notif('0');
             redirect(site_url('rtlanjut'));
         }
     }
@@ -122,7 +122,7 @@ class Rtlanjut extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Simpan',
+                'button' => 'Perbaharui',
                 'action' => site_url('rtlanjut/update_action'),
 		'id_tasks' => set_value('id_tasks', $row->id_tasks),
 		'satker' => set_value('satker', $row->id_satker),
@@ -133,7 +133,7 @@ class Rtlanjut extends CI_Controller
 	    );
             $this->template->load('template','rtlanjut/v_rtl_formedit', $data);
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('rtlanjut'));
         }
     }
@@ -150,7 +150,7 @@ class Rtlanjut extends CI_Controller
 	    );
 
             $this->Rtlanjut_model->update($this->input->post('id_tasks',TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
+            notif('0');
             redirect(site_url('rtlanjut'));
         }
     }
@@ -161,10 +161,10 @@ class Rtlanjut extends CI_Controller
 
         if ($row) {
             $this->Rtlanjut_model->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
+            notif('2');
             redirect(site_url('rtlanjut'));
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('rtlanjut'));
         }
     }

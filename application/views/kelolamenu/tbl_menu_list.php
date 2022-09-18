@@ -50,7 +50,7 @@
                                     <th>Icon</th>
                                     <th>Is Main Menu</th>
                                     <th>Is Aktif</th>
-                                    <th width="100px">Action</th>
+                                    <th width="100px">Aksi</th>
                                 </tr>
                             </thead>
 
@@ -61,6 +61,37 @@
         </div>
     </section>
 </div>
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+
+                        <h4 class="modal-title" id="deleteModalLabel">Konfirmasi</h4>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        Apa anda yakin akan menghapus data ?
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+
+                        <a class="btn btn-danger btn-ok" id="delete-confirmation"><i class="fa fa-save"></i> Ya</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+    </div>
 <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
 <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>

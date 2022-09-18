@@ -136,7 +136,7 @@ class Target extends CI_Controller
 
         if ($row) {
             $this->Target_model->delete($id);
-            notif('0');
+            notif('2');
             redirect(site_url('target'));
         } else {
             notif('1');

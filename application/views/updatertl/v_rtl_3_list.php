@@ -5,7 +5,7 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA Update RTL</h3>
+                        <h3 class="box-title">KELOLA DATA UPDATE RTL</h3>
                     </div>
                     <style type="text/css">
                     .belum {background-color:#f44336;color: #ffffff;}
@@ -55,7 +55,7 @@
 
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 
-                        <h4 class="modal-title" id="deleteModalLabel">Delete Confirmation</h4>
+                        <h4 class="modal-title" id="deleteModalLabel">Konfirmasi</h4>
 
                     </div>
 

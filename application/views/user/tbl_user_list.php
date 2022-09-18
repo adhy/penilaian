@@ -12,8 +12,8 @@
         <?=$this->session->flashdata('message')?>
         <div style="padding-bottom: 10px;"'>
         <?php echo anchor(site_url('user/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?>
-		<?php echo anchor(site_url('user/excel'), '<i class="fa fa-file-excel-o" aria-hidden="true"></i> Export Ms Excel', 'class="btn btn-success btn-sm"'); ?>
-		<?php echo anchor(site_url('user/word'), '<i class="fa fa-file-word-o" aria-hidden="true"></i> Export Ms Word', 'class="btn btn-primary btn-sm"'); ?></div>
+		<?php //echo anchor(site_url('user/excel'), '<i class="fa fa-file-excel-o" aria-hidden="true"></i> Export Ms Excel', 'class="btn btn-success btn-sm"'); ?>
+		<?php //echo anchor(site_url('user/word'), '<i class="fa fa-file-word-o" aria-hidden="true"></i> Export Ms Word', 'class="btn btn-primary btn-sm"'); ?></div>
         <table class="table table-bordered table-striped" id="mytable">
             <thead>
                 <tr>
@@ -23,7 +23,8 @@
 		    <th>Nama Level</th>
 		    <th>Status</th>
             <th>Jabatan</th>
-		    <th width="200px">Action</th>
+            <th>Satker</th>
+		    <th width="200px">Aksi</th>
                 </tr>
             </thead>
 	    
@@ -34,6 +35,37 @@
             </div>
     </section>
 </div>
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+
+                        <h4 class="modal-title" id="deleteModalLabel">Konfirmasi</h4>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        Apa anda yakin akan menghapus data ?
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+
+                        <a class="btn btn-danger btn-ok" id="delete-confirmation"><i class="fa fa-save"></i> Ya</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+    </div>
         <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
@@ -73,7 +105,7 @@
                         {
                             "data": "id_users",
                             "orderable": false
-                        },{"data": "full_name"},{"data": "email"},{"data": "nama_level"},{"data": "is_aktif"},{"data": "jabatan"},
+                        },{"data": "full_name"},{"data": "email"},{"data": "nama_level"},{"data": "is_aktif"},{"data": "jabatan"},{"data": "satker"},
                         {
                             "data" : "action",
                             "orderable": false,

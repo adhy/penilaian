@@ -94,6 +94,9 @@ function notif($data){
         case 1:
             return $data=$ci->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Record Not Found</div>');
             break;
+        case 2:
+            return $data=$ci->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Hapus Data Success</div>');
+            break;
     }
 
     

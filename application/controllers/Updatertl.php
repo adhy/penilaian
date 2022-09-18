@@ -58,7 +58,7 @@ class Updatertl extends CI_Controller
 	//     );
     //         $this->template->load('template','updatertl/v_rtl_3_read', $data);
     //     } else {
-    //         $this->session->set_flashdata('message', 'Record Not Found');
+    //         notif('1');
     //         redirect(site_url('updatertl'));
     //     }
     // }
@@ -149,7 +149,7 @@ class Updatertl extends CI_Controller
 	    );
             $this->template->load('template','updatertl/v_rtl_3_form', $data);
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('updatertl'));
         }
     }
@@ -187,7 +187,7 @@ class Updatertl extends CI_Controller
 
             $reupdate=$this->Updatertl_model->update($this->input->post('id_monitoring', TRUE), $data);
 			//var_dump($reupdate,$docnya['file_name'],$no);
-            $this->session->set_flashdata('message', 'Update Record Success');
+            notif('0');
             redirect(site_url('updatertl'));
         }
     }
@@ -207,10 +207,10 @@ class Updatertl extends CI_Controller
 
         if ($row) {
             $this->Updatertl_model->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
+            notif('2');
             redirect(site_url('updatertl'));
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('updatertl'));
         }
     }

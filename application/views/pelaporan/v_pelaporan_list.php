@@ -5,13 +5,13 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA V_PELAPORAN</h3>
+                        <h3 class="box-title">KELOLA DATA PELAPORAN</h3>
                     </div>
         
         <div class="box-body">
         <?=$this->session->flashdata('message')?>
         <div style="padding-bottom: 10px;"'>
-        <?php echo anchor(site_url('pelaporan/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?>
+        <?php //echo anchor(site_url('pelaporan/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?>
 		<?php echo anchor(site_url('pelaporan/excel'), '<i class="fa fa-file-excel-o" aria-hidden="true"></i> Export Ms Excel', 'class="btn btn-success btn-sm"'); ?></div>
         <table class="table table-bordered table-striped" id="mytable">
             <thead>

@@ -122,7 +122,7 @@ class Indikator extends CI_Controller
 
         if ($row) {
             $this->Indikator_model->delete($id);
-            notif('0');
+            notif('2');
             redirect(site_url('indikator'));
         } else {
             notif('1');

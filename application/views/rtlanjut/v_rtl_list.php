@@ -5,13 +5,13 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA V_RTL</h3>
+                        <h3 class="box-title">KELOLA DATA TASKS</h3>
                     </div>
         
         <div class="box-body">
         <?=$this->session->flashdata('message')?>
         <div style="padding-bottom: 10px;"'>
-        <?php echo anchor(site_url('rtlanjut/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data Tasks', 'class="btn btn-danger btn-sm"'); ?></div>
+        <?php echo anchor(site_url('rtlanjut/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?></div>
         <table class="table table-bordered table-striped" id="mytable">
             <thead>
                 <tr>
@@ -20,7 +20,7 @@
 		    <th>Analisis</th>
 		    <th>Tasks</th>
             <th>Bulan</th>
-		    <th width="150px">Action</th>
+		    <th width="150px">Aksi</th>
                 </tr>
             </thead>
 	    
@@ -40,7 +40,7 @@
 
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 
-                        <h4 class="modal-title" id="deleteModalLabel">Delete Confirmation</h4>
+                        <h4 class="modal-title" id="deleteModalLabel">Konfirmasi</h4>
 
                     </div>
 

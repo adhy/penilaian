@@ -3,7 +3,7 @@
 	<section class="content">
 		<div class="box box-warning box-solid">
 			<div class="box-header with-border">
-				<h3 class="box-title"><?php echo strtoupper($button) ?> DATA RTL Strategi</h3>
+				<h3 class="box-title"><?php echo strtoupper($button) ?> DATA RTL STRATEGI</h3>
 			</div>
 			<form action="<?php echo $action; ?>" method="post">
 			

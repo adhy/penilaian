@@ -113,7 +113,7 @@ class Satker extends CI_Controller
 
         if ($row) {
             $this->Satker_model->delete($id);
-            notif('0');
+            notif('2');
             redirect(site_url('satker'));
         } else {
             notif('1');

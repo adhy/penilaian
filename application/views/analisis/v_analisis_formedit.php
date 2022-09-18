@@ -2,7 +2,7 @@
 	<section class="content">
 		<div class="box box-warning box-solid">
 			<div class="box-header with-border">
-				<h3 class="box-title"><?php echo strtoupper($button) ?> DATA V_ANALISIS</h3>
+				<h3 class="box-title"><?php echo strtoupper($button) ?> DATA ANALISIS</h3>
 			</div>
 			<form action="<?php echo $action; ?>" method="post">
 			

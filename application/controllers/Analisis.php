@@ -56,7 +56,7 @@ class Analisis extends CI_Controller
 	    );
             $this->template->load('template','analisis/v_analisis_read', $data);
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('analisis'));
         }
     }
@@ -94,7 +94,7 @@ class Analisis extends CI_Controller
 	    );
 
             $this->Analisis_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success 2');
+            notif('0');
             redirect(site_url('analisis'));
         }
     }
@@ -105,7 +105,7 @@ class Analisis extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Simpan',
+                'button' => 'Perbaharui',
                 'action' => site_url('analisis/update_action'),
 		'id_analisis' => set_value('id_analisis', $row->id_analisis),
 		'analisis' => set_value('analisis', $row->analisis),
@@ -115,7 +115,7 @@ class Analisis extends CI_Controller
 	    );
             $this->template->load('template','analisis/v_analisis_formedit', $data);
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('analisis'));
         }
     }
@@ -133,7 +133,7 @@ class Analisis extends CI_Controller
 	    );
 
             $this->Analisis_model->update($this->input->post('id_analisis', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
+            notif('0');
             redirect(site_url('analisis'));
         }
     }
@@ -144,10 +144,10 @@ class Analisis extends CI_Controller
 
         if ($row) {
             $this->Analisis_model->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
+            notif('2');
             redirect(site_url('analisis'));
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('analisis'));
         }
     }

@@ -81,12 +81,12 @@
                         <div class="callout callout-info">
                             <h4>Level Super Admin</h4>
 
-                            <p><b>Email</b> : nuris.akbar@gmail.com</p>
+                            <p><b>Email</b> : superadmin@gmail.com</p>
                             <p><b>Password</b> : password</p>
                             <hr>
                             <h4>Level Admin</h4>
 
-                            <p><b>Email</b> : hafid@gmail.com</p>
+                            <p><b>Email</b> : admin@gmail.com</p>
                             <p><b>Password</b> : password</p>
                             <hr>
                             <h4>Level Usernya</h4>

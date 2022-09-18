@@ -70,7 +70,7 @@ class Arahankasat extends CI_Controller
 	//     );
     //         $this->template->load('template','arahankasat/v_rtl_4_read', $data);
     //     } else {
-    //         $this->session->set_flashdata('message', 'Record Not Found');
+    //         notif('1');
     //         redirect(site_url('arahankasat'));
     //     }
     // }
@@ -141,7 +141,7 @@ class Arahankasat extends CI_Controller
 	//     );
 
     //         $this->Arahankasat_model->insert($data);
-    //         $this->session->set_flashdata('message', 'Create Record Success 2');
+    //         notif('0');
     //         redirect(site_url('arahankasat'));
     //     }
     // }
@@ -180,7 +180,7 @@ class Arahankasat extends CI_Controller
 	    );
             $this->template->load('template','arahankasat/v_rtl_4_form', $data);
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('arahankasat'));
         }
     }
@@ -199,7 +199,7 @@ class Arahankasat extends CI_Controller
 			);
 	
 				$this->Arahankasatsuper_model->update($this->input->post('id_monitoring', TRUE), $data);
-				$this->session->set_flashdata('message', 'Update Record Success');
+				notif('0');
 				redirect(site_url('arahankasat'));
 			}
 			//echo $this->Arahankasatsuper_model->json();
@@ -214,7 +214,7 @@ class Arahankasat extends CI_Controller
 			);
 	
 				$this->Arahankasatkasatker_model->update($this->input->post('id_monitoring', TRUE), $data);
-				$this->session->set_flashdata('message', 'Update Record Success');
+				notif('0');
 				redirect(site_url('arahankasat'));
 			}
 		}else{
@@ -229,10 +229,10 @@ class Arahankasat extends CI_Controller
 
     //     if ($row) {
     //         $this->Arahankasat_model->delete($id);
-    //         $this->session->set_flashdata('message', 'Delete Record Success');
+    //         notif('2');
     //         redirect(site_url('arahankasat'));
     //     } else {
-    //         $this->session->set_flashdata('message', 'Record Not Found');
+    //         notif('1');
     //         redirect(site_url('arahankasat'));
     //     }
     // }
