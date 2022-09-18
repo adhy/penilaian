@@ -91,7 +91,6 @@ class User extends CI_Controller
             redirect(site_url('user'));
         }
     }
-    
     public function update($id) 
     {
         $row = $this->User_model->get_by_id($id);
@@ -188,8 +187,19 @@ class User extends CI_Controller
 	$this->form_validation->set_rules('is_aktif', 'is aktif', 'trim|required');
 
 	$this->form_validation->set_rules('id_users', 'id_users', 'trim');
-	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+	$this->form_validation->set_error_delimiters('<div class="has-error"><label class="text-danger"><i class="fa fa-times-circle-o"></i> ', '</label></div>');
     }
+    // public function _rulesprof() 
+    // {
+	// $this->form_validation->set_rules('full_name', 'full name', 'trim|required');
+	// $this->form_validation->set_rules('email', 'email', 'trim|required');
+	// //$this->form_validation->set_rules('password', 'password', 'trim|required');
+	// //$this->form_validation->set_rules('images', 'images', 'trim|required');
+
+
+	// $this->form_validation->set_rules('id_users', 'id_users', 'trim');
+	// $this->form_validation->set_error_delimiters('<div class="has-error"><label class="text-danger"><i class="fa fa-times-circle-o"></i> ', '</label></div>');
+    // }
 
     public function excel()
     {
@@ -253,9 +263,53 @@ class User extends CI_Controller
         $this->load->view('user/tbl_user_doc',$data);
     }
     
-    function profile(){
-        
-    }
+    // function profile(){
+    //     $id=$this->session->userdata('id_users');;
+    //     $row = $this->User_model->get_by_id($id);
+
+    //     if ($row) {
+    //         $data = array(
+    //             'button'        => 'Update',
+    //             'action'        => site_url('user/profile_action'),
+	// 	'id_users'      => set_value('id_users', $row->id_users),
+	// 	'full_name'     => set_value('full_name', $row->full_name),
+	// 	'email'         => set_value('email', $row->email),
+	// 	'password'      => set_value('password', $row->password),
+	// 	'images'        => set_value('images', $row->images),
+	//     );
+    //         $this->template->load('template','user/tbl_user_edit', $data);
+    //     } else {
+    //         $this->session->set_flashdata('message', 'Record Not Found');
+    //         redirect(site_url('user'));
+    //     }
+    // }
+    // public function profile_action() 
+    // {
+    //     $this->_rulesprof();
+    //     $foto = $this->upload_foto();
+    //     if ($this->form_validation->run() == FALSE) {
+    //         $this->profile($this->input->post('id_users', TRUE));
+    //     } else {
+    //         if($foto['file_name']==''){
+    //             $data = array(
+    //     'idsatker' => $this->input->post('satker',TRUE),
+	// 	'full_name'     => $this->input->post('full_name',TRUE),
+	// 	'email'         => $this->input->post('email',TRUE));
+    //         }else{
+    //             $data = array(
+	// 	'full_name'     => $this->input->post('full_name',TRUE),
+	// 	'email'         => $this->input->post('email',TRUE),
+    //             'images'        =>$foto['file_name']);
+                
+    //             // ubah foto profil yang aktif
+    //             $this->session->set_userdata('images',$foto['file_name']);
+    //         }
+
+    //         $this->User_model->profile($this->input->post('id_users', TRUE), $data);
+    //         $this->session->set_flashdata('message', 'Update Record Success');
+    //         redirect(site_url('user'));
+    //     }
+    // }
 
 }
 

@@ -85,7 +85,19 @@ function datalist_dinamis($name,$table,$field,$value=null){
     $string .='</datalist>';
     return $string;
 }
+function notif($data){
+    $ci = get_instance();
+    switch ($data){
+        case 0:
+            return $data= $ci->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Update Data Success</div>');
+            break;
+        case 1:
+            return $data=$ci->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Record Not Found</div>');
+            break;
+    }
 
+    
+}
 function rename_string_is_aktif($string){
         return $string=='y'?'Aktif':'Tidak Aktif';
     }

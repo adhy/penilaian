@@ -31,26 +31,26 @@ class Target extends CI_Controller
         echo $this->Target_model->json($this->idsatker,$this->tahun);
     }
 
-    public function read($id) 
-    {
-        $row = $this->Target_model->get_by_id($id);
-        if ($row) {
-            $data = array(
-		'id_target' => $row->id_target,
-		'id_indikator' => $row->id_indikator,
-		'indikator' => $row->indikator,
-		'tahun' => $row->tahun,
-		'id_satker' => $row->id_satker,
-		'id_users' => $row->id_users,
-		'bulan' => bulanindo($row->bulan),
-		'target' => $row->target,
-	    );
-            $this->template->load('template','target/v_target_read', $data);
-        } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('target'));
-        }
-    }
+    // public function read($id) 
+    // {
+    //     $row = $this->Target_model->get_by_id($id);
+    //     if ($row) {
+    //         $data = array(
+	// 	'id_target' => $row->id_target,
+	// 	'id_indikator' => $row->id_indikator,
+	// 	'indikator' => $row->indikator,
+	// 	'tahun' => $row->tahun,
+	// 	'id_satker' => $row->id_satker,
+	// 	'id_users' => $row->id_users,
+	// 	'bulan' => bulanindo($row->bulan),
+	// 	'target' => $row->target,
+	//     );
+    //         $this->template->load('template','target/v_target_read', $data);
+    //     } else {
+    //         notif('1');
+    //         redirect(site_url('target'));
+    //     }
+    // }
 
     public function create() 
     {
@@ -85,7 +85,7 @@ class Target extends CI_Controller
 
            $this->Target_model->insert($data);
            // if(!$insert){$error = $this->db->error(); echo $error;}else{ echo "SUCCESSFULLY INSERTED ITEM";}
-            $this->session->set_flashdata('message', 'Create Record Success 2');
+            notif('0');
             redirect(site_url('target'));
         }
     }
@@ -96,7 +96,7 @@ class Target extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Simpan',
+                'button' => 'Perbaharui',
                 'action' => site_url('target/update_action'),
 		'id_target' => set_value('id_target', $row->id_target),
 		'id_indikator' => set_value('indikator', $row->id_indikator),
@@ -105,7 +105,7 @@ class Target extends CI_Controller
 	    );
             $this->template->load('template','target/v_target_form', $data);
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('target'));
         }
     }
@@ -125,7 +125,7 @@ class Target extends CI_Controller
 	    );
 
             $this->Target_model->update($this->input->post('id_target', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
+            notif('0');
             redirect(site_url('target'));
         }
     }
@@ -136,10 +136,10 @@ class Target extends CI_Controller
 
         if ($row) {
             $this->Target_model->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
+            notif('0');
             redirect(site_url('target'));
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('target'));
         }
     }

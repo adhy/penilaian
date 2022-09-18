@@ -70,7 +70,7 @@ class Indikator extends CI_Controller
 	    );
 
             $this->Indikator_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success 2');
+            notif('0');
             redirect(site_url('indikator'));
         }
     }
@@ -81,7 +81,7 @@ class Indikator extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Simpan',
+                'button' => 'Perbaharui',
                 'action' => site_url('indikator/update_action'),
 		'id_indikator' => set_value('id_indikator', $row->id_indikator),
 		//'nama_level' => set_value('nama_level', $row->id_user_level),
@@ -92,7 +92,7 @@ class Indikator extends CI_Controller
 	    );
             $this->template->load('template','indikator/v_indikator_form', $data);
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('indikator'));
         }
     }
@@ -102,7 +102,7 @@ class Indikator extends CI_Controller
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
-            $this->update($this->input->post('', TRUE));
+            $this->update($this->input->post('id_indikator', TRUE));
         } else {
             $data = array(
 		'id_user_level' => $this->input->post('nama_level',TRUE),
@@ -111,7 +111,7 @@ class Indikator extends CI_Controller
 	    );
 
             $this->Indikator_model->update($this->input->post('id_indikator', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
+            notif('0');
             redirect(site_url('indikator'));
         }
     }
@@ -122,10 +122,10 @@ class Indikator extends CI_Controller
 
         if ($row) {
             $this->Indikator_model->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
+            notif('0');
             redirect(site_url('indikator'));
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('indikator'));
         }
     }

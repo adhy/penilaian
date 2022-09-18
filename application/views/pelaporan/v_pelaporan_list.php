@@ -9,6 +9,7 @@
                     </div>
         
         <div class="box-body">
+        <?=$this->session->flashdata('message')?>
         <div style="padding-bottom: 10px;"'>
         <?php echo anchor(site_url('pelaporan/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?>
 		<?php echo anchor(site_url('pelaporan/excel'), '<i class="fa fa-file-excel-o" aria-hidden="true"></i> Export Ms Excel', 'class="btn btn-success btn-sm"'); ?></div>
@@ -41,7 +42,7 @@
 
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 
-                        <h4 class="modal-title" id="deleteModalLabel">Delete Confirmation</h4>
+                        <h4 class="modal-title" id="deleteModalLabel">Konfirmasi</h4>
 
                     </div>
 
@@ -112,7 +113,7 @@
                     order: [[ 0, 'asc' ],[ 3, 'asc' ]],
                     ordering: false,
                     rowGroup: {
-            dataSrc: ['tahun','indikator']
+            dataSrc: ['indikator']
         },
                     order: [[0, 'desc']],
                     rowCallback: function(row, data, iDisplayIndex) {

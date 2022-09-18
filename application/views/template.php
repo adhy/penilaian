@@ -47,16 +47,16 @@
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
-    <body class="hold-transition skin-blue sidebar-mini">
+    <body class="hold-transition sidebar-mini skin-green">
         <div class="wrapper">
 
             <header class="main-header">
                 <!-- Logo -->
                 <a href="<?php echo base_url() ?>adminlte/index2.html" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini"><b>A</b>LT</span>
+                    <span class="logo-mini"><b>PEMANTIK</b></span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b>BROCODE</b>LTE</span>
+                    <span class="logo-lg"><b>PEMANTIK</b></span>
                 </a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top">
@@ -91,7 +91,7 @@
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <?php echo anchor('user/profile', 'Profile', array('class' => 'btn btn-default btn-flat')); ?>
+                                            <?php echo anchor('welcome/profile', 'Profile', array('class' => 'btn btn-default btn-flat')); ?>
                                             <!--<a href="#" class="btn btn-default btn-flat">Profile</a>-->
                                         </div>
                                         <div class="pull-right">
@@ -102,9 +102,9 @@
                                 </ul>
                             </li>
                             <!-- Control Sidebar Toggle Button -->
-                            <li>
+                            <!-- <li>
                                 <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </nav>

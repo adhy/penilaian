@@ -34,7 +34,7 @@ class Satker extends CI_Controller
 	    );
             $this->template->load('template','satker/v_satker_read', $data);
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('satker'));
         }
     }
@@ -65,7 +65,7 @@ class Satker extends CI_Controller
 	    );
 
             $this->Satker_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success 2');
+            notif('0');
             redirect(site_url('satker'));
         }
     }
@@ -76,7 +76,7 @@ class Satker extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Simpan',
+                'button' => 'Perbaharui',
                 'action' => site_url('satker/update_action'),
 		'id_satker' => set_value('id_satker', $row->id_satker),
 		'nama_level' => set_value('nama_level', $row->id_user_level),
@@ -84,7 +84,7 @@ class Satker extends CI_Controller
 	    );
             $this->template->load('template','satker/v_satker_form', $data);
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('satker'));
         }
     }
@@ -102,7 +102,7 @@ class Satker extends CI_Controller
 	    );
 
             $this->Satker_model->update($this->input->post('id_satker', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
+            notif('0');
             redirect(site_url('satker'));
         }
     }
@@ -113,10 +113,10 @@ class Satker extends CI_Controller
 
         if ($row) {
             $this->Satker_model->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
+            notif('0');
             redirect(site_url('satker'));
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('satker'));
         }
     }

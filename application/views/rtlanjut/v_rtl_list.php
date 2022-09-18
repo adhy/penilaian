@@ -9,6 +9,7 @@
                     </div>
         
         <div class="box-body">
+        <?=$this->session->flashdata('message')?>
         <div style="padding-bottom: 10px;"'>
         <?php echo anchor(site_url('rtlanjut/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data Tasks', 'class="btn btn-danger btn-sm"'); ?></div>
         <table class="table table-bordered table-striped" id="mytable">

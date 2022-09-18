@@ -28,9 +28,11 @@ class Target_model extends CI_Model
         $this->datatables->where('tahun', $di);
         //add this line for join
         //$this->datatables->join('table2', 'v_target.field = table2.field');
-        $this->datatables->add_column('action', anchor(site_url('target/read/$1'),'<i class="fa fa-eye" aria-hidden="true"></i>', array('class' => 'btn btn-success btn-sm'))." 
-            ".anchor(site_url('target/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-info btn-sm'))." 
+        $this->datatables->add_column('action', anchor(site_url('target/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-info btn-sm'))." 
                 ".anchor('#','<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" data-href="'.site_url('target/delete/$1').'" data-toggle="modal" data-target="#confirm-delete"'), 'id_target');
+        // $this->datatables->add_column('action', anchor(site_url('target/read/$1'),'<i class="fa fa-eye" aria-hidden="true"></i>', array('class' => 'btn btn-success btn-sm'))." 
+        //     ".anchor(site_url('target/update/$1'),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-info btn-sm'))." 
+        //         ".anchor('#','<i class="fa fa-trash-o" aria-hidden="true"></i>','class="btn btn-danger btn-sm" data-href="'.site_url('target/delete/$1').'" data-toggle="modal" data-target="#confirm-delete"'), 'id_target');
         return $this->datatables->generate();
     }
 

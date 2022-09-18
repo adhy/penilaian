@@ -9,6 +9,7 @@
                     </div>
         
         <div class="box-body">
+        <?=$this->session->flashdata('message')?>
         <div style="padding-bottom: 10px;"'>
         <?php echo anchor(site_url('satker/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?></div>
         <table class="table table-bordered table-striped" id="mytable">
@@ -17,7 +18,7 @@
                     <th width="30px">No</th>
 		    <th>Kelompok Satker</th>
 		    <th>Satker</th>
-		    <th width="200px">Action</th>
+		    <th width="200px">Aksi</th>
                 </tr>
             </thead>
 	    
@@ -37,7 +38,7 @@
 
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 
-                        <h4 class="modal-title" id="deleteModalLabel">Delete Confirmation</h4>
+                        <h4 class="modal-title" id="deleteModalLabel">Konfirmasi</h4>
 
                     </div>
 
