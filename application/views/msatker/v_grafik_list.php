@@ -1,18 +1,13 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/morris/morris.css') ?>">
     <div class="content-wrapper">
     <section class="content">
-    <?=$this->session->flashdata('message')?>
-    <?php echo alert('alert-info', 'Selamat Datang', 'Selamat Datang')?>
-    <?php 
-     $satker=$this->session->userdata('idsatker');
-     if($satker!=12){
-    ?>
         <div class="row">
             <div class="col-xs-12">
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">Grafik Monitoring</h3>
+                       
+                        <h3 class="box-title">Grafik Monitoring <?=$this->session->userdata('satkerr');?></h3>
                     </div>
         
         <div class="box-body">
@@ -23,7 +18,6 @@
                     </div>
             </div>
             </div>
-            <?php }?>
     </section>
 </div>
         <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>

@@ -5,37 +5,24 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA UPDATE RTL</h3>
+                        <h3 class="box-title">Kelola Data target, Relasi dan Capaian <?=$satker?></h3>
                     </div>
-                    <style type="text/css">
-                    .belum {background-color:#f44336;color: #ffffff;}
-                    .proses {background-color:#ffc107;}
-                    .sudah {background-color:#2196f3;color: #ffffff;}
-                    </style>
+        
         <div class="box-body">
         <?=$this->session->flashdata('message')?>
         <div style="padding-bottom: 10px;"'>
-        <?php // echo anchor(site_url('updatertl/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?></div>
+        <?php //echo anchor(site_url('pelaporan/create'), '<i class="fa fa-wpforms" aria-hidden="true"></i> Tambah Data', 'class="btn btn-danger btn-sm"'); ?>
+		<?php echo anchor(site_url('msatker/excel'), '<i class="fa fa-file-excel-o" aria-hidden="true"></i> Export Ms Excel', 'class="btn btn-success btn-sm"'); ?></div>
         <table class="table table-bordered table-striped" id="mytable">
             <thead>
                 <tr>
                     <th width="30px">No</th>
-                    <th>Indikator</th>
-		    <th>Analisis</th>
-		    <th>Tasks</th>
-            <th>Bulan</th>
-		    <th>Rtl Strategi</th>
-		    <th>Potential Blocker</th>
-		    <th>PIC</th>
-		    <th>Tanggal Start</th>
-		    <th width="130px">Tanggal Deadline</th>
-		    <th width="130px">Tanggal Update</th>
-		    <th width="100px">Upload Bukti</th>
-		    <th>Catatan PIC</th>
-		    <th>Status</th>
-		    <th width="50px">Status</th>
-		    <th>Status</th>
-		    <th width="50px">Action</th>
+            <th>Indikator</th>
+		    <th>Tahun</th>
+		    <th>Bulan</th>
+		    <th>Target</th>
+		    <th>Realisasi</th>
+		    <th>Capaian</th>
                 </tr>
             </thead>
 	    
@@ -80,7 +67,6 @@
         <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
-        <script src="<?php echo base_url('assets/js/moment.min.js') ?>"></script>
         <script type="text/javascript">
             $(document).ready(function() {
                 $.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings)
@@ -107,44 +93,29 @@
                             }
                         });
                     },
+                    oLanguage: {
+                        sProcessing: "loading..."
+                    },
                     pageLength: 50,
                     lengthMenu: [
                                 [ 50, -1],
                                 [ 50, 'All'],
                             ],
-                    oLanguage: {
-                        sProcessing: "loading..."
-                    },
                     processing: true,
                     serverSide: true,
-                    ajax: {"url": "updatertl/json", "type": "POST"},
+                    ajax: {"url": "<?=site_url()?>msatker/json_monev", "type": "POST"},
                     columns: [
                         {
                             "data": "id_indikator",
                             "orderable": false
-                        },{"data": "indikator","orderable": false,"visible": false},{"data": "analisis","orderable": false,"visible": false},{"data": "tasks","visible": false},{"data": "bulan","orderable": false,"visible": false},{"data": "rtl_strategi"},{"data": "potential_blocker"},{"data": "pic"},{"data": "tgl_start","visible": false},{"data": "tgl_deadline"},{"data": "tgl_tercapai"},{"data": "upload_bukti"},{"data": "catatan_pic"},{"data": "status","visible": false},{"data": "stwarnaa"},{"data": "stket","visible": false},
-                        {
-                            "data" : "action",
-                            "orderable": false,
-                            "className" : "text-center"
-                        }
+                        },{"data": "indikator","visible": false,"className" : "text-indikator"},{"data": "tahun","visible": false},{"data": "bulan","orderable": false},{"data": "target"},{"data": "realisasi"},{"data": "capaian"}
                     ],
-                    order: [[ 0, 'asc' ]],
+                    order: [[ 0, 'asc' ],[ 3, 'asc' ]],
                     ordering: false,
                     rowGroup: {
-            dataSrc: ['indikator','analisis','bulan','tasks']
+            dataSrc: ['indikator']
         },
-        // createdRow: function (row, data, index) {
-        //    // var a = moment(data.stwarna);
-        //     if (data['stket']=='Belum terlaksana') {
-        //         $('td', row).eq(8).addClass('belum');
-        //     }else if(data['stket'] =='Dalam Proses'){
-        //         $('td', row).eq(8).addClass('proses');
-        //     }else{
-        //         $('td', row).eq(8).addClass('sudah');
-        //     }
-        //     //console.log(data['stket']);
-        // },
+                    order: [[0, 'desc']],
                     rowCallback: function(row, data, iDisplayIndex) {
                         var info = this.fnPagingInfo();
                         var page = info.iPage;

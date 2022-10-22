@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Garuda CRUD Generator</title>
+        <title>Aplikasi Pemantik</title>
         <!-- Tell the browser to be responsive to screen width -->
+        <link rel="icon" type="image/png" href="<?=base_url()?>assets/img/favicon.png"/>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.7 -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -68,9 +69,6 @@
                     <div class="col-xs-4">
                         <button type="submit" class="btn btn-danger btn-block btn-flat"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</button>
                     </div>
-                    <div class="col-xs-6">
-                        <?php echo anchor('#', '<i class="fa fa-eye-slash" aria-hidden="true"></i> Lupa Password', array('class' => 'btn btn-primary btn-block btn-flat')); ?>
-                    </div>
                 </div>
                 <!-- /.col -->
 
@@ -84,12 +82,17 @@
                             <p><b>Email</b> : superadmin@gmail.com</p>
                             <p><b>Password</b> : password</p>
                             <hr>
-                            <h4>Level Admin</h4>
+                            <h4>Level Admin Monev</h4>
 
-                            <p><b>Email</b> : admin@gmail.com</p>
+                            <p><b>Email</b> : monev@mail.com</p>
                             <p><b>Password</b> : password</p>
                             <hr>
-                            <h4>Level Usernya</h4>
+                            <h4>Level Kepala</h4>
+
+                            <p><b>Email</b> : kk11@mail.com</p>
+                            <p><b>Password</b> : password</p>
+                            <hr>
+                            <h4>Level Staff</h4>
 
                             <p><b>Email</b> : kk1@mail.com</p>
                             <p><b>Password</b> : password</p>

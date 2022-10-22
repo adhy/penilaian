@@ -171,7 +171,6 @@ class Updatertl extends CI_Controller
 				if($docnya['file_name']==''){
 				$data = array(
 					'tgl_tercapai' => $curr_date,
-					'upload_bukti' => $upload_bukti,
 					'catatan_pic' => $catatan_pic,
 					'status' => $status,
 					);
@@ -180,7 +179,7 @@ class Updatertl extends CI_Controller
 						'tgl_tercapai' => $curr_date,
 						'upload_bukti' => $docnya['file_name'],
 						'catatan_pic' => $catatan_pic,
-						'status' => $status,
+						'status' => '2',
 						);
 						$this->session->set_userdata('upload_bukti',$docnya['file_name']);
 				}

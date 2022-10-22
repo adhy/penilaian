@@ -34,7 +34,8 @@
 					<tr>
 						<td width='200'>Tahun </td><td>
 						<?php $tahun=$this->session->userdata('tahun'); ?>
-						<input type="number" name="tahun" value="<?php echo $tahun; ?>" disabled="disabled" class="form-control" />
+						<input type="hidden" name="tahun" value="<?php echo $tahun; ?>" />
+						<input type="number" name="tahunnya" value="<?php echo $tahun; ?>" disabled="disabled" class="form-control" />
 
 						 <?php echo form_error('tahun') ?></td>
 					</tr>

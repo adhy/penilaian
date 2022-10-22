@@ -122,7 +122,7 @@ function add_symbolg($string,$symbol,$position){
     }
 }
 function tglkosong($string){
-	if(empty($string)){$string='<span class="label label-danger">Kosong</span>';}else{$string=tgl_indo($string);}
+	if(empty($string)|| $string=="0000-00-00"){$string='<span class="label label-danger">Kosong</span>';}else{$string=tgl_indo($string);}
 	return $string;
 }
 function rename_jabatan($string){
@@ -147,12 +147,24 @@ function ChaCol($string){
             return $string='<span class="label label-warning">Dalam Proses</span>';
             break;
         case 2:
-            return $string='<span class="label bg-aqua">Sudah Terlaksana</span>';
+            return $string='<span class="label bg-green">Sudah Terlaksana</span>';
+            break;
+        case 3:
+            return $string='<span class="label label-warning">Dalam Proses</span>';
+            break;
+        case 4:
+            return $string='<span class="label label-danger">Belum terlaksana</span>';
             break;
     }
 }
 function add_upload($string){
     if(empty($string)){$string='<p class="text-red">Belum Upload</p>';}else{$string=anchor(site_url('assets/doc_upload/'.$string.''),'<i class="fa fa-file-pdf-o fa-2x pr-1" aria-hidden="true"></i>Unduh');}
+    return $string;
+}
+function aksi_lock($string,$st){
+    if($st=='3'||$st=='4'){$string='<button type="button" class="btn btn-info btn-sm disabled"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>';}else{
+        $string=anchor(site_url('updatertl/update/'.$string.''),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-info btn-sm'));
+    }
     return $string;
 }
 function tgl_indomin($tanggal){

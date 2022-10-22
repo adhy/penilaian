@@ -72,12 +72,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
-$typec = 'local2a';
+$typec = 'local19';
 if ($typec == 'local1'){
 	$hostname = 'localhost';
-	$username = 'teztikom_silly';
-	$password = '%$x!qzp{5.tg';
-	$database = 'teztikom_surat';
+	$username = 'naisyanr_farm';
+	$password = '#o%^^ll!_(?}b@~rk*';
+	$database = 'naisyanr_pemantik';
 }elseif($typec == 'local2'){
 	$hostname = 'localhost';
 	$username = 'pusjak1';

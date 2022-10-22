@@ -199,10 +199,12 @@ class Pelaporan extends CI_Controller
 	xlsWriteLabel($tablehead, $kolomhead++, "Bulan");
 	xlsWriteLabel($tablehead, $kolomhead++, "Target");
 	xlsWriteLabel($tablehead, $kolomhead++, "Realisasi");
-	xlsWriteLabel($tablehead, $kolomhead++, "Capaian");
+	xlsWriteLabel($tablehead, $kolomhead++, "Capaian(%)");
 	xlsWriteLabel($tablehead, $kolomhead++, "Satker");
-
-	foreach ($this->Pelaporan_model->get_all() as $data) {
+    $this->tahun=$this->session->userdata('tahun');
+     $iduser= $this->session->userdata('id_users');
+     $laporan=$this->Pelaporan_model->get_all($iduser,$this->tahun);
+	foreach ( $laporan as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric

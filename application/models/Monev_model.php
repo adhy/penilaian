@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Pelaporan_model extends CI_Model
+class Monev_model extends CI_Model
 {
 
     public $table = 'v_pelaporan';

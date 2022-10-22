@@ -71,21 +71,34 @@ class User extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
+            $email=$this->input->post('email',TRUE);
+            $id_user='';
+            $this->_usercheck($email,$id_user);
             $password       = $this->input->post('password',TRUE);
             $options        = array("cost"=>4);
             $hashPassword   = password_hash($password,PASSWORD_BCRYPT,$options);
-            
-            $data = array(
-        'idsatker' => $this->input->post('satker',TRUE),        
-		'full_name'     => $this->input->post('full_name',TRUE),
-		'email'         => $this->input->post('email',TRUE),
-		'password'      => $hashPassword,
-		'images'        => $foto['file_name'],
-		'id_user_level' => $this->input->post('id_user_level',TRUE),
-		'is_aktif'      => $this->input->post('is_aktif',TRUE),
-		'jabatan'      => $this->input->post('jabatan',TRUE),
-	    );
-
+            if($foto['file_name']==''){
+                $data = array(
+                    'idsatker' => $this->input->post('satker',TRUE),        
+                    'full_name'     => $this->input->post('full_name',TRUE),
+                    'email'         => $this->input->post('email',TRUE),
+                    'password'      => $hashPassword,
+                    'id_user_level' => $this->input->post('id_user_level',TRUE),
+                    'is_aktif'      => $this->input->post('is_aktif',TRUE),
+                    'jabatan'      => $this->input->post('jabatan',TRUE),
+                    );
+            }else{
+                $data = array(
+                    'idsatker' => $this->input->post('satker',TRUE),        
+                    'full_name'     => $this->input->post('full_name',TRUE),
+                    'email'         => $this->input->post('email',TRUE),
+                    'password'      => $hashPassword,
+                    'images'        => $foto['file_name'],
+                    'id_user_level' => $this->input->post('id_user_level',TRUE),
+                    'is_aktif'      => $this->input->post('is_aktif',TRUE),
+                    'jabatan'      => $this->input->post('jabatan',TRUE),
+                    );
+            }
             $this->User_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
             redirect(site_url('user'));
@@ -109,7 +122,8 @@ class User extends CI_Controller
 		'is_aktif'      => set_value('is_aktif', $row->is_aktif),
 		'jabatan'      => set_value('jabatan', $row->jabatan),
 	    );
-            $this->template->load('template','user/tbl_user_form', $data);
+        $ses_data['emailupdate']      = $row->email;
+            $this->template->load('template','user/tbl_user_formedit', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('user'));
@@ -123,18 +137,19 @@ class User extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->update($this->input->post('id_users', TRUE));
         } else {
+            $email=$this->input->post('email',TRUE);
+            $id_user=$this->input->post('id_users', TRUE);
+            $this->_usercheck($email,$id_user);
             if($foto['file_name']==''){
                 $data = array(
         'idsatker' => $this->input->post('satker',TRUE),
 		'full_name'     => $this->input->post('full_name',TRUE),
-		'email'         => $this->input->post('email',TRUE),
 		'id_user_level' => $this->input->post('id_user_level',TRUE),
 		'is_aktif'      => $this->input->post('is_aktif',TRUE),
 		'jabatan'      => $this->input->post('jabatan',TRUE));
             }else{
                 $data = array(
 		'full_name'     => $this->input->post('full_name',TRUE),
-		'email'         => $this->input->post('email',TRUE),
                 'images'        =>$foto['file_name'],
 		'id_user_level' => $this->input->post('id_user_level',TRUE),
 		'is_aktif'      => $this->input->post('is_aktif',TRUE),
@@ -175,6 +190,19 @@ class User extends CI_Controller
             redirect(site_url('user'));
         }
     }
+    public function _usercheck($mail,$idnya){
+        $list = $this->User_model->get_mail($mail);
+        if($list->num_rows()>0){
+            if($this->session->userdata('emailupdate')==$mail){
+                return true;
+            }else{
+                $this->session->set_flashdata('message', 'Gagal menambah data');
+            redirect(site_url('user'));
+            }
+        }else{
+            return true;
+        }
+    }    
 
     public function _rules() 
     {

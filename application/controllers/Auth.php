@@ -28,14 +28,14 @@ Class Auth extends CI_Controller{
                 redirect('auth');
             }
         }else{
-            $this->session->set_flashdata('status_login','email atau password yang anda input salah');
+            $this->session->set_flashdata('status_login','<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>email atau password yang anda input salah</div>');
             redirect('auth');
         }
     }
     
     function logout(){
         $this->session->sess_destroy();
-        $this->session->set_flashdata('status_login','Anda sudah berhasil keluar dari aplikasi');
+        $this->session->set_flashdata('status_login','<div class="alert alert-info alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>Anda sudah berhasil keluar dari aplikasi</div>');
         redirect('auth');
     }
 }

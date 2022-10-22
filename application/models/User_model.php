@@ -96,6 +96,17 @@ class User_model extends CI_Model
         $this->db->order_by('id', $this->order);
         return $this->db->get($this->table2)->result();
     }
+    function get_mail($data){
+        $this->db->where('email',$data);
+        $result=$this->db->get($this->table);
+        return $result;
+    }
+    function get_data($id=null,$di){
+        $this->db->select('id_satker,satker,tahun,bulan,s0jan,s1jan,s2jan,stask1,bstask1,s0feb,s1feb,s2feb,stask2,bstask2,s0mar,s1mar,s2mar,stask3,bstask3,s0apr,s1apr,s2apr,stask4,bstask4,s0mei,s1mei,s2mei,stask5,bstask5,s0jun,s1jun,s2jun,stask6,bstask6,s0jul,s1jul,s2jul,stask7,bstask7,s0aug,s1aug,s2aug,stask8,bstask8,s0sep,s1sep,s2sep,stask9,bstask9,s0okt,s1okt,s2okt,stask10,bstask10,s0nov,s1nov,s2nov,stask11,bstask11,s0des,s1des,s2des,stask12,bstask12');
+        $this->db->where('id_satker',$id);
+        $this->db->where('tahun',$di);
+        return $this->db->get('v_grafik')->row();
+    }
 
 }
 
