@@ -65,12 +65,15 @@
 					<tr>
 						<td width='200'>Tanggal Deadline </td>
 						<td>
-
+						<?php 
+						$date = new DateTime($tgl_deadline);
+    					$datef=$date->format('d-F-Y');
+						?>
 						<div class="input-group date">
 							<div class="input-group-addon">
 								<i class="fa fa-calendar"></i>
 							</div>
-							<input type="text" class="form-control pull-right datepicker" name="tgl_deadline" id="tgl_deadline" autocomplete="off" placeholder="dd/mm/yyyy" value="<?php echo tgl_indomin($tgl_deadline); ?>" />
+							<input type="text" class="form-control pull-right datepicker" name="tgl_deadline" id="tgl_deadline" autocomplete="off" placeholder="dd/mm/yyyy" value="<?php echo $datef;?>" />
 						</div><?php echo form_error('tgl_deadline') ?>
 						</td>
 					</tr>
@@ -93,18 +96,18 @@
 <script src="<?php echo base_url('assets/datepicker/bootstrap-datepicker.js') ?>" charset="UTF-8"></script>
 
 <script type="text/javascript">
-	$.fn.datepicker.dates['id'] = {
-    days: ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"],
-    daysShort: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
-    daysMin: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
-    months: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
-    monthsShort: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
-    today: "Hari Ini",
-    clear: "Clear",
-    format: "mm/dd/yyyy",
-    titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
-    weekStart: 0
-};
+// 	$.fn.datepicker.dates['id'] = {
+//     days: ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"],
+//     daysShort: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
+//     daysMin: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
+//     months: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+//     monthsShort: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
+//     today: "Hari Ini",
+//     clear: "Clear",
+//     format: "mm/dd/yyyy",
+//     titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
+//     weekStart: 0
+// };
 	$('[name="indikator"]').attr('id', 'indikator');
 	//$.datepicker.setDefaults( $.datepicker.regional[ "" ] );
 	$('.datepicker').datepicker({

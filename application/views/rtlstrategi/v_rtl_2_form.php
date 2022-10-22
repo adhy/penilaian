@@ -102,18 +102,18 @@
 <script src="<?php echo base_url('assets/datepicker/bootstrap-datepicker.js') ?>" charset="UTF-8"></script>
 
 <script type="text/javascript">
-	$.fn.datepicker.dates['id'] = {
-    days: ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"],
-    daysShort: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
-    daysMin: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
-    months: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
-    monthsShort: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
-    today: "Hari Ini",
-    clear: "Clear",
-    format: "mm/dd/yyyy",
-    titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
-    weekStart: 0
-};
+// 	$.fn.datepicker.dates['id'] = {
+//     days: ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"],
+//     daysShort: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
+//     daysMin: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
+//     months: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+//     monthsShort: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des"],
+//     today: "Hari Ini",
+//     clear: "Clear",
+//     format: "mm/dd/yyyy",
+//     titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
+//     weekStart: 0
+// };
 	$('[name="indikator"]').attr('id', 'indikator');
 	//$.datepicker.setDefaults( $.datepicker.regional[ "" ] );
 	$('.datepicker').datepicker({

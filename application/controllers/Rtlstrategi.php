@@ -51,7 +51,7 @@ class Rtlstrategi extends CI_Controller
 	    );
             $this->template->load('template','rtlstrategi/v_rtl_2_read', $data);
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('rtlstrategi'));
         }
     }
@@ -132,8 +132,10 @@ class Rtlstrategi extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
-		$deadline = DateTime::createFromFormat('d-M-Y', $this->input->post('tgl_deadline',TRUE));
-		$deadline=$deadline->format('Y-m-d');
+            $date=$this->input->post('tgl_deadline');
+		$deadline = DateTime::createFromFormat('d-F-Y', $date)->format('Y-m-d');
+        //$deadline=$deadline->format('Y-m-d');
+		//$deadline=$deadline;
             $data = array(
 		'id_monitoring' => $this->input->post('id_monitoring',TRUE),
 		'id_satker' => $this->input->post('satker',TRUE),
@@ -147,7 +149,7 @@ class Rtlstrategi extends CI_Controller
 	    );
 
             $this->Rtlstrategi_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success 2');
+            notif('0');
             redirect(site_url('rtlstrategi'));
         }
     }
@@ -172,7 +174,7 @@ class Rtlstrategi extends CI_Controller
 	    );
             $this->template->load('template','rtlstrategi/v_rtl_2_formedit', $data);
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('rtlstrategi'));
         }
     }
@@ -196,7 +198,7 @@ class Rtlstrategi extends CI_Controller
 	    );
 
             $this->Rtlstrategi_model->update($this->input->post('id_monitoring', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
+            notif('0');
             redirect(site_url('rtlstrategi'));
         }
     }
@@ -207,10 +209,10 @@ class Rtlstrategi extends CI_Controller
 
         if ($row) {
             $this->Rtlstrategi_model->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
+            notif('2');
             redirect(site_url('rtlstrategi'));
         } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+            notif('1');
             redirect(site_url('rtlstrategi'));
         }
     }
