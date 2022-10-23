@@ -128,6 +128,7 @@ class Updatertl extends CI_Controller
 	
     public function update($id) 
     {
+		
         $row = $this->Updatertl_model->get_by_id($id);
         if ($row) {
             $data = array(
@@ -170,19 +171,21 @@ class Updatertl extends CI_Controller
 				if(!isset($_FILES['upload_bukti'])){$upload_bukti='0';}
 				$catatan_pic=$this->input->post('catatan_pic',TRUE);
 				$status='';
+				$data='';
 				if(!isset($catatan_pic)){$status='0';}else{$status='1';}
 				if($docnya['file_name']==''){
-					if($statusnya==2){
-						$data = array(
-							'tgl_tercapai' => $curr_date,
-							'catatan_pic' => $catatan_pic,
-							'status' => 2,
-							);
-					}else{
+					if($statusnya!='2'){
 						$data = array(
 							'tgl_tercapai' => $curr_date,
 							'catatan_pic' => $catatan_pic,
 							'status' => $status,
+							);
+							
+					}else{
+						$data = array(
+							'tgl_tercapai' => $curr_date,
+							'catatan_pic' => $catatan_pic,
+							'status' => '2',
 							);
 					}
 				
@@ -195,11 +198,11 @@ class Updatertl extends CI_Controller
 						);
 						$this->session->set_userdata('upload_bukti',$docnya['file_name']);
 				}
-
+				//var_dump($statusnya,$data);
             $reupdate=$this->Updatertl_model->update($this->input->post('id_monitoring', TRUE), $data);
 			//var_dump($reupdate,$docnya['file_name'],$no);
             notif('0');
-            redirect(site_url('updatertl'));
+           redirect(site_url('updatertl'));
         }
     }
     function upload_doc(){
