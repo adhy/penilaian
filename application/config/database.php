@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
-$typec = 'local19';
+$typec = 'local1';
 if ($typec == 'local1'){
 	$hostname = 'localhost';
 	$username = 'naisyanr_farm';
