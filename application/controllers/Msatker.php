@@ -59,7 +59,7 @@ class Msatker extends CI_Controller
         $this->session->set_userdata($ses_data);
         $this->tahun=$this->session->userdata('tahun');
         $row=$this->User_model->get_data($grafik,$this->tahun);
-        //$data='';
+        $data='';
             if ($row) {
                 $data = array(
                     'Jan'=>$row->bstask1,'Feb'=>$row->bstask2,'Mar'=>$row->bstask3,'Apr'=>$row->bstask4,'Mei'=>$row->bstask5,'Jun'=>$row->bstask6,'Jul'=>$row->bstask7,'Aug'=>$row->bstask8,'Sep'=>$row->bstask9,'Okt'=>$row->bstask10,'Nov'=>$row->bstask11,'Des'=>$row->bstask12,'s0jan'=>$row->s0jan,'s1jan'=>$row->s1jan,'s2jan'=>$row->s2jan,'s0feb'=>$row->s0feb,'s1feb'=>$row->s1feb,'s2feb'=>$row->s2feb,'s0mar'=>$row->s0mar,'s1mar'=>$row->s1mar,'s2mar'=>$row->s2mar,'s0apr'=>$row->s0apr,'s1apr'=>$row->s1apr,'s2apr'=>$row->s2apr,'s0mei'=>$row->s0mei,'s1mei'=>$row->s1mei,'s2mei'=>$row->s2mei,'s0jun'=>$row->s0jun,'s1jun'=>$row->s1jun,'s2jun'=>$row->s2jun,'s0jul'=>$row->s0jul,'s1jul'=>$row->s1jul,'s2jul'=>$row->s2jul,'s0aug'=>$row->s0aug,'s1aug'=>$row->s1aug,'s2aug'=>$row->s2aug,'s0sep'=>$row->s0sep,'s1sep'=>$row->s1sep,'s2sep'=>$row->s2sep,'s0okt'=>$row->s0okt,'s1okt'=>$row->s1okt,'s2okt'=>$row->s2okt,'s0nov'=>$row->s0nov,'s1nov'=>$row->s1nov,'s2nov'=>$row->s2nov,'s0des'=>$row->s0des,'s1des'=>$row->s1des,'s2des'=>$row->s2des

@@ -102,11 +102,79 @@ class User_model extends CI_Model
         return $result;
     }
     function get_data($id=null,$di){
-        $this->db->select('id_satker,satker,tahun,bulan,s0jan,s1jan,s2jan,stask1,bstask1,s0feb,s1feb,s2feb,stask2,bstask2,s0mar,s1mar,s2mar,stask3,bstask3,s0apr,s1apr,s2apr,stask4,bstask4,s0mei,s1mei,s2mei,stask5,bstask5,s0jun,s1jun,s2jun,stask6,bstask6,s0jul,s1jul,s2jul,stask7,bstask7,s0aug,s1aug,s2aug,stask8,bstask8,s0sep,s1sep,s2sep,stask9,bstask9,s0okt,s1okt,s2okt,stask10,bstask10,s0nov,s1nov,s2nov,stask11,bstask11,s0des,s1des,s2des,stask12,bstask12');
-        $this->db->where('id_satker',$id);
-        $this->db->where('tahun',$di);
-        return $this->db->get('v_grafik')->row();
+        $sql="SELECT
+        v_rtl_3.id_satker,
+        v_rtl_3.satker,
+        v_rtl_3.tahun,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '0' AND bulan = '1' AND id_satker='".$id."') AS s0jan,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '1' AND bulan = '1' AND id_satker='".$id."') AS s1jan,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '2' AND bulan = '1' AND id_satker='".$id."') AS s2jan,
+        ( SELECT COUNT( id_tasks ) FROM v_rtl_3 WHERE bulan = '1' AND id_satker='".$id."') AS stask1,
+        ( CASE WHEN bulan IS NOT NULL THEN COALESCE ( 'Jan' ) END ) AS bstask1,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '0' AND bulan = '2' AND id_satker='".$id."') AS s0feb,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '1' AND bulan = '2' AND id_satker='".$id."') AS s1feb,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '2' AND bulan = '2' AND id_satker='".$id."') AS s2feb,
+        ( SELECT COUNT( id_tasks ) FROM v_rtl_3 WHERE bulan = '2' AND id_satker='".$id."') AS stask2,
+        ( CASE WHEN bulan IS NOT NULL THEN COALESCE ( 'Feb' ) END ) AS bstask2,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '0' AND bulan = '3' AND id_satker='".$id."') AS s0mar,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '1' AND bulan = '3' AND id_satker='".$id."') AS s1mar,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '2' AND bulan = '3' AND id_satker='".$id."') AS s2mar,
+        ( SELECT COUNT( id_tasks ) FROM v_rtl_3 WHERE bulan = '3' AND id_satker='".$id."') AS stask3,
+        ( CASE WHEN bulan IS NOT NULL THEN COALESCE ( 'Mar' ) END ) AS bstask3,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '0' AND bulan = '4' AND id_satker='".$id."') AS s0apr,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '1' AND bulan = '4' AND id_satker='".$id."') AS s1apr,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '2' AND bulan = '4' AND id_satker='".$id."') AS s2apr,
+        ( SELECT COUNT( id_tasks ) FROM v_rtl_3 WHERE bulan = '4' AND id_satker='".$id."') AS stask4,
+        ( CASE WHEN bulan IS NOT NULL THEN COALESCE ( 'Apr' ) END ) AS bstask4,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '0' AND bulan = '5' AND id_satker='".$id."') AS s0mei,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '1' AND bulan = '5' AND id_satker='".$id."') AS s1mei,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '2' AND bulan = '5' AND id_satker='".$id."') AS s2mei,
+        ( SELECT COUNT( id_tasks ) FROM v_rtl_3 WHERE bulan = '5' AND id_satker='".$id."') AS stask5,
+        ( CASE WHEN bulan IS NOT NULL THEN COALESCE ( 'Mei' ) END ) AS bstask5,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '0' AND bulan = '6' AND id_satker='".$id."') AS s0jun,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '1' AND bulan = '6' AND id_satker='".$id."') AS s1jun,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '2' AND bulan = '6' AND id_satker='".$id."') AS s2jun,
+        ( SELECT COUNT( id_tasks ) FROM v_rtl_3 WHERE bulan = '6' AND id_satker='".$id."') AS stask6,
+        ( CASE WHEN bulan IS NOT NULL THEN COALESCE ( 'Jun' ) END ) AS bstask6,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '0' AND bulan = '7' AND id_satker='".$id."') AS s0jul,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '1' AND bulan = '7' AND id_satker='".$id."') AS s1jul,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '2' AND bulan = '7' AND id_satker='".$id."') AS s2jul,
+        ( SELECT COUNT( id_tasks ) FROM v_rtl_3 WHERE bulan = '7' AND id_satker='".$id."') AS stask7,
+        ( CASE WHEN bulan IS NOT NULL THEN COALESCE ( 'Jul' ) END ) AS bstask7,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '0' AND bulan = '8' AND id_satker='".$id."') AS s0aug,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '1' AND bulan = '8' AND id_satker='".$id."') AS s1aug,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '2' AND bulan = '8' AND id_satker='".$id."') AS s2aug,
+        ( SELECT COUNT( id_tasks ) FROM v_rtl_3 WHERE bulan = '8' AND id_satker='".$id."') AS stask8,
+        ( CASE WHEN bulan IS NOT NULL THEN COALESCE ( 'Aug' ) END ) AS bstask8,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '0' AND bulan = '9' AND id_satker='".$id."') AS s0sep,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '1' AND bulan = '9' AND id_satker='".$id."') AS s1sep,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '2' AND bulan = '9' AND id_satker='".$id."') AS s2sep,
+        ( SELECT COUNT( id_tasks ) FROM v_rtl_3 WHERE bulan = '9' AND id_satker='".$id."') AS stask9,
+        ( CASE WHEN bulan IS NOT NULL THEN COALESCE ( 'Sep' ) END ) AS bstask9,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '0' AND bulan = '10' AND id_satker='".$id."') AS s0okt,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '1' AND bulan = '10' AND id_satker='".$id."') AS s1okt,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '2' AND bulan = '10' AND id_satker='".$id."') AS s2okt,
+        ( SELECT COUNT( id_tasks ) FROM v_rtl_3 WHERE bulan = '10' AND id_satker='".$id."') AS stask10,
+        ( CASE WHEN bulan IS NOT NULL THEN COALESCE ( 'Okt' ) END ) AS bstask10,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '0' AND bulan = '11' AND id_satker='".$id."' ) AS s0nov,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '1' AND bulan = '11' AND id_satker='".$id."') AS s1nov,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '2' AND bulan = '11' AND id_satker='".$id."') AS s2nov,
+        ( SELECT COUNT( id_tasks ) FROM v_rtl_3 WHERE bulan = '11' AND id_satker='".$id."') AS stask11,
+        ( CASE WHEN bulan IS NOT NULL THEN COALESCE ( 'Nov' ) END ) AS bstask11,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '0' AND bulan = '12' AND id_satker='".$id."') AS s0des,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '1' AND bulan = '12' AND id_satker='".$id."') AS s1des,
+        ( SELECT COUNT( STATUS ) FROM v_rtl_3 WHERE STATUS = '2' AND bulan = '12' AND id_satker='".$id."') AS s2des,
+        ( SELECT COUNT( id_tasks ) FROM v_rtl_3 WHERE bulan = '12' AND id_satker='".$id."') AS stask12,
+        ( CASE WHEN bulan IS NOT NULL THEN COALESCE ( 'Des' ) END ) AS bstask12 
+    FROM
+        v_rtl_3 
+    WHERE id_satker='".$id."' AND tahun='".$di."'
+    GROUP BY
+        v_rtl_3.id_satker ";
+        return $this->db->query($sql)->row();
     }
+
+
 
 }
 
