@@ -30,6 +30,23 @@ function cmb_dinamiswhere($name,$table,$field,$pk,$selected=null,$order=null,$wh
     $cmb .="</select>";
     return $cmb;  
 }
+function cmb_analisis($name,$table,$field,$pk,$selected=null,$order=null,$where,$placeholder=null){
+    $ci = get_instance();
+    $cmb = "<select name='$name' class='form-control select2' data-placeholder='$placeholder'><option></option>";
+    if($order){
+        $ci->db->order_by($field,$order);
+    }
+    $ci->db->where($where);
+    $ci->db->group_by('id_indikator');
+    $data =$ci->db->get($table)->result();
+    foreach ($data as $d){
+        $cmb .="<option value='".$d->$pk."'";
+        $cmb .= $selected==$d->$pk?" selected='selected'":'';
+        $cmb .=">".  strtoupper($d->$field)."</option>";
+    }
+    $cmb .="</select>";
+    return $cmb;  
+}
 function cmb_dinamiswhereorder($name,$table,$field,$pk,$selected=null,$order=null,$where,$placeholder=null,$group=null){
     $ci = get_instance();
     $cmb = "<select name='$name' class='form-control select2' data-placeholder='$placeholder'><option></option>";
@@ -164,6 +181,12 @@ function add_upload($string){
 function aksi_lock($string,$st){
     if($st=='3'||$st=='4'){$string='<button type="button" class="btn btn-info btn-sm disabled"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>';}else{
         $string=anchor(site_url('updatertl/update/'.$string.''),'<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', array('class' => 'btn btn-info btn-sm'));
+    }
+    return $string;
+}
+function aksi_klock($string,$st,$ts){
+    if($st=='3'||$st=='4'){$string='<button type="button" class="btn btn-info btn-sm disabled"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>';}else{
+        $string='<a href="'.site_url('arahankasat/update/'.$string.'').'" class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>&nbsp;'.$ts.'';
     }
     return $string;
 }

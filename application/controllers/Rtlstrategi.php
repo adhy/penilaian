@@ -80,6 +80,7 @@ class Rtlstrategi extends CI_Controller
 		$inwhere=$this->session->userdata('idsatker');
         $where=array('id_satker'=>$inwhere,'tahun'=>$intahun,'id_indikator'=>$inindikator,'bulan'=>$inbulan);
         $Vbulan=$this->Rtlstrategi_model->ganalisis($where);
+        //var_dump($Vbulan);
         $data[] = array("id"=>'', "text"=>'Enter keywords !');
         if($inindikator!=null){
         foreach($Vbulan as $rows){
@@ -97,7 +98,7 @@ class Rtlstrategi extends CI_Controller
         $intahun=$this->session->userdata('tahun');
 		$inwhere=$this->session->userdata('idsatker');
         $where=array('id_satker'=>$inwhere,'tahun'=>$intahun,'id_indikator'=>$inindikator,'bulan'=>$inbulan,'id_analisis'=>$inanalisis);
-        $Vbulan=$this->Rtlstrategi_model->ganalisis($where);
+        $Vbulan=$this->Rtlstrategi_model->ganalisistaks($where);
         $data[] = array("id"=>'', "text"=>'Enter keywords !');
         if($inindikator!=null){
         foreach($Vbulan as $rows){

@@ -117,7 +117,7 @@
                         {
                             "data": "id_indikator",
                             "orderable": false
-                        },{"data": "indikator","orderable": false,"visible": false},{"data": "analisis","orderable": false,"visible": false},{"data": "tasks","visible": false},{"data": "bulan","orderable": false,"visible": false},{"data": "rtl_strategi"},{"data": "potential_blocker"},{"data": "pic"},{"data": "tgl_start","visible": false},{"data": "tgl_deadline"},{"data": "tgl_tercapai"},{"data": "upload_bukti"},{"data": "catatan_pic"},{"data": "status","visible": false},{"data": "stwarna"},{"data": "stket","visible": false},{"data": "ara_kasatker"}
+                        },{"data": "indikator","orderable": false,"visible": false},{"data": "analisis","orderable": false,"visible": false},{"data": "tasks","visible": false},{"data": "bulan","orderable": false,"visible": false},{"data": "rtl_strategi"},{"data": "potential_blocker"},{"data": "pic"},{"data": "tgl_start","visible": false},{"data": "tgl_deadline"},{"data": "tgl_tercapai"},{"data": "upload_bukti"},{"data": "catatan_pic"},{"data": "status","visible": false},{"data": "stwarnaa"},{"data": "stket","visible": false},{"data": "ara_kasatker"}
                     ],
                     order: [[ 0, 'asc' ]],
                     ordering: false,

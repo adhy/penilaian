@@ -23,7 +23,7 @@
 						//var_dump($intahun,$inwhere);
 						$where=array('id_satker'=>$inwhere,'tahun'=>$intahun);
 						//echo cmb_dinamiswhereorder('indikator', 'v_target', 'indikator', 'id_indikator', $indikator,'ASC',$where,'-- Pilih Indikator --','id_indikator');
-						echo cmb_dinamiswhere('indikator', 'v_targetanalisis', 'indikator', 'id_indikator', $indikator,'ASC',$where,'-- Pilih Indikator --')
+						echo cmb_analisis('indikator', 'v_targetanalisis', 'indikator', 'id_indikator', $indikator,'ASC',$where,'-- Pilih Indikator --')
 						?>	
 						<?php echo form_error('indikator') ?></td>
 					</tr>

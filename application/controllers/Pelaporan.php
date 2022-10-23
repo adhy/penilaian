@@ -203,7 +203,8 @@ class Pelaporan extends CI_Controller
 	xlsWriteLabel($tablehead, $kolomhead++, "Satker");
     $this->tahun=$this->session->userdata('tahun');
      $iduser= $this->session->userdata('id_users');
-     $laporan=$this->Pelaporan_model->get_all($iduser,$this->tahun);
+     $idsatker= $this->session->userdata('idsatker');
+     $laporan=$this->Pelaporan_model->get_all($iduser,$this->tahun,$idsatker);
 	foreach ( $laporan as $data) {
             $kolombody = 0;
 

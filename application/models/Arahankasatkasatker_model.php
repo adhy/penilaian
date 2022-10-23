@@ -28,8 +28,9 @@ class Arahankasatkasatker_model extends CI_Model
        // $this->datatables->edit_column('upload_bukti',anchor(site_url('arahankasat/download/$1'),'<i class="fa fa-cloud-download" aria-hidden="true"></i>', array('class' => 'btn btn-success btn-sm')), 'upload_bukti, upload_bukti');
         $this->datatables->add_column('upload_bukti', '$1', 'add_upload(upload_bukti)');
         $this->datatables->add_column('tasks', '$1', 'add_symbolg(tasks,Tasks &rdca;,2)');
-        $this->datatables->add_column('stwarna', '$1', 'ChaCol(stwarna)');
-        $this->datatables->edit_column('ara_kasatker', '<a href="'.site_url('arahankasat/update/$1').'" class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>&nbsp; $2', 'id_monitoring, ara_kasatker');
+        $this->datatables->add_column('stwarnaa', '$1', 'ChaCol(stwarna)');
+        $this->datatables->add_column('ara_kasatker','$1', 'aksi_klock(id_monitoring,ara_kasatker,stwarna)');
+        $this->datatables->add_column('ara_kasatker', '$1', 'aksi_klock(id_monitoring,stwarna,ara_kasatker)');
         $this->datatables->where('id_satker', $id);
         $this->datatables->where('tahun', $di);
         //add this line for join

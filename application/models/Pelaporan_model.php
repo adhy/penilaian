@@ -7,6 +7,7 @@ class Pelaporan_model extends CI_Model
 {
 
     public $table = 'v_pelaporan';
+    public $id2 = 'id_satker';
     public $id = 'id_indikator';
     public $order = 'DESC';
 
@@ -33,8 +34,9 @@ class Pelaporan_model extends CI_Model
     }
 
     // get all
-    function get_all($id,$di)
-    {
+    function get_all($id,$di,$wh)
+    {   
+        $this->db->where($this->id2, $wh);
         $this->db->order_by($this->id, $this->order);
         return $this->db->get($this->table)->result();
     }

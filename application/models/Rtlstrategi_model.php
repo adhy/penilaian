@@ -126,8 +126,14 @@ class Rtlstrategi_model extends CI_Model
     function ganalisis($id)
     {
         $this->db->where($id);
-        $this->db->group_by('bulan');
+        $this->db->group_by('id_analisis');
         // $this->db->order_by('bulan','ASC');
+        $query=$this->db->get($this->table3);
+        return $query->result();
+    }
+    function ganalisistaks($id)
+    {
+        $this->db->where($id);        // $this->db->order_by('bulan','ASC');
         $query=$this->db->get($this->table3);
         return $query->result();
     }
