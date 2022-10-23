@@ -147,6 +147,8 @@ class Updatertl extends CI_Controller
 		'upload_bukti' => set_value('upload_bukti', $row->upload_bukti),
 		'catatan_pic' => set_value('catatan_pic', $row->catatan_pic),
 	    );
+		$ses_data['statusup']      = $row->status;
+		$this->session->set_userdata($ses_data);
             $this->template->load('template','updatertl/v_rtl_3_form', $data);
         } else {
             notif('1');
@@ -157,6 +159,7 @@ class Updatertl extends CI_Controller
     public function update_action() 
     {
         $this->_rules();
+		$statusnya=$this->session->userdata('statusup');
 		$date = new DateTime("now");
 		$curr_date = $date->format('Y-m-d ');
 		$docnya = $this->upload_doc();
@@ -169,11 +172,20 @@ class Updatertl extends CI_Controller
 				$status='';
 				if(!isset($catatan_pic)){$status='0';}else{$status='1';}
 				if($docnya['file_name']==''){
-				$data = array(
-					'tgl_tercapai' => $curr_date,
-					'catatan_pic' => $catatan_pic,
-					'status' => $status,
-					);
+					if($statusnya==2){
+						$data = array(
+							'tgl_tercapai' => $curr_date,
+							'catatan_pic' => $catatan_pic,
+							'status' => 2,
+							);
+					}else{
+						$data = array(
+							'tgl_tercapai' => $curr_date,
+							'catatan_pic' => $catatan_pic,
+							'status' => $status,
+							);
+					}
+				
 				}else{
 					$data = array(
 						'tgl_tercapai' => $curr_date,
