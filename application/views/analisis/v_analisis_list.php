@@ -5,7 +5,7 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA ANALISIS</h3>
+                        <h3 class="box-title">KELOLA DATA PERMASALAHAN</h3>
                     </div>
         
         <div class="box-body">
@@ -19,7 +19,7 @@
             <th>Tahun</th>
             <th>Indikator</th>
             <th>Bulan</th>
-            <th>Analisis</th>		    
+            <th>Permasalahan</th>		    
 		    <th width="150px">Aksi</th>
                 </tr>
             </thead>

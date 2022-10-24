@@ -22,7 +22,7 @@
                                 <th>Id Indikator</th>
                                 <th>Indikator</th>
                                 <th>Id Analisis</th>
-                                <th>Analisis</th>
+                                <th>Permasalahan</th>
                                 <th>Id Tasks</th>
                                 <th>Tasks</th>
                                 <th>Bulan</th>

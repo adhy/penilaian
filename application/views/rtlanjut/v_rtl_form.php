@@ -38,8 +38,8 @@
 					</tr>
 	    
 					<tr>
-						<td width='200'>Analisis </td><td>
-						<select name="analisis" class="form-control select2" data-placeholder="-- Pilih Analisis --" id="analisis" tabindex="-1" aria-hidden="true">
+						<td width='200'>Permasalahan </td><td>
+						<select name="analisis" class="form-control select2" data-placeholder="-- Pilih Permasalahan --" id="analisis" tabindex="-1" aria-hidden="true">
 							<option></option>
 						</select>
 						</td>

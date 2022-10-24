@@ -25,10 +25,10 @@ class Arahankasatsuper_model extends CI_Model
         $this->datatables->add_column('tgl_tercapai', '$1', 'tglkosong(tgl_tercapai)');
         $this->datatables->add_column('stwarna', '$1', 'ChaCol(stwarna)');
         $this->datatables->add_column('indikator', '$1', 'add_symbolg(indikator,Indikator &#10148;,2)');
-        $this->datatables->add_column('analisis', '$1', 'add_symbolg(analisis,Analisis &#10149;,2)');
+        $this->datatables->add_column('analisis', '$1', 'add_symbolg(analisis,Permasalahan &#10149;,2)');
        // $this->datatables->edit_column('upload_bukti',anchor(site_url('arahankasat/download/$1'),'<i class="fa fa-cloud-download" aria-hidden="true"></i>', array('class' => 'btn btn-success btn-sm')), 'upload_bukti, upload_bukti');
         $this->datatables->add_column('upload_bukti', '$1', 'add_upload(upload_bukti)');
-        $this->datatables->add_column('tasks', '$1', 'add_symbolg(tasks,Tasks &rdca;,2)');
+        $this->datatables->add_column('tasks', '$1', 'add_symbolg(tasks,Strategi &rdca;,2)');
         $this->datatables->edit_column('ara_kasatker', '<a href="'.site_url('arahankasat/update/$1').'" class="btn btn-info btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>$2', 'id_monitoring, ara_kasatker');
         $this->datatables->where('id_satker', $id);
         $this->datatables->where('tahun', $di);

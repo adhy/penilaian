@@ -41,7 +41,7 @@
 			</tr>
 	
 			<tr>
-				<td>Analisis</td>
+				<td>Permasalahan</td>
 				<td><?php echo $analisis; ?></td>
 			</tr>
 	

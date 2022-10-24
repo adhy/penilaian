@@ -35,7 +35,7 @@
 		    <th>Status</th>
 		    <th width="50px">Status</th>
 		    <th>Status</th>
-		    <th width="50px">Action</th>
+		    <th width="50px">Aksi</th>
                 </tr>
             </thead>
 	    

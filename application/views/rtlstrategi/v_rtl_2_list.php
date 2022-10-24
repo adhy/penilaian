@@ -17,7 +17,7 @@
                 <tr>
                     <th width="30px">No</th>
                     <th>Indikator</th>
-		    <th>Analisis</th>
+		    <th>Permasalahan</th>
 		    <th>Stategi</th>
             <th>Bulan</th>
 		    <th>Kegiatan</th>
@@ -25,7 +25,7 @@
 		    <th>Penanggung Jawab</th>
 		    <th>Tanggal Start</th>
 		    <th width="130px">Tanggal Deadline</th>
-		    <th width="100px">Action</th>
+		    <th width="100px">Aksi</th>
                 </tr>
             </thead>
 	    

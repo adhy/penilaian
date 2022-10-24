@@ -23,7 +23,7 @@ class Rtlanjut_model extends CI_Model
         $this->datatables->from('v_rtl');
         $this->datatables->add_column('bulan', '$1', 'bulanindosys(bulan,&#128197;)');
         $this->datatables->add_column('indikator', '$1', 'add_symbolg(indikator,Indikator &#10148;,2)');
-        $this->datatables->add_column('analisis', '$1', 'add_symbolg(analisis,Analisis &#10149;,2)');
+        $this->datatables->add_column('analisis', '$1', 'add_symbolg(analisis,Permasalahan &#10149;,2)');
         $this->datatables->where('id_satker', $id);
         $this->datatables->where('tahun', $di);
         //$this->datatables->edit_column('tasks', ''.anchor(site_url('rtlanjut/read/$1'),'<i class="fa fa-plus" aria-hidden="true"></i> RTL/Strategi', array('class' => 'btn btn-success btn-sm')).'&nbsp;&nbsp; $2', 'id_tasks, tasks');;

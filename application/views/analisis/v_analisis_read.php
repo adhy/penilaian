@@ -4,7 +4,7 @@
 	<section class="content">
 		<div class="box box-warning box-solid">
 			<div class="box-header with-border">
-				<h3 class="box-title">DETAIL DATA ANALISIS</h3>
+				<h3 class="box-title">DETAIL DATA PERMASALAHAN</h3>
 			</div>
 		
 		<table class='table table-bordered'>        
@@ -26,7 +26,7 @@
 			</tr>
 
 			<tr>
-				<td>Analisis</td>
+				<td>Permasalahan</td>
 				<td><?php echo $analisis; ?></td>
 			</tr>
 	

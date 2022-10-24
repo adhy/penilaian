@@ -221,7 +221,7 @@ class Rtlstrategi extends CI_Controller
     public function _rules() 
     {
 	$this->form_validation->set_rules('indikator', 'indikator', 'trim|required');
-	$this->form_validation->set_rules('analisis', 'analisis', 'trim|required');
+	$this->form_validation->set_rules('analisis', 'Permasalahan', 'trim|required');
 	$this->form_validation->set_rules('tasks', 'Strategi', 'trim|required');
 	$this->form_validation->set_rules('bulan', 'bulan', 'trim|required');
 	$this->form_validation->set_rules('rtl_strategi', 'Kegiatan', 'trim|required');

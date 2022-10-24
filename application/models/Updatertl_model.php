@@ -24,7 +24,7 @@ class Updatertl_model extends CI_Model
         $this->datatables->add_column('tgl_deadline', '$1', 'tgl_indo(tgl_deadline)');
         $this->datatables->add_column('tgl_tercapai', '$1', 'tglkosong(tgl_tercapai)');
         $this->datatables->add_column('indikator', '$1', 'add_symbolg(indikator,Indikator &#10148;,2)');
-        $this->datatables->add_column('analisis', '$1', 'add_symbolg(analisis,Analisis &#10149;,2)');
+        $this->datatables->add_column('analisis', '$1', 'add_symbolg(analisis,Permasalahan &#10149;,2)');
        // $this->datatables->edit_column('upload_bukti',anchor(site_url('updatertl/download/$1'),'<i class="fa fa-cloud-download" aria-hidden="true"></i>', array('class' => 'btn btn-success btn-sm')), 'upload_bukti, upload_bukti');
         $this->datatables->add_column('upload_bukti', '$1', 'add_upload(upload_bukti)');
         $this->datatables->add_column('stwarnaa', '$1', 'ChaCol(stwarna)');

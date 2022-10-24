@@ -19,6 +19,7 @@
 		    <th>Belum Terlaksana</th>
 		    <th>Dalam Proses</th>
 		    <th>Sudah Terlaksana</th>
+		    <th>Total Kegiatan</th>
                 </tr>
             </thead>
 	    
@@ -99,7 +100,7 @@
                         {
                             "data": "id_satker",
                             "orderable": false
-                        },{"data": "satker"},{"data": "st0"},{"data": "st1"},{"data": "st2"}
+                        },{"data": "satker"},{"data": "st0"},{"data": "st1"},{"data": "st2"},{"data": "total"}
                     ],
                     order: [[0, 'desc']],
                     rowCallback: function(row, data, iDisplayIndex) {

@@ -17,7 +17,7 @@ class Vrafikview_model extends CI_Model
 
     // datatables
     function json() {
-        $this->datatables->select('id_satker,satker,bulan,status,stket,st0,st1,st2');
+        $this->datatables->select('id_satker,satker,bulan,status,stket,st0,st1,st2,total');
         $this->datatables->from('v_grafikview');
         //add this line for join
         //$this->datatables->join('table2', 'v_grafikview.field = table2.field');

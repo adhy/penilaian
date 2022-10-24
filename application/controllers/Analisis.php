@@ -154,12 +154,12 @@ class Analisis extends CI_Controller
 
     public function _rules() 
     {
-	$this->form_validation->set_rules('analisis', 'analisis', 'trim|required');
+	$this->form_validation->set_rules('analisis', 'Permasalahan', 'trim|required');
 	$this->form_validation->set_rules('bulan', 'bulan', 'trim|required');
 	$this->form_validation->set_rules('indikator', 'indikator', 'trim|required');
 	$this->form_validation->set_rules('tahun', 'tahun', 'trim');
 
-	$this->form_validation->set_rules('id_analisis', 'id analisis', 'trim');
+	$this->form_validation->set_rules('id_analisis', 'id Permasalahan', 'trim');
 	$this->form_validation->set_error_delimiters('<div class="has-error"><label class="text-danger"><i class="fa fa-times-circle-o"></i> ', '</label></div>');
     }
 

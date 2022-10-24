@@ -31,7 +31,7 @@
 					</tr>
 	    
 					<tr>
-						<td width='200'>Analisis </td><td>
+						<td width='200'>Permasalahan </td><td>
 						<input type="hidden" name="analisis" value="<?php echo $analisis; ?>" />
 						<label><?=$analisis?></label>
 						</td>
