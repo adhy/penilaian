@@ -2,7 +2,7 @@
 	<section class="content">
 		<div class="box box-warning box-solid">
 			<div class="box-header with-border">
-				<h3 class="box-title"><?php echo strtoupper($button) ?> DATA TASKS</h3>
+				<h3 class="box-title"><?php echo strtoupper($button) ?> DATA STRATEGI</h3>
 			</div>
 			<form action="<?php echo $action; ?>" method="post">
 			
@@ -38,7 +38,7 @@
 					</tr>
 	    
 					<tr>
-						<td width='200'>Tasks </td>
+						<td width='200'>STrategi </td>
 						<td> <textarea class="form-control" rows="3" name="tasks" id="tasks" placeholder="Tasks"><?php echo $tasks; ?></textarea> <?php echo form_error('tasks') ?></td>
 					</tr>
 	

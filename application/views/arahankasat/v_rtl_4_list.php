@@ -21,16 +21,16 @@
                     <th width="30px">No</th>
                     <th>Indikator</th>
 		    <th>Analisis</th>
-		    <th>Tasks</th>
+		    <th>Strategi</th>
             <th>Bulan</th>
-		    <th>Rtl Strategi</th>
-		    <th>Potential Blocker</th>
-		    <th>PIC</th>
+		    <th>Kegiatan</th>
+		    <th>Permasalahan Lain dalam Pelaksanaan Kegiatan</th>
+		    <th>Penanggung jawab</th>
 		    <th>Tanggal Start</th>
 		    <th width="130px">Tanggal Deadline</th>
 		    <th width="130px">Tanggal Tercapai</th>
 		    <th width="100px">Upload Bukti</th>
-		    <th>Catatan PIC</th>
+		    <th>Catatan Penanggung jawab</th>
 		    <th>Status</th>
 		    <th width="50px">Status</th>
 		    <th>Status</th>

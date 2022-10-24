@@ -2,7 +2,7 @@
 	<section class="content">
 		<div class="box box-warning box-solid">
 			<div class="box-header with-border">
-				<h3 class="box-title"><?php echo strtoupper($button) ?> DATA UPDATE RTL</h3>
+				<h3 class="box-title"><?php echo strtoupper($button) ?> DATA UPDATE KEGIATAN</h3>
 			</div>
 			<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
 			
@@ -26,7 +26,7 @@
 					</tr>
 	    
 					<tr>
-						<td width='200'>Tasks </td>
+						<td width='200'>Strategi </td>
 						<td> <label><?=$tasks?></label></td>
 					</tr>
 	
@@ -37,18 +37,18 @@
 					</tr>
 	    
 					<tr>
-						<td width='200'>Rtl Strategi </td>
+						<td width='200'>Kegiatan </td>
 						<td> 
 						<label><?=$rtl_strategi?></label></td>
 					</tr>
 	    
 					<tr>
-						<td width='200'>Potential Blocker </td>
+						<td width='200'>Permasalahan Lain dalam Pelaksanaan Kegiatan </td>
 						<td> <label><?=$potential_blocker?></label></td>
 					</tr>
 	    
 					<tr>
-						<td width='200'>Pic </td>
+						<td width='200'>Penanggung jawab </td>
 						<td> <label><?=$pic?></label></td>
 					</tr>
 	
@@ -62,7 +62,7 @@
 					</tr>
 	    
 					<tr>
-						<td width='200'>Catatan Pic </td>
+						<td width='200'>Catatan Penanggung jawab </td>
 						<td> <textarea class="form-control" rows="3" name="catatan_pic" id="catatan_pic" placeholder="Catatan Pic"><?php echo $catatan_pic; ?></textarea> <?php echo form_error('catatan_pic') ?></td>
 					</tr>
 	

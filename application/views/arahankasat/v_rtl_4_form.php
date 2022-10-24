@@ -26,7 +26,7 @@
 					</tr>
 	    
 					<tr>
-						<td width='200'>Tasks </td>
+						<td width='200'>Strategi </td>
 						<td> <label><?=$tasks?></label></td>
 					</tr>
 	
@@ -37,18 +37,18 @@
 					</tr>
 	    
 					<tr>
-						<td width='200'>Rtl Strategi </td>
+						<td width='200'>Kegiatan </td>
 						<td> 
 						<label><?=$rtl_strategi?></label></td>
 					</tr>
 	    
 					<tr>
-						<td width='200'>Potential Blocker </td>
+						<td width='200'>Permasalahan Lain dalam Pelaksanaan Kegiatan </td>
 						<td> <label><?=$potential_blocker?></label></td>
 					</tr>
 	    
 					<tr>
-						<td width='200'>Pic </td>
+						<td width='200'>Penanggung jawab </td>
 						<td> <label><?=$pic?></label></td>
 					</tr>
 	
@@ -62,7 +62,7 @@
 						<td><label><?=add_upload($upload_bukti)?></label></td>
 					</tr>
 	    			<tr>
-						<td width='200'>Catatan Pic </td>
+						<td width='200'>Catatan Penanggung jawab </td>
 						<td> <label><?=$catatan_pic?></label></td>
 					</tr>
 

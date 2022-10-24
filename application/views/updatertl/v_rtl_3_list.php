@@ -5,7 +5,7 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA UPDATE RTL</h3>
+                        <h3 class="box-title">KELOLA DATA KEGIATAN</h3>
                     </div>
                     <style type="text/css">
                     .belum {background-color:#f44336;color: #ffffff;}
@@ -22,16 +22,16 @@
                     <th width="30px">No</th>
                     <th>Indikator</th>
 		    <th>Analisis</th>
-		    <th>Tasks</th>
+		    <th>Strategi</th>
             <th>Bulan</th>
-		    <th>Rtl Strategi</th>
-		    <th>Potential Blocker</th>
-		    <th>PIC</th>
+		    <th>Kegiatan</th>
+		    <th>Permasalahan Lain dalam Pelaksanaan Kegiatan</th>
+		    <th>Penanggung jawab</th>
 		    <th>Tanggal Start</th>
 		    <th width="130px">Tanggal Deadline</th>
 		    <th width="130px">Tanggal Update</th>
 		    <th width="100px">Upload Bukti</th>
-		    <th>Catatan PIC</th>
+		    <th>Catatan Penanggung jawab</th>
 		    <th>Status</th>
 		    <th width="50px">Status</th>
 		    <th>Status</th>

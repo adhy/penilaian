@@ -28,7 +28,7 @@ class Updatertl_model extends CI_Model
        // $this->datatables->edit_column('upload_bukti',anchor(site_url('updatertl/download/$1'),'<i class="fa fa-cloud-download" aria-hidden="true"></i>', array('class' => 'btn btn-success btn-sm')), 'upload_bukti, upload_bukti');
         $this->datatables->add_column('upload_bukti', '$1', 'add_upload(upload_bukti)');
         $this->datatables->add_column('stwarnaa', '$1', 'ChaCol(stwarna)');
-        $this->datatables->add_column('tasks', '$1', 'add_symbolg(tasks,Tasks &rdca;,2)');
+        $this->datatables->add_column('tasks', '$1', 'add_symbolg(tasks,Strategi &rdca;,2)');
         $this->datatables->where('id_satker', $id);
         $this->datatables->where('tahun', $di);
         //add this line for join

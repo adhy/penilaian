@@ -46,7 +46,7 @@
 					</tr>
 	    
 					<tr>
-						<td width='200'>Tasks </td>
+						<td width='200'>Strategi </td>
 						<td> <textarea class="form-control" rows="3" name="tasks" id="tasks" placeholder="Tasks"><?php echo $tasks; ?></textarea> <?php echo form_error('tasks') ?></td>
 					</tr>
 	

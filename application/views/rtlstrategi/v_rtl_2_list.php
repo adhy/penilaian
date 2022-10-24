@@ -5,7 +5,7 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA RTL STRATEGI</h3>
+                        <h3 class="box-title">KELOLA DATA KEGIATAN</h3>
                     </div>
         
         <div class="box-body">
@@ -18,11 +18,11 @@
                     <th width="30px">No</th>
                     <th>Indikator</th>
 		    <th>Analisis</th>
-		    <th>Tasks</th>
+		    <th>Stategi</th>
             <th>Bulan</th>
-		    <th>Rtl Strategi</th>
-		    <th>Potential Blocker</th>
-		    <th>PIC</th>
+		    <th>Kegiatan</th>
+		    <th>Permasalahan Lain dalam Pelaksanaan Kegiatan</th>
+		    <th>Penanggung Jawab</th>
 		    <th>Tanggal Start</th>
 		    <th width="130px">Tanggal Deadline</th>
 		    <th width="100px">Action</th>

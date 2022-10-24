@@ -3,7 +3,7 @@
 	<section class="content">
 		<div class="box box-warning box-solid">
 			<div class="box-header with-border">
-				<h3 class="box-title"><?php echo strtoupper($button) ?> DATA RTL STRATEGI</h3>
+				<h3 class="box-title"><?php echo strtoupper($button) ?> DATA KEGIATAN</h3>
 			</div>
 			<form action="<?php echo $action; ?>" method="post">
 			
@@ -39,7 +39,7 @@
 					</tr>
 	
 					<tr>
-						<td width='200'>Tasks </td><td>
+						<td width='200'>Strategi </td><td>
 
 						<input type="hidden" name="tasks" value="<?php echo $tasks; ?>" />
 						<label><?=$tasks?></label>
@@ -48,18 +48,18 @@
 					</tr>
 	    
 					<tr>
-						<td width='200'>Rtl/Strategi </td>
-						<td> <textarea class="form-control" rows="3" name="rtl_strategi" id="rtl_strategi" placeholder="Rtl Strategi"><?php echo $rtl_strategi; ?></textarea> <?php echo form_error('rtl_strategi') ?></td>
+						<td width='200'>Kegiatan </td>
+						<td> <textarea class="form-control" rows="3" name="rtl_strategi" id="rtl_strategi" placeholder="Kegiatan"><?php echo $rtl_strategi; ?></textarea> <?php echo form_error('rtl_strategi') ?></td>
 					</tr>
 	    
 					<tr>
-						<td width='200'>Potential Blocker </td>
-						<td> <textarea class="form-control" rows="3" name="potential_blocker" id="potential_blocker" placeholder="Potential Blocker"><?php echo $potential_blocker; ?></textarea> <?php echo form_error('potential_blocker') ?></td>
+						<td width='200'>Permasalahan Lain dalam Pelaksanaan Kegiatan </td>
+						<td> <textarea class="form-control" rows="3" name="potential_blocker" id="potential_blocker" placeholder="Permasalahan Lain dalam Pelaksanaan Kegiatan"><?php echo $potential_blocker; ?></textarea> <?php echo form_error('potential_blocker') ?></td>
 					</tr>
 	    
 					<tr>
-						<td width='200'>Pic </td>
-						<td> <input type="text" class="form-control" name="pic" id="pic" placeholder="Pic" value="<?php echo $pic; ?>" /><?php echo form_error('pic') ?></td>
+						<td width='200'>Penanggung jawab </td>
+						<td> <input type="text" class="form-control" name="pic" id="pic" placeholder="Penanggung jawab" value="<?php echo $pic; ?>" /><?php echo form_error('pic') ?></td>
 					</tr>
 	
 					<tr>
