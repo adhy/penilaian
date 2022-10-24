@@ -74,32 +74,7 @@
 
 
                 <!-- /.col -->
-                <div class="row" style="margin-top: 20px;">
-                    <div class="col-xs-12">
-                        <div class="callout callout-info">
-                            <h4>Level Super Admin</h4>
 
-                            <p><b>Email</b> : superadmin@gmail.com</p>
-                            <p><b>Password</b> : password</p>
-                            <hr>
-                            <h4>Level Admin Monev</h4>
-
-                            <p><b>Email</b> : monev@mail.com</p>
-                            <p><b>Password</b> : password</p>
-                            <hr>
-                            <h4>Level Kepala</h4>
-
-                            <p><b>Email</b> : kk11@mail.com</p>
-                            <p><b>Password</b> : password</p>
-                            <hr>
-                            <h4>Level Staff</h4>
-
-                            <p><b>Email</b> : kk1@mail.com</p>
-                            <p><b>Password</b> : password</p>
-                        </div>
-                    </div>
-
-                </div>
                 </form>
 
 
