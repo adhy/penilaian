@@ -6,7 +6,7 @@
     
                     <div class="box-header">
                         <?php $month = date('m');?>
-                        <h3 class="box-title">KELOLA DATA RTL SATKER BULAN <?=strtoupper(bulanindo($month))?></h3>
+                        <h3 class="box-title">KELOLA DATA KEGIATAN SATKER BULAN <?=strtoupper(bulanindo($month))?></h3>
                     </div>
         
         <div class="box-body">
