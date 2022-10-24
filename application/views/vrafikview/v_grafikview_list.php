@@ -5,7 +5,8 @@
                 <div class="box box-warning box-solid">
     
                     <div class="box-header">
-                        <h3 class="box-title">KELOLA DATA V_GRAFIKVIEW</h3>
+                        <?php $month = date('m');?>
+                        <h3 class="box-title">KELOLA DATA RTL SATKER BULAN <?=strtoupper(bulanindo($month))?></h3>
                     </div>
         
         <div class="box-body">
