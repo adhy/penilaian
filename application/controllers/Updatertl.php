@@ -233,7 +233,7 @@ class Updatertl extends CI_Controller
     {
 	//$this->form_validation->set_rules('tgl_tercapai', 'tgl tercapai', 'trim|required');
 	//$this->form_validation->set_rules('upload_bukti', 'upload bukti', 'trim');
-	$this->form_validation->set_rules('catatan_pic', 'catatan pic', 'trim|required');
+	$this->form_validation->set_rules('catatan_pic', 'catatan Penanggung jawab', 'trim|required');
 
 	$this->form_validation->set_rules('id_monitoring', 'id_monitoring', 'trim');
 	$this->form_validation->set_error_delimiters('<div class="has-error"><label class="text-danger"><i class="fa fa-times-circle-o"></i> ', '</label></div>');

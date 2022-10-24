@@ -173,7 +173,7 @@ class Rtlanjut extends CI_Controller
     {
 	$this->form_validation->set_rules('satker', 'satker', 'trim|required');
 	$this->form_validation->set_rules('analisis', 'analisis', 'trim|required');
-	$this->form_validation->set_rules('tasks', 'tasks', 'trim|required');
+	$this->form_validation->set_rules('tasks', 'Strategi', 'trim|required');
 
 	$this->form_validation->set_rules('id_tasks', 'id_tasks', 'trim');
 	$this->form_validation->set_error_delimiters('<div class="has-error"><label class="text-danger"><i class="fa fa-times-circle-o"></i> ', '</label></div>');

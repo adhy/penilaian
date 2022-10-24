@@ -222,11 +222,11 @@ class Rtlstrategi extends CI_Controller
     {
 	$this->form_validation->set_rules('indikator', 'indikator', 'trim|required');
 	$this->form_validation->set_rules('analisis', 'analisis', 'trim|required');
-	$this->form_validation->set_rules('tasks', 'tasks', 'trim|required');
+	$this->form_validation->set_rules('tasks', 'Strategi', 'trim|required');
 	$this->form_validation->set_rules('bulan', 'bulan', 'trim|required');
-	$this->form_validation->set_rules('rtl_strategi', 'rtl strategi', 'trim|required');
-	$this->form_validation->set_rules('potential_blocker', 'potential blocker', 'trim|required');
-	$this->form_validation->set_rules('pic', 'pic', 'trim|required');
+	$this->form_validation->set_rules('rtl_strategi', 'Kegiatan', 'trim|required');
+	$this->form_validation->set_rules('potential_blocker', 'Permasalahan Lain dalam Pelaksanaan Kegiatan', 'trim|required');
+	$this->form_validation->set_rules('pic', 'Penanggung jawab', 'trim|required');
 	$this->form_validation->set_rules('tgl_deadline', 'tgl deadline', 'trim|required');
 
 	$this->form_validation->set_rules('id_monitoring', 'id monitoring', 'trim');
