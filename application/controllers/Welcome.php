@@ -31,6 +31,8 @@ class Welcome extends CI_Controller {
             //$this->template->load('template', 'welcome',$data);
         
             } else {
+                $data = array(
+                    'Jan'=>'','Feb'=>'','Mar'=>'','Apr'=>'','Mei'=>'','Jun'=>'','Jul'=>'','Aug'=>'','Sep'=>'','Okt'=>'','Nov'=>'','Des'=>'','s0jan'=>'','s1jan'=>'','s2jan'=>'','s0feb'=>'','s1feb'=>'','s2feb'=>'','s0mar'=>'','s1mar'=>'','s2mar'=>'','s0apr'=>'','s1apr'=>'','s2apr'=>'','s0mei'=>'','s1mei'=>'','s2mei'=>'','s0jun'=>'','s1jun'=>'','s2jun'=>'','s0jul'=>'','s1jul'=>'','s2jul'=>'','s0aug'=>'','s1aug'=>'','s2aug'=>'','s0sep'=>'','s1sep'=>'','s2sep'=>'','s0okt'=>'','s1okt'=>'','s2okt'=>'','s0nov'=>'','s1nov'=>'','s2nov'=>'','s0des'=>'','s1des'=>'','s2des'=>'');
                 
                $this->session->set_flashdata('message', 'A Record Not Found');
             }
