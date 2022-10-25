@@ -32,7 +32,7 @@ class Welcome extends CI_Controller {
         
             } else {
                 
-               $this->session->set_flashdata('message', 'ARecord Not Found');
+               $this->session->set_flashdata('message', 'A Record Not Found');
             }
             $this->template->load('template', 'welcome',$data);
         }else{
