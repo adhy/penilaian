@@ -207,7 +207,7 @@ class User extends CI_Controller
     public function _rules() 
     {
 	$this->form_validation->set_rules('full_name', 'full name', 'trim|required');
-	$this->form_validation->set_rules('email', 'email', 'trim|required');
+	$this->form_validation->set_rules('email', 'email', 'trim');
 	$this->form_validation->set_rules('satker', 'satker', 'trim|required');
 	//$this->form_validation->set_rules('password', 'password', 'trim|required');
 	//$this->form_validation->set_rules('images', 'images', 'trim|required');
