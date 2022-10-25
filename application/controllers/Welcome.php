@@ -19,6 +19,7 @@ class Welcome extends CI_Controller {
         $tahun=$this->session->userdata('tahun');
         //var_dump($tahun);
         $satker=$this->session->userdata('idsatker');
+        var_dump( $satker);
         $data='';
         if($satker!=12){
             $row=$this->User_model->get_data($satker,$tahun);
