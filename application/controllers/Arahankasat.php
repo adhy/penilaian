@@ -41,7 +41,8 @@ class Arahankasat extends CI_Controller
 		}elseif ($jabatan=='2'){
 			echo $this->Arahankasatkasatker_model->json($this->idsatker,$this->tahun);
 		}else{
-			notif('0');
+			echo $this->Arahankasatstaff_model->json($this->idsatker,$this->tahun);
+			//notif('0');
 		}
         
     }
