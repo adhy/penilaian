@@ -30,7 +30,9 @@
                             <?php echo form_dropdown('is_aktif', array('y' => 'AKTIF', 'n' => 'TIDAK AKTIF'), $is_aktif, array('class' => 'form-control')); ?>
                             <!--<input type="text" class="form-control" name="is_aktif" id="is_aktif" placeholder="Is Aktif" value="<?php echo $is_aktif; ?>" />--></td></tr>
                     <tr><td width='200'>Jabatan <?php echo form_error('jabatan') ?></td><td>
-                            <?php echo form_dropdown('jabatan', array('0' => 'Super', '1' => 'Kepala Satker', '2' => 'Staff'), $jabatan, array('class' => 'form-control')); ?>
+                            <?php //echo form_dropdown('jabatan', array('0' => 'Super', '1' => 'Kepala Satker', '2' => 'Staff'), $jabatan, array('class' => 'form-control'));
+                                echo form_dropdown('jabatan', array('0' => 'Super',  '2' => 'Staff'), $jabatan, array('class' => 'form-control'));
+                            ?>
                             <!--<input type="text" class="form-control" name="is_aktif" id="is_aktif" placeholder="Is Aktif" value="<?php echo $jabatan; ?>" />--></td></tr>
                     <tr><td width='200'>Foto Profile <?php echo form_error('images') ?></td><td> <input type="file" name="images"></td></tr>
                     <tr><td></td><td><input type="hidden" name="id_users" value="<?php echo $id_users; ?>" /> 

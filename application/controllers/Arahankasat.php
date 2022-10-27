@@ -29,12 +29,19 @@ class Arahankasat extends CI_Controller
          if($iduser<=3){$this->idsatker=null;}else{$this->idsatker= $this->session->userdata('idsatker');}
 		header('Content-Type: application/json');
 		$jabatan=$this->session->userdata('jabatan');
+		// if($jabatan=='0'){
+		// 	echo $this->Arahankasatsuper_model->json($this->idsatker,$this->tahun);
+		// }elseif ($jabatan=='1'){
+		// 	echo $this->Arahankasatkasatker_model->json($this->idsatker,$this->tahun);
+		// }else{
+		// 	echo $this->Arahankasatstaff_model->json($this->idsatker,$this->tahun);
+		// }
 		if($jabatan=='0'){
 			echo $this->Arahankasatsuper_model->json($this->idsatker,$this->tahun);
-		}elseif ($jabatan=='1'){
+		}elseif ($jabatan=='2'){
 			echo $this->Arahankasatkasatker_model->json($this->idsatker,$this->tahun);
 		}else{
-			echo $this->Arahankasatstaff_model->json($this->idsatker,$this->tahun);
+			notif('0');
 		}
         
     }
@@ -203,7 +210,8 @@ class Arahankasat extends CI_Controller
 				redirect(site_url('arahankasat'));
 			}
 			//echo $this->Arahankasatsuper_model->json();
-		}elseif ($jabatan=='1'){
+		//}elseif ($jabatan=='1'){
+		}elseif ($jabatan=='2'){
 			$this->_rules();
 
 			if ($this->form_validation->run() == FALSE) {
