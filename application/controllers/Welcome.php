@@ -156,7 +156,7 @@ class Welcome extends CI_Controller {
 	xlsWriteLabel($tablehead, $kolomhead++, "St2");
 	xlsWriteLabel($tablehead, $kolomhead++, "Total");
 
-	foreach ($this->Ggrafikview_model->get_all() as $data) {
+	foreach ($this->Vrafikview_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
