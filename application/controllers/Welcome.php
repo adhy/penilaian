@@ -151,10 +151,10 @@ class Welcome extends CI_Controller {
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
 	xlsWriteLabel($tablehead, $kolomhead++, "Satker");
-	xlsWriteLabel($tablehead, $kolomhead++, "St0");
-	xlsWriteLabel($tablehead, $kolomhead++, "St1");
-	xlsWriteLabel($tablehead, $kolomhead++, "St2");
-	xlsWriteLabel($tablehead, $kolomhead++, "Total");
+	xlsWriteLabel($tablehead, $kolomhead++, "Belum Terlaksana");
+	xlsWriteLabel($tablehead, $kolomhead++, "Dalam Proses");
+	xlsWriteLabel($tablehead, $kolomhead++, "Sudah Terlaksana");
+	xlsWriteLabel($tablehead, $kolomhead++, "Total Kegiatan");
 
 	foreach ($this->Vrafikview_model->get_all() as $data) {
             $kolombody = 0;
