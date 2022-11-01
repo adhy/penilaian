@@ -131,8 +131,8 @@ class Welcome extends CI_Controller {
     public function excel()
     {
         $this->load->helper('exportexcel');
-        $namaFile = "Kelola_data_kegiatan_satker.xls";
-        $judul = "Kelola_data_kegiatan_satker";
+        $namaFile = "KELOLA_DATA_KEGIATAN_SATKER.xls";
+        $judul = "KELOLA_DATA_KEGIATAN_SATKER";
         $tablehead = 0;
         $tablebody = 1;
         $nourut = 1;
@@ -151,21 +151,20 @@ class Welcome extends CI_Controller {
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
 	xlsWriteLabel($tablehead, $kolomhead++, "Satker");
-	xlsWriteLabel($tablehead, $kolomhead++, "Belum Terlaksana");
-	xlsWriteLabel($tablehead, $kolomhead++, "Dalam Proses");
-	xlsWriteLabel($tablehead, $kolomhead++, "Sudah Terlaksana");
-	xlsWriteLabel($tablehead, $kolomhead++, "Total Kegiatan");
-     $this->Vrafikview_model->json();
-     $laporan=$this->Vrafikview_model->get_all();
-	foreach ( $laporan as $data) {
+	xlsWriteLabel($tablehead, $kolomhead++, "St0");
+	xlsWriteLabel($tablehead, $kolomhead++, "St1");
+	xlsWriteLabel($tablehead, $kolomhead++, "St2");
+	xlsWriteLabel($tablehead, $kolomhead++, "Total");
+
+	foreach ($this->Ggrafikview_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->satker);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->st0);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->st1);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->st2);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->st1);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->st2);
 	    xlsWriteLabel($tablebody, $kolombody++, $data->total);
 
 	    $tablebody++;
