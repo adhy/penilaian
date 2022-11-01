@@ -128,5 +128,51 @@ class Welcome extends CI_Controller {
 	$this->form_validation->set_rules('id_users', 'id_users', 'trim');
 	$this->form_validation->set_error_delimiters('<div class="has-error"><label class="text-danger"><i class="fa fa-times-circle-o"></i> ', '</label></div>');
     }
+    public function excel()
+    {
+        $this->load->helper('exportexcel');
+        $namaFile = "Kelola_data_kegiatan_satker.xls";
+        $judul = "Kelola_data_kegiatan_satker";
+        $tablehead = 0;
+        $tablebody = 1;
+        $nourut = 1;
+        //penulisan header
+        header("Pragma: public");
+        header("Expires: 0");
+        header("Cache-Control: must-revalidate, post-check=0,pre-check=0");
+        header("Content-Type: application/force-download");
+        header("Content-Type: application/octet-stream");
+        header("Content-Type: application/download");
+        header("Content-Disposition: attachment;filename=" . $namaFile . "");
+        header("Content-Transfer-Encoding: binary ");
 
+        xlsBOF();
+
+        $kolomhead = 0;
+        xlsWriteLabel($tablehead, $kolomhead++, "No");
+	xlsWriteLabel($tablehead, $kolomhead++, "Satker");
+	xlsWriteLabel($tablehead, $kolomhead++, "Belum Terlaksana");
+	xlsWriteLabel($tablehead, $kolomhead++, "Dalam Proses");
+	xlsWriteLabel($tablehead, $kolomhead++, "Sudah Terlaksana");
+	xlsWriteLabel($tablehead, $kolomhead++, "Total Kegiatan");
+     $this->Vrafikview_model->json();
+     $laporan=$this->Vrafikview_model->get_all();
+	foreach ( $laporan as $data) {
+            $kolombody = 0;
+
+            //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
+            xlsWriteNumber($tablebody, $kolombody++, $nourut);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->satker);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->st0);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->st1);
+	    xlsWriteNumber($tablebody, $kolombody++, $data->st2);
+	    xlsWriteLabel($tablebody, $kolombody++, $data->total);
+
+	    $tablebody++;
+            $nourut++;
+        }
+
+        xlsEOF();
+        exit();
+    }
 }

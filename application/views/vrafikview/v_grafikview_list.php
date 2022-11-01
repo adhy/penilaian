@@ -10,6 +10,8 @@
                     </div>
         
         <div class="box-body">
+        <div style="padding-bottom: 10px;"'>
+        <?php echo anchor(site_url('welcome/excel'), '<i class="fa fa-file-excel-o" aria-hidden="true"></i> Export Ms Excel', 'class="btn btn-success btn-sm"'); ?></div>
 
         <table class="table table-bordered table-striped" id="mytable">
             <thead>
