@@ -207,8 +207,8 @@ class Updatertl extends CI_Controller
     }
     function upload_doc(){
         $config['upload_path']          = './assets/doc_upload/';
-        $config['allowed_types']        = 'pdf';
-        //$config['max_size']             = 100;
+        $config['allowed_types']        = 'pdf|docx|doc|xlsx|xls';
+        $config['max_size']             = 50000;
         //$config['max_width']            = 1024;
         //$config['max_height']           = 768;
         $this->load->library('upload', $config);

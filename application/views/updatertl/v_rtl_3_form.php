@@ -58,7 +58,7 @@
 					</tr>
 	
 					<tr>
-						<td width='200'>Upload Bukti </td><td><input type="file" class="form-control" name="upload_bukti" id="upload_bukti" placeholder="Upload Bukti" value="<?php echo $upload_bukti; ?>" /> <?php echo form_error('upload_bukti') ?></td>
+						<td width='200'>Upload Bukti </td><td><input type="file" class="form-control" name="upload_bukti" id="upload_bukti" placeholder="Upload Bukti" value="<?php echo $upload_bukti; ?>" /> <i>*format file dalam bentuk pdf/docx/doc/xlsx/xls dan maksimal ukuran file 50MB</i>  <?php echo form_error('upload_bukti') ?></td>
 					</tr>
 	    
 					<tr>
